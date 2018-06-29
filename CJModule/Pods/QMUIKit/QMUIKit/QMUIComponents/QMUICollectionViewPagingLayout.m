@@ -109,7 +109,10 @@ const CGFloat QMUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
     return !CGSizeEqualToSize(self.collectionView.bounds.size, newBounds.size);
 }
 
+
+
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    
     if (self.style == QMUICollectionViewPagingLayoutStyleDefault) {
         return [super layoutAttributesForElementsInRect:rect];
     }
@@ -164,9 +167,11 @@ const CGFloat QMUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
     }
     
     return resultAttributes;
+    
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+
     CGFloat itemSpacing = _finalItemSize.width + self.minimumLineSpacing;
     
     if (!self.allowsMultipleItemScroll || fabs(velocity.x) <= fabs(self.multipleItemScrollVelocityLimit)) {
@@ -185,5 +190,6 @@ const CGFloat QMUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
     
     return proposedContentOffset;
 }
+
 
 @end

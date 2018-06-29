@@ -147,6 +147,8 @@ static QMUIMoreOperationController *moreOperationViewControllerAppearance;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
     
     _contentView = [[UIView alloc] init];
     self.contentView.backgroundColor = self.contentBackgroundColor;

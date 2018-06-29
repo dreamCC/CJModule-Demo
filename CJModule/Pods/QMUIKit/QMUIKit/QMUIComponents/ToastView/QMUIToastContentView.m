@@ -167,7 +167,7 @@
     textLabelAttributes[NSForegroundColorAttributeName] = self.tintColor;
     self.textLabelAttributes = textLabelAttributes;
     self.textLabelText = self.textLabelText;
-    
+
     NSMutableDictionary *detailTextLabelAttributes = [[NSMutableDictionary alloc] initWithDictionary:self.detailTextLabelAttributes];
     detailTextLabelAttributes[NSForegroundColorAttributeName] = self.tintColor;
     self.detailTextLabelAttributes = detailTextLabelAttributes;

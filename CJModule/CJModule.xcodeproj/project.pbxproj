@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2BDBC68C444E10BA7BB1C346 /* libPods-CJModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DFBF164F28286A3C352259 /* libPods-CJModule.a */; };
+		6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1620E225E700137B0E /* CJNavigationController.m */; };
+		6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */; };
+		6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F7DB420E097BF0060E20C /* ModalViewController.m */; };
+		6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */; };
 		6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D8F20DC7E650051E570 /* AppDelegate.m */; };
 		6E871D9320DC7E650051E570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D9220DC7E650051E570 /* ViewController.m */; };
 		6E871D9620DC7E650051E570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E871D9420DC7E650051E570 /* Main.storyboard */; };
@@ -68,11 +72,22 @@
 		6E871E5520DC8D520051E570 /* error_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5020DC8D510051E570 /* error_img@3x.png */; };
 		6E871E5620DC8D520051E570 /* noting_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5120DC8D510051E570 /* noting_img@2x.png */; };
 		6E871E5720DC8D520051E570 /* noting_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5220DC8D510051E570 /* noting_img@3x.png */; };
+		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
+		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
+		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.release.xcconfig"; sourceTree = "<group>"; };
 		5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.debug.xcconfig"; sourceTree = "<group>"; };
+		6E1AED1520E225E700137B0E /* CJNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
+		6E1AED1620E225E700137B0E /* CJNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
+		6E1AED1B20E22D8B00137B0E /* CJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJTabBarController.h; sourceTree = "<group>"; };
+		6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTabBarController.m; sourceTree = "<group>"; };
+		6E1F7DB320E097BF0060E20C /* ModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		6E1F7DB420E097BF0060E20C /* ModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		6E51536920DCE53200457E92 /* CJBarbuttonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJBarbuttonItem.h; sourceTree = "<group>"; };
+		6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJBarbuttonItem.m; sourceTree = "<group>"; };
 		6E871D8B20DC7E650051E570 /* CJModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E871D8E20DC7E650051E570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E871D8F20DC7E650051E570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -187,6 +202,14 @@
 		6E871E5020DC8D510051E570 /* error_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error_img@3x.png"; sourceTree = "<group>"; };
 		6E871E5120DC8D510051E570 /* noting_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noting_img@2x.png"; sourceTree = "<group>"; };
 		6E871E5220DC8D510051E570 /* noting_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noting_img@3x.png"; sourceTree = "<group>"; };
+		6E871E5B20DCA7890051E570 /* CJAppearanceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJAppearanceView.h; sourceTree = "<group>"; };
+		6E871E5C20DCA7890051E570 /* CJAppearanceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAppearanceView.m; sourceTree = "<group>"; };
+		6EB63A1920E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		6EB63A1A20E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCollecitonViewFlowLayout.h; sourceTree = "<group>"; };
+		6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCollecitonViewFlowLayout.m; sourceTree = "<group>"; };
+		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
+		6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJMarqueeLabel.m; sourceTree = "<group>"; };
 		C0DFBF164F28286A3C352259 /* libPods-CJModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJModule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,8 +267,18 @@
 				6E871DA420DC7E7B0051E570 /* CJModule */,
 				6E871D8E20DC7E650051E570 /* AppDelegate.h */,
 				6E871D8F20DC7E650051E570 /* AppDelegate.m */,
+				6E871E5B20DCA7890051E570 /* CJAppearanceView.h */,
+				6E871E5C20DCA7890051E570 /* CJAppearanceView.m */,
 				6E871D9120DC7E650051E570 /* ViewController.h */,
 				6E871D9220DC7E650051E570 /* ViewController.m */,
+				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
+				6E1F7DB420E097BF0060E20C /* ModalViewController.m */,
+				6E1AED1520E225E700137B0E /* CJNavigationController.h */,
+				6E1AED1620E225E700137B0E /* CJNavigationController.m */,
+				6E1AED1B20E22D8B00137B0E /* CJTabBarController.h */,
+				6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */,
+				6E51536920DCE53200457E92 /* CJBarbuttonItem.h */,
+				6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */,
 				6E871D9420DC7E650051E570 /* Main.storyboard */,
 				6E871D9720DC7E690051E570 /* Assets.xcassets */,
 				6E871D9920DC7E690051E570 /* LaunchScreen.storyboard */,
@@ -268,6 +301,8 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6EB63A2520E37E43005471F4 /* CJCollectionViewFlowLayout */,
+				6EF1EA6020DE37960067AC5B /* CJMarqueeLable */,
 				6E871E2E20DC8BBE0051E570 /* CJProgressHUD */,
 				6E871E2A20DC89610051E570 /* CJTagsFlowLayoutView */,
 				6E871E1820DC89110051E570 /* CJQRCode */,
@@ -501,6 +536,24 @@
 			path = CJEmptyDataSetDelegate;
 			sourceTree = "<group>";
 		};
+		6EB63A2520E37E43005471F4 /* CJCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */,
+				6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */,
+			);
+			name = CJCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		6EF1EA6020DE37960067AC5B /* CJMarqueeLable */ = {
+			isa = PBXGroup;
+			children = (
+				6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */,
+				6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */,
+			);
+			name = CJMarqueeLable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -544,6 +597,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 6E871D8220DC7E650051E570;
 			productRefGroup = 6E871D8C20DC7E650051E570 /* Products */;
@@ -630,24 +684,29 @@
 				6E871E0D20DC88F30051E570 /* CJPickerView.m in Sources */,
 				6E871DFC20DC88C00051E570 /* CJReplicatorRotateLodingView.m in Sources */,
 				6E871E0020DC88D50051E570 /* CJMenuView.m in Sources */,
+				6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */,
 				6E871DD220DC84580051E570 /* NSDictionary+CJCategory.m in Sources */,
 				6E871D9320DC7E650051E570 /* ViewController.m in Sources */,
 				6E871D9E20DC7E690051E570 /* main.m in Sources */,
 				6E871E4020DC8D320051E570 /* CJDownloaderManager.m in Sources */,
 				6E871DD720DC84580051E570 /* NSDate+CJCategory.m in Sources */,
+				6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */,
 				6E871DCE20DC84580051E570 /* UIControl+CJCategory.m in Sources */,
 				6E871DD320DC84580051E570 /* UINavigationBar+CJCategory.m in Sources */,
+				6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */,
 				6E871E2820DC894B0051E570 /* CJGenerateQRCodeManager.m in Sources */,
 				6E871DCC20DC84580051E570 /* NSTimer+CJCategory.m in Sources */,
 				6E871E4920DC8D3A0051E570 /* CJAsset.m in Sources */,
 				6E871E2920DC894B0051E570 /* CJPlaySoundTool.m in Sources */,
 				6E871E4B20DC8D3A0051E570 /* CJPhotoLibraryManager.m in Sources */,
+				6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */,
 				6E871E3220DC8BE50051E570 /* CJProgressHUD.m in Sources */,
 				6E871DE720DC885A0051E570 /* CJDeviceTool.m in Sources */,
 				6E871E0B20DC88F30051E570 /* CJPickerContainerView.m in Sources */,
 				6E871E2620DC894B0051E570 /* CJScanQRCodeView.m in Sources */,
 				6E871DDB20DC84580051E570 /* UILabel+CJCategory.m in Sources */,
 				6E871DD520DC84580051E570 /* NSString+CJCategory.m in Sources */,
+				6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */,
 				6E871E1720DC890A0051E570 /* CJGradientProgressView.m in Sources */,
 				6E871DCB20DC84580051E570 /* CALayer+CJCategory.m in Sources */,
 				6E871DED20DC88840051E570 /* CJLocationInfo.m in Sources */,
@@ -663,6 +722,7 @@
 				6E871E1620DC890A0051E570 /* CJPieProgressView.m in Sources */,
 				6E871DD920DC84580051E570 /* UIImage+CJCategory.m in Sources */,
 				6E871E2D20DC89760051E570 /* CJTagsFlowLayoutView.m in Sources */,
+				6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */,
 				6E871E5320DC8D520051E570 /* CJEmptyDataSetDelegate.m in Sources */,
 				6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */,
 				6E871DD420DC84580051E570 /* UINavigationController+CJCategory.m in Sources */,
@@ -673,6 +733,7 @@
 				6E871E4120DC8D320051E570 /* CJDownloadSource.m in Sources */,
 				6E871DFA20DC88C00051E570 /* CJReplicatorWaveLodingView.m in Sources */,
 				6E871DDA20DC84580051E570 /* UIButton+CJCategory.m in Sources */,
+				6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +744,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6E871D9520DC7E650051E570 /* Base */,
+				6EB63A1920E3300E005471F4 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -691,6 +753,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6E871D9A20DC7E690051E570 /* Base */,
+				6EB63A1A20E3300E005471F4 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -702,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -760,6 +824,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -814,6 +879,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EYF7S6R84B;
 				INFOPLIST_FILE = CJModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -831,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EYF7S6R84B;
 				INFOPLIST_FILE = CJModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -8,12 +8,12 @@
 
 #import "AppDelegate.h"
 
-#import "CJDefines.h"
+#import <QMUIKit.h>
 
-#import "CJGridView.h"
+#import <CocoaLumberjack.h>
 
-#import "CJTagsFlowLayoutView.h"
-
+#import "CJAppearanceView.h"
+#import "ViewController.h"
 
 
 @interface AppDelegate ()
@@ -24,7 +24,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+  
+    
+    [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"log"];
+    [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"info"];
+    [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"warn"];
+    
+    NSLog(@"%@",[QMUILogger sharedInstance].logNameManager.allNames);
+    
+    
+    [[QMUIToastBackgroundView appearance] setStyleColor:[UIColor cyanColor]];
+    [[QMUIToastContentView appearance] setTextLabelAttributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+    [[QMUIToastContentView appearance] setDetailTextLabelAttributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:12]}];
+  
+    //[[CJAppearanceView appearance] setCj_color:[UIColor magentaColor]];
+    
+  
+ 
     return YES;
 }
 

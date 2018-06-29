@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  CJBarbuttonItem.h
 //  CJModule
 //
 //  Created by 仁和Mac on 2018/6/22.
@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface CJBarbuttonItem : UIBarButtonItem
 
 @end
-

@@ -479,6 +479,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
             UIColor *imageTintColor = [self dzn_imageTintColor];
             UIImageRenderingMode renderingMode = imageTintColor ? UIImageRenderingModeAlwaysTemplate : UIImageRenderingModeAlwaysOriginal;
             
+            
             view.verticalSpace = [self dzn_verticalSpace];
             
             // Configure Image

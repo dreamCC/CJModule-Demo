@@ -169,7 +169,6 @@
     
     self.offsetX -= self.speed;
     [self setNeedsDisplay];
-    
     if (-self.offsetX >= self.textWidth + (self.textRepeatCountConsiderTextWidth > 1 ? self.spacingBetweenHeadToTail : 0)) {
         displayLink.paused = YES;
         int64_t delay = self.textRepeatCount > 1 ? self.pauseDurationWhenMoveToEdge : 0;

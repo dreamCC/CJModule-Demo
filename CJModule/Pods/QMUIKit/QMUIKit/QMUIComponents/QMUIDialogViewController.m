@@ -559,7 +559,7 @@ const NSInteger QMUIDialogSelectionViewControllerSelectedItemIndexNone = -1;
         if ([self.selectedItemIndexes containsObject:@(indexPath.row)]) {
             // 当前的cell已经被选中，则取消选中
             [self.selectedItemIndexes removeObject:@(indexPath.row)];
-            if (self.didDeselectItemBlock) {
+            if (self.selectedItemIndexes) {
                 self.didDeselectItemBlock(self, indexPath.row);
             }
         } else {
