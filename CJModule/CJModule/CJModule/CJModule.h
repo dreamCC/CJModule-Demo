@@ -12,6 +12,14 @@
 
 #import "CJTagsFlowLayoutView.h"
 
+#import "CJCollecitonViewFlowLayout.h"
+
+#import "CJRollingAdView.h"
+
+#import "CJMarqueeLabel.h"
+
+#import "CJProgressHUD.h"
+
 #import "CJMenuView.h"
 
 #import "CJScanQRCodeView.h"

@@ -12,11 +12,13 @@
 #import "CJModule.h"
 #import "CJMarqueeLabel.h"
 #import "ModalViewController.h"
+#import "DCTitleRolling.h"
+#import "CJRollingAdView.h"
 
 @interface ViewController () {
     CJMarqueeLabel *_marqueel;
     UILabel *_label;
-    
+    CJRollingAdView *_rollingV;
 }
 
 @property(nonatomic,weak) CJAppearanceView *appearanceView;
@@ -83,11 +85,36 @@
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10, 480, 100, 40)];
     lab.text = @"this is a ad";
     lab.backgroundColor = [UIColor purpleColor];
-    lab.layer.anchorPoint = CGPointMake(0.5, 0);
     [self.view addSubview:lab];
     _label = lab;
    
+    DCTitleRolling *title = [[DCTitleRolling alloc] initWithFrame:CGRectMake(10, 550, 350, 40) WithTitleData:^(CDDRollingGroupStyle *rollingGroupStyle, NSString *__autoreleasing *leftImage, NSArray *__autoreleasing *rolTitles, NSArray *__autoreleasing *rolTags, NSArray *__autoreleasing *rightImages, NSString *__autoreleasing *rightbuttonTitle, NSInteger *interval, float *rollingTime, NSInteger *titleFont, UIColor *__autoreleasing *titleColor, BOOL *isShowTagBorder) {
+        
+        *rollingTime = 5.f;
+        *rolTags = @[@"HOT",@"HOT",@"",@"HOT"];
+        *rolTitles = @[@"小丑女的拍照秘籍竟然是？",@"2000热门手机推荐",@"好奇么？点进去哈",@"这套家具比房子还贵"];
+        *leftImage = @"-hot";
+        *rightbuttonTitle = @"更多";
+        *interval = 3.0;
+        *titleFont = 14;
+        *titleColor = [UIColor darkGrayColor];
+        
+        
+    }];
+
+    [title dc_beginRolling];
+    title.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:title];
     
+    CJRollingAdView *rollingV = [[CJRollingAdView alloc] initWithFrame:CGRectMake(10, 600, 350, 40) advertisements:@[@"test",@"ceshi",@"enya"]];
+    rollingV.advertisements = @[@"小丑女的拍照秘籍竟然是？",@"2000热门手机推荐",@"好奇么？点进去哈",@"这套家具比房子还贵"];
+    rollingV.backgroundColor = [UIColor cyanColor];
+    rollingV.adColor = [UIColor redColor];
+//    rollingV.adFont = [UIFont systemFontOfSize:50];
+    [self.view addSubview:rollingV];
+    [rollingV startAnimation];
+
+    _rollingV = rollingV;
 }
 
 
@@ -95,8 +122,8 @@
 -(void)leftItemClick:(UIBarButtonItem *)item {
     NSLog(@"左边点击");
    
-    
-//    [self presentViewController:modal animated:YES completion:nil];
+    ModalViewController *modal = [ModalViewController new];
+    [self presentViewController:modal animated:YES completion:nil];
 
 //    QMUIEmotion *emotion = [QMUIEmotion emotionWithIdentifier:@"-hot" displayName:@"-hot"];
 //    QMUIEmotionInputManager *manager = [[QMUIEmotionInputManager alloc] init];
@@ -109,17 +136,7 @@
 //    [_appearanceView setNeedsDisplay];
     
     
-    __block typeof(_label)blockLab = _label;
-    [UIView animateWithDuration:1.f animations:^{
-       
-        CATransform3D trans = CATransform3DIdentity;
-        trans = CATransform3DMakeRotation(M_PI_2, 1, 0, 0);
-        trans = CATransform3DTranslate(trans, 0, - 20 / 2, -20 / 2);
-        blockLab.layer.transform = trans;
-        
-    }];
- 
-   
+
 }
 
 
@@ -130,6 +147,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"touchesBegan 方法");
+   // [_rollingV pauseAnimation];
 }
 
 

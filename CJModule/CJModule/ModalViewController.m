@@ -82,6 +82,9 @@
         [self.mSelectedIndexPaths addObject:indexPath];
     }
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    if (indexPath.row == 9) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(NSMutableArray<NSIndexPath *> *)mSelectedIndexPaths {

@@ -74,6 +74,9 @@
 		6E871E5720DC8D520051E570 /* noting_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5220DC8D510051E570 /* noting_img@3x.png */; };
 		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
 		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
+		6EEC1B7920E9D0FF0029E5F2 /* DCTitleRolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */; };
+		6EEC1B7A20E9D0FF0029E5F2 /* UIView+DCRolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */; };
+		6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */; };
 		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +211,12 @@
 		6EB63A1A20E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCollecitonViewFlowLayout.h; sourceTree = "<group>"; };
 		6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCollecitonViewFlowLayout.m; sourceTree = "<group>"; };
+		6EEC1B7520E9D0FE0029E5F2 /* DCTitleRolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTitleRolling.h; sourceTree = "<group>"; };
+		6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTitleRolling.m; sourceTree = "<group>"; };
+		6EEC1B7720E9D0FE0029E5F2 /* UIView+DCRolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DCRolling.h"; sourceTree = "<group>"; };
+		6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DCRolling.m"; sourceTree = "<group>"; };
+		6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRollingAdView.h; sourceTree = "<group>"; };
+		6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRollingAdView.m; sourceTree = "<group>"; };
 		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
 		6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJMarqueeLabel.m; sourceTree = "<group>"; };
 		C0DFBF164F28286A3C352259 /* libPods-CJModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJModule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +288,7 @@
 				6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */,
 				6E51536920DCE53200457E92 /* CJBarbuttonItem.h */,
 				6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */,
+				6EEC1B7420E9D0FE0029E5F2 /* CDDTitleRolling */,
 				6E871D9420DC7E650051E570 /* Main.storyboard */,
 				6E871D9720DC7E690051E570 /* Assets.xcassets */,
 				6E871D9920DC7E690051E570 /* LaunchScreen.storyboard */,
@@ -301,6 +311,7 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */,
 				6EB63A2520E37E43005471F4 /* CJCollectionViewFlowLayout */,
 				6EF1EA6020DE37960067AC5B /* CJMarqueeLable */,
 				6E871E2E20DC8BBE0051E570 /* CJProgressHUD */,
@@ -545,6 +556,26 @@
 			name = CJCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
+		6EEC1B7420E9D0FE0029E5F2 /* CDDTitleRolling */ = {
+			isa = PBXGroup;
+			children = (
+				6EEC1B7520E9D0FE0029E5F2 /* DCTitleRolling.h */,
+				6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */,
+				6EEC1B7720E9D0FE0029E5F2 /* UIView+DCRolling.h */,
+				6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */,
+			);
+			path = CDDTitleRolling;
+			sourceTree = "<group>";
+		};
+		6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */ = {
+			isa = PBXGroup;
+			children = (
+				6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */,
+				6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */,
+			);
+			name = CJRollingAdView;
+			sourceTree = "<group>";
+		};
 		6EF1EA6020DE37960067AC5B /* CJMarqueeLable */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +709,7 @@
 			files = (
 				6E871E1520DC890A0051E570 /* CJCircleProgressView.m in Sources */,
 				6E871DFB20DC88C00051E570 /* CJReplicatorHeightLodingView.m in Sources */,
+				6EEC1B7920E9D0FF0029E5F2 /* DCTitleRolling.m in Sources */,
 				6E871E3920DC8D230051E570 /* MJRefreshFooter+CJCategory.m in Sources */,
 				6E871DE320DC883A0051E570 /* CJApplicationInfo.m in Sources */,
 				6E871E0A20DC88F30051E570 /* CJPickerContainerDate.m in Sources */,
@@ -704,8 +736,10 @@
 				6E871DE720DC885A0051E570 /* CJDeviceTool.m in Sources */,
 				6E871E0B20DC88F30051E570 /* CJPickerContainerView.m in Sources */,
 				6E871E2620DC894B0051E570 /* CJScanQRCodeView.m in Sources */,
+				6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */,
 				6E871DDB20DC84580051E570 /* UILabel+CJCategory.m in Sources */,
 				6E871DD520DC84580051E570 /* NSString+CJCategory.m in Sources */,
+				6EEC1B7A20E9D0FF0029E5F2 /* UIView+DCRolling.m in Sources */,
 				6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */,
 				6E871E1720DC890A0051E570 /* CJGradientProgressView.m in Sources */,
 				6E871DCB20DC84580051E570 /* CALayer+CJCategory.m in Sources */,

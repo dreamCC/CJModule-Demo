@@ -24,11 +24,12 @@
 //    dispatch_once(&onceToken, ^{
 //        if (!appearanceView) {
 //            appearanceView = [[CJAppearanceView alloc] init];
-//            appearanceView.cj_color = [UIColor grayColor];
+//            appearanceView.cj_color = [UIColor grayColor];、
 //        }
 //    });
 //    return appearanceView;
 //}
+
 
 @end
 
@@ -40,6 +41,7 @@
     dispatch_once(&onceToken, ^{
         [self appearance];
     });
+   
 
 }
 
@@ -81,6 +83,8 @@ static CJAppearanceView *appearanceView;
 
 -(void)drawRect:(CGRect)rect {
     [super drawRect:rect];
+    
+    
 }
 
 -(void)drawTextInRect:(CGRect)rect {

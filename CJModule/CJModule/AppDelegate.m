@@ -12,7 +12,7 @@
 
 #import <CocoaLumberjack.h>
 
-#import "CJAppearanceView.h"
+#import "CJRollingAdView.h"
 #import "ViewController.h"
 
 
@@ -38,7 +38,7 @@
     [[QMUIToastContentView appearance] setDetailTextLabelAttributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:12]}];
   
     //[[CJAppearanceView appearance] setCj_color:[UIColor magentaColor]];
-    
+
   
  
     return YES;
