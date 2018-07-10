@@ -100,7 +100,6 @@ static QMUIImagePreviewViewController *imagePreviewViewControllerAppearance;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     // 配合 QMUIImagePreviewViewController (UIWindow) 使用的
     if (self.previewWindow) {
         
@@ -128,7 +127,7 @@ static QMUIImagePreviewViewController *imagePreviewViewControllerAppearance;
         self.transitionImageView.layer.cornerRadius = self.transitionCornerRadius;
         [self.view addSubview:self.transitionImageView];
         
-        [UIView animateWithDuration:.2 delay:0.0 options:QMUIViewAnimationOptionsCurveOut animations:^{
+        [UIView animateWithDuration:5.2 delay:0.0 options:QMUIViewAnimationOptionsCurveOut animations:^{
             self.transitionImageView.frame = transitionToRect;
             self.transitionImageView.layer.cornerRadius = 0;
             self.view.backgroundColor = self.backgroundColorTemporarily;

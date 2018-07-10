@@ -13,6 +13,8 @@ target 'CJModule' do
   pod 'DZNEmptyDataSet'
   pod 'DownloadButton'
   pod 'QMUIKit'
+  pod 'IQKeyboardManager'
+  
   
   pod 'CocoaLumberjack'
 

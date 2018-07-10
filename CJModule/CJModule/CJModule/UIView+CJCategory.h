@@ -29,3 +29,4 @@
 @property (nonatomic, assign) CGFloat cj_centerY;
 
 @end
+

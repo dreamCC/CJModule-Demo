@@ -9,6 +9,7 @@
 #import "ModalViewController.h"
 #import <WebKit/WebKit.h>
 #import <QMUIKit.h>
+#import "QMViewController.h"
 
 @interface ModalViewController ()<UITableViewDelegate,UITableViewDataSource> {
     NSIndexPath *_selectIndexPath ,*_previousIndexPath;
@@ -22,6 +23,9 @@
 
 @implementation ModalViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -34,7 +38,19 @@
     tablV.tableFooterView = [UIView new];
     [self.view addSubview:tablV];
     _tablV = tablV;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dogogo) name:@"POS" object:nil];
 }
+
+-(void)dogogo {
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
+}
+
 
 #pragma mark --- delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -84,6 +100,10 @@
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     if (indexPath.row == 9) {
         [self dismissViewControllerAnimated:YES completion:nil];
+    }else if (indexPath.row == 8) {
+        QMViewController *qmvc = [[QMViewController alloc] init];
+        
+        [self.navigationController pushViewController:qmvc animated:YES];
     }
 }
 
@@ -92,6 +112,10 @@
         _mSelectedIndexPaths = [NSMutableArray array];
     }
     return _mSelectedIndexPaths;
+}
+
+-(void)dealloc {
+    NSLog(@"dealloc");
 }
 
 @end

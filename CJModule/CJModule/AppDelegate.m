@@ -14,7 +14,7 @@
 
 #import "CJRollingAdView.h"
 #import "ViewController.h"
-
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -39,6 +39,11 @@
   
     //[[CJAppearanceView appearance] setCj_color:[UIColor magentaColor]];
 
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    
+    manager.enable = YES;
+    manager.shouldShowToolbarPlaceholder = YES;
+    manager.keyboardDistanceFromTextField = 20.f;
   
  
     return YES;

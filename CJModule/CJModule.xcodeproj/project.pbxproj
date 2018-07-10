@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BDBC68C444E10BA7BB1C346 /* libPods-CJModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DFBF164F28286A3C352259 /* libPods-CJModule.a */; };
+		6E12828520EDF1C900D84E9D /* TransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E12828420EDF1C900D84E9D /* TransformViewController.m */; };
 		6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1620E225E700137B0E /* CJNavigationController.m */; };
 		6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */; };
 		6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F7DB420E097BF0060E20C /* ModalViewController.m */; };
@@ -73,9 +74,10 @@
 		6E871E5620DC8D520051E570 /* noting_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5120DC8D510051E570 /* noting_img@2x.png */; };
 		6E871E5720DC8D520051E570 /* noting_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5220DC8D510051E570 /* noting_img@3x.png */; };
 		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
+		6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E95A4F820EDAB7C004DB322 /* QMViewController.m */; };
 		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
-		6EEC1B7920E9D0FF0029E5F2 /* DCTitleRolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */; };
-		6EEC1B7A20E9D0FF0029E5F2 /* UIView+DCRolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */; };
+		6EE58EAC20F2F24F00EF811F /* CJSnipImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */; };
+		6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAF20F335C800EF811F /* CJCropBoxView.m */; };
 		6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */; };
 		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 /* Begin PBXFileReference section */
 		15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.release.xcconfig"; sourceTree = "<group>"; };
 		5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.debug.xcconfig"; sourceTree = "<group>"; };
+		6E12828320EDF1C900D84E9D /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
+		6E12828420EDF1C900D84E9D /* TransformViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformViewController.m; sourceTree = "<group>"; };
 		6E1AED1520E225E700137B0E /* CJNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
 		6E1AED1620E225E700137B0E /* CJNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJNavigationController.m; sourceTree = "<group>"; };
 		6E1AED1B20E22D8B00137B0E /* CJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJTabBarController.h; sourceTree = "<group>"; };
@@ -207,14 +211,16 @@
 		6E871E5220DC8D510051E570 /* noting_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noting_img@3x.png"; sourceTree = "<group>"; };
 		6E871E5B20DCA7890051E570 /* CJAppearanceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJAppearanceView.h; sourceTree = "<group>"; };
 		6E871E5C20DCA7890051E570 /* CJAppearanceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAppearanceView.m; sourceTree = "<group>"; };
+		6E95A4F720EDAB7C004DB322 /* QMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMViewController.h; sourceTree = "<group>"; };
+		6E95A4F820EDAB7C004DB322 /* QMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMViewController.m; sourceTree = "<group>"; };
 		6EB63A1920E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		6EB63A1A20E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCollecitonViewFlowLayout.h; sourceTree = "<group>"; };
 		6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCollecitonViewFlowLayout.m; sourceTree = "<group>"; };
-		6EEC1B7520E9D0FE0029E5F2 /* DCTitleRolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTitleRolling.h; sourceTree = "<group>"; };
-		6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTitleRolling.m; sourceTree = "<group>"; };
-		6EEC1B7720E9D0FE0029E5F2 /* UIView+DCRolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DCRolling.h"; sourceTree = "<group>"; };
-		6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DCRolling.m"; sourceTree = "<group>"; };
+		6EE58EAA20F2F24F00EF811F /* CJSnipImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJSnipImageView.h; sourceTree = "<group>"; };
+		6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJSnipImageView.m; sourceTree = "<group>"; };
+		6EE58EAE20F335C800EF811F /* CJCropBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCropBoxView.h; sourceTree = "<group>"; };
+		6EE58EAF20F335C800EF811F /* CJCropBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCropBoxView.m; sourceTree = "<group>"; };
 		6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRollingAdView.h; sourceTree = "<group>"; };
 		6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRollingAdView.m; sourceTree = "<group>"; };
 		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
@@ -282,13 +288,16 @@
 				6E871D9220DC7E650051E570 /* ViewController.m */,
 				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
 				6E1F7DB420E097BF0060E20C /* ModalViewController.m */,
+				6E95A4F720EDAB7C004DB322 /* QMViewController.h */,
+				6E95A4F820EDAB7C004DB322 /* QMViewController.m */,
+				6E12828320EDF1C900D84E9D /* TransformViewController.h */,
+				6E12828420EDF1C900D84E9D /* TransformViewController.m */,
 				6E1AED1520E225E700137B0E /* CJNavigationController.h */,
 				6E1AED1620E225E700137B0E /* CJNavigationController.m */,
 				6E1AED1B20E22D8B00137B0E /* CJTabBarController.h */,
 				6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */,
 				6E51536920DCE53200457E92 /* CJBarbuttonItem.h */,
 				6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */,
-				6EEC1B7420E9D0FE0029E5F2 /* CDDTitleRolling */,
 				6E871D9420DC7E650051E570 /* Main.storyboard */,
 				6E871D9720DC7E690051E570 /* Assets.xcassets */,
 				6E871D9920DC7E690051E570 /* LaunchScreen.storyboard */,
@@ -311,6 +320,7 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6EE58EA920F2F22200EF811F /* CJSnipImageView */,
 				6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */,
 				6EB63A2520E37E43005471F4 /* CJCollectionViewFlowLayout */,
 				6EF1EA6020DE37960067AC5B /* CJMarqueeLable */,
@@ -556,15 +566,15 @@
 			name = CJCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
-		6EEC1B7420E9D0FE0029E5F2 /* CDDTitleRolling */ = {
+		6EE58EA920F2F22200EF811F /* CJSnipImageView */ = {
 			isa = PBXGroup;
 			children = (
-				6EEC1B7520E9D0FE0029E5F2 /* DCTitleRolling.h */,
-				6EEC1B7620E9D0FE0029E5F2 /* DCTitleRolling.m */,
-				6EEC1B7720E9D0FE0029E5F2 /* UIView+DCRolling.h */,
-				6EEC1B7820E9D0FE0029E5F2 /* UIView+DCRolling.m */,
+				6EE58EAE20F335C800EF811F /* CJCropBoxView.h */,
+				6EE58EAF20F335C800EF811F /* CJCropBoxView.m */,
+				6EE58EAA20F2F24F00EF811F /* CJSnipImageView.h */,
+				6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */,
 			);
-			path = CDDTitleRolling;
+			name = CJSnipImageView;
 			sourceTree = "<group>";
 		};
 		6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */ = {
@@ -668,12 +678,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CJModule/Pods-CJModule-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/DownloadButton/DownloadButton.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DownloadButton.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QMUIResources.bundle",
 			);
@@ -709,7 +721,6 @@
 			files = (
 				6E871E1520DC890A0051E570 /* CJCircleProgressView.m in Sources */,
 				6E871DFB20DC88C00051E570 /* CJReplicatorHeightLodingView.m in Sources */,
-				6EEC1B7920E9D0FF0029E5F2 /* DCTitleRolling.m in Sources */,
 				6E871E3920DC8D230051E570 /* MJRefreshFooter+CJCategory.m in Sources */,
 				6E871DE320DC883A0051E570 /* CJApplicationInfo.m in Sources */,
 				6E871E0A20DC88F30051E570 /* CJPickerContainerDate.m in Sources */,
@@ -737,9 +748,9 @@
 				6E871E0B20DC88F30051E570 /* CJPickerContainerView.m in Sources */,
 				6E871E2620DC894B0051E570 /* CJScanQRCodeView.m in Sources */,
 				6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */,
+				6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */,
 				6E871DDB20DC84580051E570 /* UILabel+CJCategory.m in Sources */,
 				6E871DD520DC84580051E570 /* NSString+CJCategory.m in Sources */,
-				6EEC1B7A20E9D0FF0029E5F2 /* UIView+DCRolling.m in Sources */,
 				6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */,
 				6E871E1720DC890A0051E570 /* CJGradientProgressView.m in Sources */,
 				6E871DCB20DC84580051E570 /* CALayer+CJCategory.m in Sources */,
@@ -750,7 +761,10 @@
 				6E871DEE20DC88840051E570 /* CJLocationManager.m in Sources */,
 				6E871DCF20DC84580051E570 /* UIView+CJCategory.m in Sources */,
 				6E871E2420DC894B0051E570 /* CJScanQRCodeManager.m in Sources */,
+				6EE58EAC20F2F24F00EF811F /* CJSnipImageView.m in Sources */,
 				6E871DD120DC84580051E570 /* UITextView+CJCategory.m in Sources */,
+				6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */,
+				6E12828520EDF1C900D84E9D /* TransformViewController.m in Sources */,
 				6E871E3A20DC8D230051E570 /* YTKUrlFilterArguments.m in Sources */,
 				6E871DCD20DC84580051E570 /* UISearchBar+CJCategory.m in Sources */,
 				6E871E1620DC890A0051E570 /* CJPieProgressView.m in Sources */,

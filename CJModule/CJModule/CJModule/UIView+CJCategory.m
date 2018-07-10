@@ -7,6 +7,7 @@
 //
 
 #import "UIView+CJCategory.h"
+#import <objc/runtime.h>
 
 @implementation UIView (CJFrame)
 
@@ -73,3 +74,8 @@
 }
 
 @end
+
+
+
+
+

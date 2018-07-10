@@ -58,6 +58,8 @@
     // 不管navigationBar的backgroundImage如何设置，都让布局撑到屏幕顶部，方便布局的统一
     self.extendedLayoutIncludesOpaqueBars = YES;
     
+    
+    
     self.supportedOrientationMask = SupportedOrientationMask;
     
     // 动态字体notification
@@ -211,6 +213,8 @@
 - (BOOL)preferredNavigationBarHidden {
     return NavigationBarHiddenInitially;
 }
+
+
 
 - (void)viewControllerKeepingAppearWhenSetViewControllersWithAnimated:(BOOL)animated {
     // 通常和 viewWillAppear: 里做的事情保持一致

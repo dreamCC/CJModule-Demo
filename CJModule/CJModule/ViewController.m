@@ -12,16 +12,23 @@
 #import "CJModule.h"
 #import "CJMarqueeLabel.h"
 #import "ModalViewController.h"
-#import "DCTitleRolling.h"
 #import "CJRollingAdView.h"
+#import "TransformViewController.h"
+#import "CJSnipImageView.h"
+#import "CJCropBoxView.h"
+#import "QMViewController.h"
 
-@interface ViewController () {
-    CJMarqueeLabel *_marqueel;
-    UILabel *_label;
-    CJRollingAdView *_rollingV;
+@interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
+    NSMutableArray *_imagesAry;
+    QMUIImagePreviewViewController *_previewVC;
+    QMUIAssetsGroup *_assetGroup;
+    QMUIZoomImageView *_imgV;
+    UIImageView *_imageV;
+    
+    CJSnipImageView *_snipImageV;
 }
 
-@property(nonatomic,weak) CJAppearanceView *appearanceView;
+
 
 @property(nonatomic, strong) UIWindow *windo;
 
@@ -41,15 +48,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CJAppearanceView *appearanceView = [[CJAppearanceView alloc] init];
-    appearanceView.frame = CGRectMake(10, 100, 100, 100);
-    appearanceView.layer.cornerRadius = 5;
-    //appearanceView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    appearanceView.layer.allowsGroupOpacity = NO;
-    appearanceView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:appearanceView];
-    _appearanceView = appearanceView;
-
    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"左边" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemClick:)];
     QMUINavigationTitleView *titleV = [[QMUINavigationTitleView alloc] initWithStyle:QMUINavigationTitleViewStyleDefault];
@@ -65,79 +63,158 @@
     UIInterpolatingMotionEffect *motionX = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     motionX.minimumRelativeValue = @(-50);
     motionX.maximumRelativeValue = @50;
-    [appearanceView addMotionEffect:motionX];
-    
+
     UIInterpolatingMotionEffect *motionY = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
     motionX.minimumRelativeValue = @(-50);
     motionX.maximumRelativeValue = @50;
     [self.view addMotionEffect:motionY];
     
 
-    CJMarqueeLabel *marqueelLab = [[CJMarqueeLabel alloc] initWithFrame:CGRectMake(10, 350, 100, 40)];
-    marqueelLab.backgroundColor = [UIColor lightGrayColor];
-    marqueelLab.text = @"这是一个跑马灯，所以内容要很长的";
-    marqueelLab.textAlignment = NSTextAlignmentCenter;
-    marqueelLab.userInteractionEnabled = YES;
-    [self.view addSubview:marqueelLab];
-    _marqueel = marqueelLab;
-   
+    _imagesAry = [NSMutableArray array];
+    for (int i = 0,count = 7; i < count; i++) {
+        NSString *name = [NSString stringWithFormat:@"image%d",i];
+        [_imagesAry addObject:UIImageMake(name)];
+    }
 
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10, 480, 100, 40)];
-    lab.text = @"this is a ad";
-    lab.backgroundColor = [UIColor purpleColor];
-    [self.view addSubview:lab];
-    _label = lab;
    
-    DCTitleRolling *title = [[DCTitleRolling alloc] initWithFrame:CGRectMake(10, 550, 350, 40) WithTitleData:^(CDDRollingGroupStyle *rollingGroupStyle, NSString *__autoreleasing *leftImage, NSArray *__autoreleasing *rolTitles, NSArray *__autoreleasing *rolTags, NSArray *__autoreleasing *rightImages, NSString *__autoreleasing *rightbuttonTitle, NSInteger *interval, float *rollingTime, NSInteger *titleFont, UIColor *__autoreleasing *titleColor, BOOL *isShowTagBorder) {
-        
-        *rollingTime = 5.f;
-        *rolTags = @[@"HOT",@"HOT",@"",@"HOT"];
-        *rolTitles = @[@"小丑女的拍照秘籍竟然是？",@"2000热门手机推荐",@"好奇么？点进去哈",@"这套家具比房子还贵"];
-        *leftImage = @"-hot";
-        *rightbuttonTitle = @"更多";
-        *interval = 3.0;
-        *titleFont = 14;
-        *titleColor = [UIColor darkGrayColor];
-        
-        
+    unsigned int outCount;
+    Ivar *ivars = class_copyIvarList([NSNotificationCenter class], &outCount);
+    for (int i = 0; i < outCount; i++) {
+        Ivar ivar = ivars[i];
+        const char *char_name = ivar_getName(ivar);
+        NSString *name = [NSString stringWithUTF8String:char_name];
+        NSLog(@"%@",name);
+    }
+    
+    
+    QMUIAssetsManager *assetManager = [QMUIAssetsManager sharedInstance];
+    [assetManager enumerateAllAlbumsWithAlbumContentType:QMUIAlbumContentTypeOnlyPhoto showEmptyAlbum:YES showSmartAlbumIfSupported:YES usingBlock:^(QMUIAssetsGroup *resultAssetsGroup) {
+
+        NSLog(@"%@-%zd",resultAssetsGroup.name,resultAssetsGroup.numberOfAssets);
+        if ([resultAssetsGroup.name isEqualToString:@"相机胶卷"]) {
+            self->_assetGroup = resultAssetsGroup;
+            return;
+        }
     }];
 
-    [title dc_beginRolling];
-    title.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:title];
-    
-    CJRollingAdView *rollingV = [[CJRollingAdView alloc] initWithFrame:CGRectMake(10, 600, 350, 40) advertisements:@[@"test",@"ceshi",@"enya"]];
-    rollingV.advertisements = @[@"小丑女的拍照秘籍竟然是？",@"2000热门手机推荐",@"好奇么？点进去哈",@"这套家具比房子还贵"];
-    rollingV.backgroundColor = [UIColor cyanColor];
-    rollingV.adColor = [UIColor redColor];
-//    rollingV.adFont = [UIFont systemFontOfSize:50];
-    [self.view addSubview:rollingV];
-    [rollingV startAnimation];
+//    QMUIZoomImageView *zoomImageView = [[QMUIZoomImageView alloc] init];
+//    zoomImageView.backgroundColor = [UIColor lightGrayColor];
+//    [self.view addSubview:zoomImageView];
+//    _imgV = zoomImageView;
+//    [_imgV showLoading];
 
-    _rollingV = rollingV;
+    CJSnipImageView *snipImageView = [[CJSnipImageView alloc] init];
+    
+    snipImageView.frame = CGRectMake(10, 100, self.view.qmui_width - 20, 300);
+    snipImageView.zoomImageView.image = [UIImage imageNamed:@"image0"];
+    [self.view addSubview:snipImageView];
+    _snipImageV = snipImageView;
+    
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(100, 410, 200, 200)];
+    imageV.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:imageV];
+    _imageV = imageV;
+}
+
+-(BOOL)shouldHideKeyboardWhenTouchInView:(UIView *)view {
+    return YES;
+}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return scrollView.subviews.firstObject;
+}
+
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [scrollView flashScrollIndicators];
+    NSLog(@"scrollViewDidZoom-%f",scrollView.zoomScale);
+}
+
+-(void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
+    
+    NSLog(@"scrollViewWillBeginZooming");
 }
 
 
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    _imgV.frame =  CGRectMake(10, 210, self.view.frame.size.width - 20, 400);
+//    _imgV.viewportRect = CGRectMake(0, 0, 100, 100);
+}
+
+-(NSUInteger)numberOfImagesInImagePreviewView:(QMUIImagePreviewView *)imagePreviewView {
+    return _imagesAry.count;
+}
+
+-(void)imagePreviewView:(QMUIImagePreviewView *)imagePreviewView renderZoomImageView:(QMUIZoomImageView *)zoomImageView atIndex:(NSUInteger)index {
+    if (index == 2) {
+        zoomImageView.image = nil;
+        [zoomImageView showLoading];
+        
+    }else {
+        zoomImageView.image = _imagesAry[index];
+        [zoomImageView hideEmptyView];
+    }
+}
+
+-(void)singleTouchInZoomingImageView:(QMUIZoomImageView *)zoomImageView location:(CGPoint)location {
+    [_previewVC endPreviewFading];
+}
 
 -(void)leftItemClick:(UIBarButtonItem *)item {
-    NSLog(@"左边点击");
-   
-    ModalViewController *modal = [ModalViewController new];
-    [self presentViewController:modal animated:YES completion:nil];
+    NSLog(@"左边点击-%@",NSStringFromCGRect(CGRectApplyAffineTransform(_imgV.frame, CGAffineTransformMakeScale(0.5, 0.5))));
+    
+    UIImage *image = [_snipImageV snipCircleImageBoardWidth:3.f boardColor:[UIColor whiteColor]];
+    
+    _imageV.frame = CGRectMake(100, 410, image.size.width,image.size.height);
+    _imageV.image = image;
+//        ModalViewController *modal = [ModalViewController new];
+//        [self.navigationController pushViewController:modal animated:YES];
 
-//    QMUIEmotion *emotion = [QMUIEmotion emotionWithIdentifier:@"-hot" displayName:@"-hot"];
-//    QMUIEmotionInputManager *manager = [[QMUIEmotionInputManager alloc] init];
-//    manager.emotionView.emotions = @[emotion];
-//    manager.emotionView.backgroundColor = [UIColor lightGrayColor];
-//    [self.view addSubview:manager.emotionView];
-//    _manager = manager;
+//    [_assetGroup enumerateAssetsWithOptions:QMUIAlbumSortTypeReverse usingBlock:^(QMUIAsset *resultAsset) {
+//        [resultAsset requestOriginImageWithCompletion:^(UIImage *result, NSDictionary<NSString *,id> *info) {
+//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                self->_imgV.image = result;
+//                [self->_imgV hideEmptyView];
+//            }];
+//            return;
+//        } withProgressHandler:^(double progress, NSError * _Nullable error, BOOL * _Nonnull stop, NSDictionary * _Nullable info) {
 //
-//    manager.emotionView.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 200, CGRectGetWidth(self.view.frame), 200);
-//    [_appearanceView setNeedsDisplay];
+//        }];
+//
+//    }];
     
+//    QMViewController *qm_vc = [QMViewController new];
+//    [self.navigationController pushViewController:qm_vc animated:YES];
+   
     
-
 }
+
+-(QMUIImagePickerViewController *)imagePickerViewControllerForAlbumViewController:(QMUIAlbumViewController *)albumViewController {
+    QMUIImagePickerViewController *pickerV = [[QMUIImagePickerViewController alloc] init];
+    
+    pickerV.imagePickerViewControllerDelegate = self;
+    
+    pickerV.allowsMultipleSelection = YES;
+//    pickerV.maximumSelectImageCount = 1;
+    
+    return pickerV;
+}
+
+-(void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didSelectImageWithImagesAsset:(QMUIAsset *)imageAsset afterImagePickerPreviewViewControllerUpdate:(QMUIImagePickerPreviewViewController *)imagePickerPreviewViewController {
+    
+    NSLog(@"didSelectImageWithImagesAsset-%@",imagePickerPreviewViewController);
+    
+}
+
+
+
+-(QMUIImagePickerPreviewViewController *)imagePickerPreviewViewControllerForImagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController {
+    QMUIImagePickerPreviewViewController *previewV = [[QMUIImagePickerPreviewViewController alloc] init];
+
+    return previewV;
+}
+
 
 
 -(UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
@@ -145,10 +222,7 @@
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touchesBegan 方法");
-   // [_rollingV pauseAnimation];
-}
+
 
 
 -(void)viewWillAppear:(BOOL)animated {
