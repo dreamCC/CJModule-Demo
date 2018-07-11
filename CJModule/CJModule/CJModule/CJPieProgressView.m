@@ -91,7 +91,7 @@
 -(void)setProgress:(CGFloat)progress animated:(BOOL)animated {
 
     _progress = progress;
-    progress  = progress > 1?1:progress;
+    if (progress > 1.f) return;
     self.mainLayer.animationProgress   = progress;
     self.mainLayer.progressChangeWithAnimation = animated;
     [self sendActionsForControlEvents:UIControlEventValueChanged];

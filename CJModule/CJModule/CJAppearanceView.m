@@ -8,6 +8,32 @@
 
 #import "CJAppearanceView.h"
 
+@interface CJLayer:CALayer
+
+@end
+
+@implementation CJLayer
+
++(BOOL)needsDisplayForKey:(NSString *)key {
+    return [key isEqualToString:@""] || [super needsDisplayForKey:key];
+}
+
+-(id<CAAction>)actionForKey:(NSString *)event {
+    if ([event isEqualToString:@""]) {
+        CABasicAnimation *aniamtion = [CABasicAnimation animationWithKeyPath:event];
+        aniamtion.duration = 1.f;
+        aniamtion.toValue = [NSValue valueForKey:@""];
+        return aniamtion;
+    }
+    return [super actionForKey:event];
+}
+
+-(void)drawInContext:(CGContextRef)ctx {
+    
+}
+
+@end
+
 @implementation CJAppearanceView (UIAppearance)
 
 //+(void)initialize {
@@ -97,6 +123,7 @@ static CJAppearanceView *appearanceView;
 -(void)setCj_color:(UIColor *)cj_color {
     _cj_color = cj_color;
 }
+
 
 
 

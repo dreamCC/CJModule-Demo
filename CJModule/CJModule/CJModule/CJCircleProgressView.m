@@ -93,6 +93,7 @@
 
 -(void)setProgress:(CGFloat)progress {
     _progress = progress;
+    if (progress > 1.f) return;
     self.mainLayer.layerProgress = progress;
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }

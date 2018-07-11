@@ -81,6 +81,7 @@ static NSString *const kAnimationKey = @"com.kAnimationKey.cn";
 
 -(void)setProgress:(CGFloat)progress {
     _progress  = progress;
+    if (progress > 1.f) return;
     [self setNeedsLayout];
     [self layoutIfNeeded];
     [self sendActionsForControlEvents:UIControlEventValueChanged];

@@ -23,9 +23,9 @@
     QMUIImagePreviewViewController *_previewVC;
     QMUIAssetsGroup *_assetGroup;
     QMUIZoomImageView *_imgV;
-    UIImageView *_imageV;
     
     CJSnipImageView *_snipImageV;
+    CJPieProgressView *_gradientProgress;
 }
 
 
@@ -110,10 +110,12 @@
     [self.view addSubview:snipImageView];
     _snipImageV = snipImageView;
     
-    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(100, 410, 200, 200)];
-    imageV.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:imageV];
-    _imageV = imageV;
+    
+  
+    CJPieProgressView *circleProgress = [[CJPieProgressView alloc] initWithFrame:CGRectMake(10, 410, 200, 20)];
+    
+    [self.view addSubview:circleProgress];
+    _gradientProgress = circleProgress;
 }
 
 -(BOOL)shouldHideKeyboardWhenTouchInView:(UIView *)view {
@@ -164,10 +166,10 @@
 -(void)leftItemClick:(UIBarButtonItem *)item {
     NSLog(@"左边点击-%@",NSStringFromCGRect(CGRectApplyAffineTransform(_imgV.frame, CGAffineTransformMakeScale(0.5, 0.5))));
     
-    UIImage *image = [_snipImageV snipCircleImageBoardWidth:3.f boardColor:[UIColor whiteColor]];
-    
-    _imageV.frame = CGRectMake(100, 410, image.size.width,image.size.height);
-    _imageV.image = image;
+    static CGFloat progress = 0.f;
+    progress += 0.2;
+    _gradientProgress.progress = progress;
+ 
 //        ModalViewController *modal = [ModalViewController new];
 //        [self.navigationController pushViewController:modal animated:YES];
 
