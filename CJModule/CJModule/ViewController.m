@@ -17,6 +17,11 @@
 #import "CJSnipImageView.h"
 #import "CJCropBoxView.h"
 #import "QMViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "CJTableViewIndex.h"
+#import "CJBarbuttonItem.h"
+#import "CJTextLayer.h"
+#import <YYKit.h>
 
 @interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
     NSMutableArray *_imagesAry;
@@ -25,7 +30,7 @@
     QMUIZoomImageView *_imgV;
     
     CJSnipImageView *_snipImageV;
-    CJPieProgressView *_gradientProgress;
+
 }
 
 
@@ -76,16 +81,19 @@
         [_imagesAry addObject:UIImageMake(name)];
     }
 
-   
-    unsigned int outCount;
-    Ivar *ivars = class_copyIvarList([NSNotificationCenter class], &outCount);
-    for (int i = 0; i < outCount; i++) {
-        Ivar ivar = ivars[i];
-        const char *char_name = ivar_getName(ivar);
-        NSString *name = [NSString stringWithUTF8String:char_name];
-        NSLog(@"%@",name);
-    }
-    
+  
+//    unsigned int outCount = 0;
+//    Ivar *ivars = class_copyIvarList(NSClassFromString(@"UITableView"), &outCount);
+//    for (int i = 0; i < outCount; i++) {
+//        Ivar ivar = ivars[i];
+//        const char *ivar_name = ivar_getName(ivar);
+//        NSString *ivarName = [NSString stringWithUTF8String:ivar_name];
+//        NSLog(@"%@",ivarName);
+//    }
+
+    [[UITableView cj_ivarTypesAndNames] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@-%@",key,obj);
+    }];
     
     QMUIAssetsManager *assetManager = [QMUIAssetsManager sharedInstance];
     [assetManager enumerateAllAlbumsWithAlbumContentType:QMUIAlbumContentTypeOnlyPhoto showEmptyAlbum:YES showSmartAlbumIfSupported:YES usingBlock:^(QMUIAssetsGroup *resultAssetsGroup) {
@@ -97,12 +105,6 @@
         }
     }];
 
-//    QMUIZoomImageView *zoomImageView = [[QMUIZoomImageView alloc] init];
-//    zoomImageView.backgroundColor = [UIColor lightGrayColor];
-//    [self.view addSubview:zoomImageView];
-//    _imgV = zoomImageView;
-//    [_imgV showLoading];
-
     CJSnipImageView *snipImageView = [[CJSnipImageView alloc] init];
     
     snipImageView.frame = CGRectMake(10, 100, self.view.qmui_width - 20, 300);
@@ -110,13 +112,23 @@
     [self.view addSubview:snipImageView];
     _snipImageV = snipImageView;
     
+
+    CJBarbuttonItem *ite = [CJBarbuttonItem layer];
+    ite.backgroundColor = [UIColor lightGrayColor].CGColor;
+    ite.frame = CGRectMake(10, 500, 100, 100);
+    [self.view.layer addSublayer:ite];
     
-  
-    CJPieProgressView *circleProgress = [[CJPieProgressView alloc] initWithFrame:CGRectMake(10, 410, 200, 20)];
-    
-    [self.view addSubview:circleProgress];
-    _gradientProgress = circleProgress;
+    CJTextLayer *layer = [CJTextLayer layer];
+    layer.frame = CGRectMake(10, 410, 50, 50);
+    layer.contentsScale = [UIScreen mainScreen].scale;
+    layer.string = @"H";
+    layer.foregroundColor = [UIColor purpleColor].CGColor;
+    layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    layer.fontSize = 14;
+
+    [self.view.layer addSublayer:layer];
 }
+
 
 -(BOOL)shouldHideKeyboardWhenTouchInView:(UIView *)view {
     return YES;
@@ -165,13 +177,13 @@
 
 -(void)leftItemClick:(UIBarButtonItem *)item {
     NSLog(@"左边点击-%@",NSStringFromCGRect(CGRectApplyAffineTransform(_imgV.frame, CGAffineTransformMakeScale(0.5, 0.5))));
+    self.hidesBottomBarWhenPushed = YES;
+
+
     
-    static CGFloat progress = 0.f;
-    progress += 0.2;
-    _gradientProgress.progress = progress;
- 
-//        ModalViewController *modal = [ModalViewController new];
-//        [self.navigationController pushViewController:modal animated:YES];
+    
+    ModalViewController *modal = [ModalViewController new];
+    [self.navigationController pushViewController:modal animated:YES];
 
 //    [_assetGroup enumerateAssetsWithOptions:QMUIAlbumSortTypeReverse usingBlock:^(QMUIAsset *resultAsset) {
 //        [resultAsset requestOriginImageWithCompletion:^(UIImage *result, NSDictionary<NSString *,id> *info) {
@@ -186,9 +198,10 @@
 //
 //    }];
     
-//    QMViewController *qm_vc = [QMViewController new];
+//    QMViewController *qm_vc = [[QMViewController alloc] init];
 //    [self.navigationController pushViewController:qm_vc animated:YES];
-   
+ 
+    
     
 }
 

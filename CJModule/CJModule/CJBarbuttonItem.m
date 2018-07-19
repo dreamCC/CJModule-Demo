@@ -10,6 +10,8 @@
 
 @implementation CJBarbuttonItem
 
-
+-(void)drawInContext:(CGContextRef)ctx {
+   
+}
 
 @end

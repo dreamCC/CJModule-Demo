@@ -64,6 +64,20 @@ CG_INLINE void CJSwizzleMethod(Class cls, SEL orgSel, SEL swzSel) {
     }
 }
 
+CG_INLINE NSArray<NSString *> * CJIvarNames(Class cls) {
+    NSMutableArray *ivarNames = [NSMutableArray array];
+    unsigned int outCount = 0;
+    Ivar *ivars = class_copyIvarList(cls, &outCount);
+    for (int i = 0; i < outCount; i++) {
+        Ivar ivar = ivars[i];
+        const char *ivar_name = ivar_getName(ivar);
+        NSString *ivarName = [NSString stringWithUTF8String:ivar_name];
+        [ivarNames addObject:ivarName];
+    }
+    return ivarNames.copy;
+}
+
+
 
 
 

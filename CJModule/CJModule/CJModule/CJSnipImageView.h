@@ -17,13 +17,13 @@
 @property(nonatomic, weak) QMUIZoomImageView *zoomImageView;
 
 /// 剪切框
-@property(nonatomic, weak) CJCropBoxView *cropBoxView;
+@property(nonatomic, weak)  CJCropBoxView *cropBoxView;
 
 /// cropBoxView的左右边界。 默认，CJSnipImageView宽度的1/4。
-@property(nonatomic, assign) CGFloat cropBoxMargin;
+@property(nonatomic, assign)  CGFloat cropBoxMargin;
 
 /// cropBoxView的尺寸。默认，由上面属性控制。
-@property(nonatomic, assign) CGSize cropBoxSize;
+@property(nonatomic, assign)  CGSize cropBoxSize;
 
 /// 剪切后的图片
 @property(nonatomic, strong, readonly) UIImage *snipImage;

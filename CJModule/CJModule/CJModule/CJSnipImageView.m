@@ -17,6 +17,7 @@
 
 @end
 
+
 @implementation CJSnipImageView
 
 -(instancetype)initWithFrame:(CGRect)frame {

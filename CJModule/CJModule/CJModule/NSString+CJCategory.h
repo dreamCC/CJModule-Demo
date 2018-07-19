@@ -105,6 +105,20 @@ typedef NS_ENUM(NSUInteger, CJPhoneOperatorsType) {
 
 @end
 
+@interface NSString (CJLetter)
+
+
+/**
+ 获取字符串的首字母，以大写的形式返回。
+ 1、如果字符串是汉字开头，则返回汉字的首字母大写。如"你好"->"N"
+ 2、如果字符串是字母开头，则返回字母的大写。如"h你好"->"H"
+ 3、如果字符串首字母不是汉字也不是字母，则返回"#"。如"^你好"->"#"。
+ 
+ @return 字符串的首字母
+ */
+-(NSString *)cj_firstLetter;
+
+@end
 
 
 

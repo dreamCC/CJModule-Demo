@@ -222,6 +222,7 @@ static CGFloat cornerTouchArea = 20.f;
     
     self.frame = translatedRect;
     !self.cropBoxChanging?:self.cropBoxChanging();
+
 }
 
 

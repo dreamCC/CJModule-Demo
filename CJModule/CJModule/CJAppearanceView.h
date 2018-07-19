@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface CJAppearanceView : UILabel
 
-@property(nonatomic, strong) UIColor *cj_color UI_APPEARANCE_SELECTOR;
+@property(nonatomic, strong) IBInspectable UIColor *cj_color UI_APPEARANCE_SELECTOR;
 
 @end
 
 @interface CJAppearanceView (UIAppearance)
 
-//+(instancetype)appearance;
++(instancetype)appearance;
 
 @end

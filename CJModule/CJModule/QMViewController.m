@@ -9,8 +9,10 @@
 #import "QMViewController.h"
 #import <QMUIKit.h>
 #import "CJSnipImageView.h"
+#import "ModalViewController.h"
 
 @interface QMViewController ()
+
 
 @end
 
@@ -25,30 +27,25 @@
     
     [self.view addSubview:bk];
     
-    
-
-//    self.extendedLayoutIncludesOpaqueBars = YES;
-    
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor cyanColor]] forBarMetrics:UIBarMetricsDefault];
     
-    QMUITextField *field = [[QMUITextField alloc] initWithFrame:CGRectMake(10, 0, 200, 40)];
-    field.borderStyle = UITextBorderStyleBezel;
+    QMUITextField *field = [[QMUITextField alloc] initWithFrame:CGRectMake(10, 100, 200, 40)];
     
-    field.backgroundColor = [UIColor lightGrayColor];
+    field.backgroundColor = [UIColor purpleColor];
+    field.borderStyle = UITextBorderStyleNone;
     [self.view addSubview:field];
     
-    CJSnipImageView *snipImageView = [[CJSnipImageView alloc] init];
+   
     
-    snipImageView.frame = CGRectMake(10, 210, self.view.qmui_width - 20, 300);
-    snipImageView.zoomImageView.image = [UIImage imageNamed:@"image0"];
-    [self.view addSubview:snipImageView];
-    
+ 
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"---%@",self.navigationController.navigationBar.translucent?@"YES":@"NO");
-
+    
+    [self.view endEditing:YES];
+    
+   
 }
 
 

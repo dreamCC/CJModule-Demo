@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CJCropBoxView : UIView
 
 /// 几个角的线宽,默认 4.f

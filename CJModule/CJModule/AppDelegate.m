@@ -15,8 +15,10 @@
 #import "CJRollingAdView.h"
 #import "ViewController.h"
 #import <IQKeyboardManager.h>
+#import "QMViewController.h"
 
 @interface AppDelegate ()
+
 
 @end
 
@@ -25,6 +27,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
+
     
     [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"log"];
     [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"info"];
@@ -44,9 +47,16 @@
     manager.enable = YES;
     manager.shouldShowToolbarPlaceholder = YES;
     manager.keyboardDistanceFromTextField = 20.f;
-  
+
  
+    
     return YES;
+}
+
+
+
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return UIInterfaceOrientationMaskAll;
 }
 
 
@@ -64,7 +74,12 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    
+    
+   
 }
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

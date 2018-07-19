@@ -98,6 +98,7 @@ BeginIgnoreDeprecatedWarning
             [self layoutCustomDimmingView];
         }];
     }
+    
 }
 
 @end
@@ -121,6 +122,7 @@ BeginIgnoreDeprecatedWarning
         self.searchController = [[QMUICustomSearchController alloc] initWithSearchResultsController:searchResultsViewController];
         self.searchController.searchResultsUpdater = self;
         self.searchController.delegate = self;
+    
         _searchBar = self.searchController.searchBar;
         if (CGRectIsEmpty(self.searchBar.frame)) {
             // iOS8 下 searchBar.frame 默认是 CGRectZero，不 sizeToFit 就看不到了
@@ -129,6 +131,7 @@ BeginIgnoreDeprecatedWarning
         [self.searchBar qmui_styledAsQMUISearchBar];
         
         self.hidesNavigationBarDuringPresentation = YES;
+
     }
     return self;
 }
@@ -140,6 +143,7 @@ BeginIgnoreDeprecatedWarning
     [self.searchController loadViewIfNeeded];
     EndIgnoreAvailabilityWarning
 }
+
 
 - (void)setSearchResultsDelegate:(id<QMUISearchControllerDelegate>)searchResultsDelegate {
     _searchResultsDelegate = searchResultsDelegate;
