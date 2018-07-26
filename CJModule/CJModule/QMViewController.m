@@ -10,9 +10,11 @@
 #import <QMUIKit.h>
 #import "CJSnipImageView.h"
 #import "ModalViewController.h"
+#import "CJScanQRCodeManager.h"
 
-@interface QMViewController ()
+@interface QMViewController ()<CJScanQRCodeManagerDelegate>
 
+@property(nonatomic, strong) CJScanQRCodeManager *manager;
 
 @end
 
@@ -23,40 +25,46 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIView *bk = [[UIView alloc] initWithFrame:self.view.bounds];
-    
-    [self.view addSubview:bk];
-    
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor cyanColor]] forBarMetrics:UIBarMetricsDefault];
-    
-    QMUITextField *field = [[QMUITextField alloc] initWithFrame:CGRectMake(10, 100, 200, 40)];
-    
-    field.backgroundColor = [UIColor purpleColor];
-    field.borderStyle = UITextBorderStyleNone;
-    [self.view addSubview:field];
-    
-   
+ 
+    CJScanQRCodeView *scanView = [[CJScanQRCodeView alloc] initWithFrame:self.view.bounds];
     
  
+    if ([CJScanQRCodeManager cameraAuthorizeStatus] == CJAuthorizationStatusAuthorized) {
+        CJScanQRCodeManager *manger = [CJScanQRCodeManager defaultManager];
+        [manger setupScanQRCodeManagerWithSessionPreset:nil metadataObjectTypes:nil previewView:self.view scanView:scanView delegate:self];
+        _manager = manger;
+    }else {
+        [CJScanQRCodeManager requestCameraAuthorizeStatus:^(CJAuthorizationStatus status) {
+            if (status) {
+                CJScanQRCodeManager *manger = [CJScanQRCodeManager defaultManager];
+                [manger setupScanQRCodeManagerWithSessionPreset:nil metadataObjectTypes:nil previewView:self.view scanView:scanView delegate:self];
+                self->_manager = manger;
+            }else {
+                NSLog(@"未授权");
+            }
+        }];
+    }
+
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+   [_manager startScan];
+   
+    
+}
+
+
+
+-(void)scanQRCodeManager:(CJScanQRCodeManager *)scanQRCodeManager didOutputMetadataObject:(AVMetadataMachineReadableCodeObject *)metadataMachineObject {
+    NSLog(@"扫描结果----%@",metadataMachineObject);
+}
+
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self.view endEditing:YES];
-    
-   
-}
-
-
--(BOOL)shouldHideKeyboardWhenTouchInView:(UIView *)view {
-    
-   
-    return [view isDescendantOfView:self.view];
-}
-
--(void)contentSizeCategoryDidChanged:(NSNotification *)notification {
-    NSLog(@"%@",notification);
+    [_manager setVideoZoomFactor:2];
 }
 
 @end

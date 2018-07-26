@@ -16,10 +16,11 @@
 #import "ViewController.h"
 #import <IQKeyboardManager.h>
 #import "QMViewController.h"
+#import "CJAdViewController.h"
 
 @interface AppDelegate ()
 
-
+@property(nonatomic,strong) UIWindow *adWindow;
 @end
 
 @implementation AppDelegate
@@ -48,7 +49,14 @@
     manager.shouldShowToolbarPlaceholder = YES;
     manager.keyboardDistanceFromTextField = 20.f;
 
- 
+//    UIWindow *adWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    
+//    adWindow.rootViewController = [CJAdViewController new];
+//    adWindow.windowLevel = UIWindowLevelAlert;
+//    adWindow.hidden = NO;
+//    _adWindow = adWindow;
+    
+
     
     return YES;
 }

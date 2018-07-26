@@ -17,7 +17,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    UINavigationBar *naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 40)];
+//    
+//    naviBar.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:naviBar];
     
+}
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+
+    NSLog(@"%@",viewController);
+    NSLog(@"%@",self.topViewController);
+    NSLog(@"%@",self.viewControllers);
+    
+    if (viewController == self.topViewController) {
+        return;
+    }
+    viewController.hidesBottomBarWhenPushed = YES;
+    
+//    self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"-hot"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
+    
+    self.topViewController.navigationItem.hidesBackButton = YES;
+    
+    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.topViewController.navigationItem.title style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
+
+    [super pushViewController:viewController animated:animated];
+    
+
+
+}
+
+
+-(void)pop {
+    [self popViewControllerAnimated:YES];
+}
+
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated {
+
+    NSLog(@"%@",self.topViewController);
+    NSLog(@"%@",self.viewControllers);
+    
+    UIViewController *vc =  [super popViewControllerAnimated:animated];
+    NSLog(@"%@",vc);
+    return vc;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {
@@ -39,6 +81,8 @@
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return self.topViewController.supportedInterfaceOrientations;
 }
+
+
 
 
 @end

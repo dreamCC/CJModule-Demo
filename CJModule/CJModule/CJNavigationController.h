@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QMUIKit.h>
 
-@interface CJNavigationController : UINavigationController
+@interface CJNavigationController : QMUINavigationController
 
 @end

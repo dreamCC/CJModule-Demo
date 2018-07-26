@@ -13,6 +13,7 @@
 #import "SearchResultViewController.h"
 #import "NSArray+CJCategory.h"
 #import "CJTableViewIndex.h"
+#import "CJModule.h"
 
 
 @interface QDRecentSearchView : UIView
@@ -67,6 +68,9 @@
 
 @end
 
+
+
+
 @interface ModalViewController ()<UITableViewDelegate,UITableViewDataSource,QMUISearchControllerDelegate> {
     NSIndexPath *_selectIndexPath ,*_previousIndexPath;
     QMUISearchController *_searchVC;
@@ -85,12 +89,9 @@
 @implementation ModalViewController
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
     
     QMUISearchController *searchVC = [[QMUISearchController alloc] initWithContentsViewController:self];
     searchVC.searchResultsDelegate = self;
@@ -116,7 +117,7 @@
     [index setIndexsBackgroudColor:[UIColor purpleColor] state:UIControlStateSelected];
     
     index.showSearchIcon = YES;
-    index.showIndicatorView = NO;
+    index.showIndicatorView = YES;
     
     index.selectIndexChange = ^(UITableView *tableView, NSUInteger selectIndex, NSString *selectString) {
         NSLog(@"selectIndex-%@--%zd",selectString,selectIndex);
@@ -125,7 +126,7 @@
     };
     //[index addTarget:self action:@selector(indexValueChange:) forControlEvents:UIControlEventValueChanged];
     
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     UITableView *tablV = [[UITableView alloc] initWithFrame:(CGRect){{0,64},{self.view.frame.size.width,self.view.frame.size.height - 64}} style:UITableViewStylePlain];
     tablV.delegate = self;
@@ -138,16 +139,24 @@
     _tablV = tablV;
 
 }
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.alpha = 1.f;
+}
+
 -(void)indexValueChange:(CJTableViewIndex *)tableViewIndex {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:tableViewIndex.selectIndex];
     [_tablV scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
 }
+
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -212,14 +221,7 @@
 
 
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (_tablV.indexPathsForVisibleRows.firstObject.section == 2) {
-        [_tablV.cj_tableViewIndex resetSectionIndexsDisplay];
-    }else {
-        _tablV.cj_tableViewIndex.selectIndex = _tablV.indexPathsForVisibleRows.firstObject.section;
 
-    }
-}
 
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
@@ -309,6 +311,29 @@
 -(void)dealloc {
     NSLog(@"dealloc");
 }
+
+
+
+- (BOOL)shouldCustomNavigationBarTransitionWhenPushAppearing {
+    return YES;
+}
+
+- (BOOL)shouldCustomNavigationBarTransitionWhenPushDisappearing {
+    return YES;
+}
+
+- (BOOL)shouldCustomNavigationBarTransitionWhenPopAppearing {
+    return YES;
+}
+
+- (BOOL)shouldCustomNavigationBarTransitionWhenPopDisappearing {
+    return YES;
+}
+
+//-(UIImage *)navigationBarBackgroundImage {
+//    return [UIImage qmui_imageWithColor:[UIColor purpleColor]];
+//}
+
 
 @end
 

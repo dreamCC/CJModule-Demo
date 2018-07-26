@@ -12,6 +12,8 @@
 		6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1620E225E700137B0E /* CJNavigationController.m */; };
 		6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */; };
 		6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F7DB420E097BF0060E20C /* ModalViewController.m */; };
+		6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */; };
+		6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */; };
 		6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */; };
 		6E523D9520F5DFF8006C553F /* markFile in Resources */ = {isa = PBXBuildFile; fileRef = 6E523D9420F5DFF8006C553F /* markFile */; };
 		6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D8F20DC7E650051E570 /* AppDelegate.m */; };
@@ -76,16 +78,18 @@
 		6E871E5720DC8D520051E570 /* noting_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5220DC8D510051E570 /* noting_img@3x.png */; };
 		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
 		6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E95A4F820EDAB7C004DB322 /* QMViewController.m */; };
+		6EB292322105763E00016B71 /* CJSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB292312105763E00016B71 /* CJSubView.m */; };
+		6EB3687A21016B33008D3486 /* CJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3687921016B33008D3486 /* CJNavigationBar.m */; };
 		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
 		6EB772C020FEF11500ED0519 /* sources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EB772BF20FEF11500ED0519 /* sources.bundle */; };
 		6EDF41F720F873C7000B3A67 /* CJTableViewIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF41F620F873C7000B3A67 /* CJTableViewIndex.m */; };
 		6EE58EAC20F2F24F00EF811F /* CJSnipImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */; };
 		6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAF20F335C800EF811F /* CJCropBoxView.m */; };
 		6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */; };
+		6EF021932106C47500785B7F /* CJAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF021922106C47500785B7F /* CJAdViewController.m */; };
 		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 		6EF3027320F6E5A40080EEE3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */; };
 		6EF3027620F6F0310080EEE3 /* NSObject+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3027520F6F0310080EEE3 /* NSObject+CJCategory.m */; };
-		6EFAA1C420FDE1DB00B49097 /* CJTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFAA1C320FDE1DB00B49097 /* CJTextLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +103,8 @@
 		6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTabBarController.m; sourceTree = "<group>"; };
 		6E1F7DB320E097BF0060E20C /* ModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		6E1F7DB420E097BF0060E20C /* ModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@2x.png"; sourceTree = "<group>"; };
+		6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@3x.png"; sourceTree = "<group>"; };
 		6E51536920DCE53200457E92 /* CJBarbuttonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJBarbuttonItem.h; sourceTree = "<group>"; };
 		6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJBarbuttonItem.m; sourceTree = "<group>"; };
 		6E523D9420F5DFF8006C553F /* markFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = markFile; sourceTree = "<group>"; };
@@ -220,6 +226,10 @@
 		6E871E5C20DCA7890051E570 /* CJAppearanceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAppearanceView.m; sourceTree = "<group>"; };
 		6E95A4F720EDAB7C004DB322 /* QMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMViewController.h; sourceTree = "<group>"; };
 		6E95A4F820EDAB7C004DB322 /* QMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMViewController.m; sourceTree = "<group>"; };
+		6EB292302105763E00016B71 /* CJSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJSubView.h; sourceTree = "<group>"; };
+		6EB292312105763E00016B71 /* CJSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJSubView.m; sourceTree = "<group>"; };
+		6EB3687821016B33008D3486 /* CJNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationBar.h; sourceTree = "<group>"; };
+		6EB3687921016B33008D3486 /* CJNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJNavigationBar.m; sourceTree = "<group>"; };
 		6EB63A1920E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		6EB63A1A20E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCollecitonViewFlowLayout.h; sourceTree = "<group>"; };
@@ -233,14 +243,14 @@
 		6EE58EAF20F335C800EF811F /* CJCropBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCropBoxView.m; sourceTree = "<group>"; };
 		6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRollingAdView.h; sourceTree = "<group>"; };
 		6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRollingAdView.m; sourceTree = "<group>"; };
+		6EF021912106C47500785B7F /* CJAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJAdViewController.h; sourceTree = "<group>"; };
+		6EF021922106C47500785B7F /* CJAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAdViewController.m; sourceTree = "<group>"; };
 		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
 		6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJMarqueeLabel.m; sourceTree = "<group>"; };
 		6EF3027120F6E5A30080EEE3 /* SearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		6EF3027420F6F0310080EEE3 /* NSObject+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CJCategory.h"; sourceTree = "<group>"; };
 		6EF3027520F6F0310080EEE3 /* NSObject+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CJCategory.m"; sourceTree = "<group>"; };
-		6EFAA1C220FDE1DB00B49097 /* CJTextLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJTextLayer.h; sourceTree = "<group>"; };
-		6EFAA1C320FDE1DB00B49097 /* CJTextLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTextLayer.m; sourceTree = "<group>"; };
 		C0DFBF164F28286A3C352259 /* libPods-CJModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJModule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -302,8 +312,12 @@
 				6E871E5C20DCA7890051E570 /* CJAppearanceView.m */,
 				6E871D9120DC7E650051E570 /* ViewController.h */,
 				6E871D9220DC7E650051E570 /* ViewController.m */,
-				6EFAA1C220FDE1DB00B49097 /* CJTextLayer.h */,
-				6EFAA1C320FDE1DB00B49097 /* CJTextLayer.m */,
+				6EB292302105763E00016B71 /* CJSubView.h */,
+				6EB292312105763E00016B71 /* CJSubView.m */,
+				6EF021912106C47500785B7F /* CJAdViewController.h */,
+				6EF021922106C47500785B7F /* CJAdViewController.m */,
+				6EB3687821016B33008D3486 /* CJNavigationBar.h */,
+				6EB3687921016B33008D3486 /* CJNavigationBar.m */,
 				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
 				6E1F7DB420E097BF0060E20C /* ModalViewController.m */,
 				6EF3027120F6E5A30080EEE3 /* SearchResultViewController.h */,
@@ -322,6 +336,8 @@
 				6E871D9420DC7E650051E570 /* Main.storyboard */,
 				6E871D9720DC7E690051E570 /* Assets.xcassets */,
 				6E871D9920DC7E690051E570 /* LaunchScreen.storyboard */,
+				6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */,
+				6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */,
 				6E871D9C20DC7E690051E570 /* Info.plist */,
 				6E871D9D20DC7E690051E570 /* main.m */,
 			);
@@ -496,13 +512,13 @@
 		6E871E1820DC89110051E570 /* CJQRCode */ = {
 			isa = PBXGroup;
 			children = (
+				6E871E1C20DC894A0051E570 /* CJQRCode.bundle */,
 				6E871E1D20DC894A0051E570 /* CJDetectorAlbumQRCodeManager.h */,
 				6E871E2020DC894B0051E570 /* CJDetectorAlbumQRCodeManager.m */,
 				6E871E1920DC89490051E570 /* CJGenerateQRCodeManager.h */,
 				6E871E2120DC894B0051E570 /* CJGenerateQRCodeManager.m */,
 				6E871E1A20DC89490051E570 /* CJPlaySoundTool.h */,
 				6E871E2220DC894B0051E570 /* CJPlaySoundTool.m */,
-				6E871E1C20DC894A0051E570 /* CJQRCode.bundle */,
 				6E871E1F20DC894A0051E570 /* CJScanQRCodeManager.h */,
 				6E871E1B20DC89490051E570 /* CJScanQRCodeManager.m */,
 				6E871E2320DC894B0051E570 /* CJScanQRCodeView.h */,
@@ -689,7 +705,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */,
 				6E871E3320DC8BE50051E570 /* CJProgressHUD.bundle in Resources */,
+				6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */,
 				6EB772C020FEF11500ED0519 /* sources.bundle in Resources */,
 				6E871E5620DC8D520051E570 /* noting_img@2x.png in Resources */,
 				6E871D9B20DC7E690051E570 /* LaunchScreen.storyboard in Resources */,
@@ -777,6 +795,7 @@
 				6E871E2820DC894B0051E570 /* CJGenerateQRCodeManager.m in Sources */,
 				6E871DCC20DC84580051E570 /* NSTimer+CJCategory.m in Sources */,
 				6E871E4920DC8D3A0051E570 /* CJAsset.m in Sources */,
+				6EF021932106C47500785B7F /* CJAdViewController.m in Sources */,
 				6E871E2920DC894B0051E570 /* CJPlaySoundTool.m in Sources */,
 				6E871E4B20DC8D3A0051E570 /* CJPhotoLibraryManager.m in Sources */,
 				6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */,
@@ -811,17 +830,18 @@
 				6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */,
 				6E871E5320DC8D520051E570 /* CJEmptyDataSetDelegate.m in Sources */,
 				6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */,
+				6EB292322105763E00016B71 /* CJSubView.m in Sources */,
 				6E871DD420DC84580051E570 /* UINavigationController+CJCategory.m in Sources */,
 				6E871E4A20DC8D3A0051E570 /* CJAssetCollection.m in Sources */,
 				6EF3027620F6F0310080EEE3 /* NSObject+CJCategory.m in Sources */,
 				6E871DD020DC84580051E570 /* UITextField+CJCategory.m in Sources */,
 				6E871DF220DC88AA0051E570 /* CJGridView.m in Sources */,
 				6E871E0C20DC88F30051E570 /* CJPickerViewController.m in Sources */,
+				6EB3687A21016B33008D3486 /* CJNavigationBar.m in Sources */,
 				6E871E4120DC8D320051E570 /* CJDownloadSource.m in Sources */,
 				6E871DFA20DC88C00051E570 /* CJReplicatorWaveLodingView.m in Sources */,
 				6E871DDA20DC84580051E570 /* UIButton+CJCategory.m in Sources */,
 				6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */,
-				6EFAA1C420FDE1DB00B49097 /* CJTextLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,7 +989,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EYF7S6R84B;
 				INFOPLIST_FILE = CJModule/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -988,7 +1008,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EYF7S6R84B;
 				INFOPLIST_FILE = CJModule/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

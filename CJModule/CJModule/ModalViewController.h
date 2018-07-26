@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QMUIKit.h>
 
-@interface ModalViewController : UIViewController<QMUIModalPresentationContentViewControllerProtocol>
+@interface ModalViewController : QMUICommonViewController
 
 @end
