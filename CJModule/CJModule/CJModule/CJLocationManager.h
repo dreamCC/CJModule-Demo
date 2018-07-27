@@ -13,6 +13,7 @@
 typedef void(^CJLocationComplement)(CJLocationInfo *locationInfo);
 typedef void(^CJLocationFailed)(NSError *error);
 
+
 @interface CJLocationManager : NSObject
 
 @property(nonatomic, strong) CLLocationManager *locationManager;
