@@ -16,7 +16,6 @@
 #import "ViewController.h"
 #import <IQKeyboardManager.h>
 #import "QMViewController.h"
-#import "CJAdViewController.h"
 
 @interface AppDelegate ()
 

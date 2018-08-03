@@ -11,11 +11,13 @@
 #import "CJSnipImageView.h"
 #import "ModalViewController.h"
 #import "CJScanQRCodeManager.h"
+#import <WebKit/WebKit.h>
 
-@interface QMViewController ()<CJScanQRCodeManagerDelegate>
+@interface QMViewController ()<QMUIImagePreviewViewDelegate>
 
 @property(nonatomic, strong) CJScanQRCodeManager *manager;
 
+@property(nonatomic, strong) NSMutableArray *mAry;
 @end
 
 @implementation QMViewController
@@ -23,43 +25,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+//    WKWebView *webV = [[WKWebView alloc] initWithFrame:self.view.bounds];
+//    [webV loadRequest:[NSURLRequest requestWithURL:url]];
+//
+//    [self.view addSubview:webV];
     
- 
-    CJScanQRCodeView *scanView = [[CJScanQRCodeView alloc] initWithFrame:self.view.bounds];
+    QMUIImagePreviewView *preview = [[QMUIImagePreviewView alloc] init];
+    preview.backgroundColor = [UIColor purpleColor];
+    preview.frame = self.view.bounds;
+    preview.delegate = self;
+    [self.view addSubview:preview];
     
- 
-    if ([CJScanQRCodeManager cameraAuthorizeStatus] == CJAuthorizationStatusAuthorized) {
-        CJScanQRCodeManager *manger = [CJScanQRCodeManager defaultManager];
-        [manger setupScanQRCodeManagerWithSessionPreset:nil metadataObjectTypes:nil previewView:self.view scanView:scanView delegate:self];
-        _manager = manger;
-    }else {
-        [CJScanQRCodeManager requestCameraAuthorizeStatus:^(CJAuthorizationStatus status) {
-            if (status) {
-                CJScanQRCodeManager *manger = [CJScanQRCodeManager defaultManager];
-                [manger setupScanQRCodeManagerWithSessionPreset:nil metadataObjectTypes:nil previewView:self.view scanView:scanView delegate:self];
-                self->_manager = manger;
-            }else {
-                NSLog(@"未授权");
-            }
-        }];
+    NSMutableArray *mAry = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 5; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"image%d",i]];
+        [mAry addObject:image];
     }
 
+    _mAry = mAry;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-   [_manager startScan];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+-(NSUInteger)numberOfImagesInImagePreviewView:(QMUIImagePreviewView *)imagePreviewView {
+    return self.mAry.count;
+}
+
+-(void)imagePreviewView:(QMUIImagePreviewView *)imagePreviewView renderZoomImageView:(QMUIZoomImageView *)zoomImageView atIndex:(NSUInteger)index {
+    zoomImageView.image = self.mAry[index];
    
-    
+    NSLog(@"%@-%zd",zoomImageView,index);
 }
 
-
-
--(void)scanQRCodeManager:(CJScanQRCodeManager *)scanQRCodeManager didOutputMetadataObject:(AVMetadataMachineReadableCodeObject *)metadataMachineObject {
-    NSLog(@"扫描结果----%@",metadataMachineObject);
-}
 
 
 

@@ -78,18 +78,20 @@
 		6E871E5720DC8D520051E570 /* noting_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E871E5220DC8D510051E570 /* noting_img@3x.png */; };
 		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
 		6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E95A4F820EDAB7C004DB322 /* QMViewController.m */; };
-		6EB292322105763E00016B71 /* CJSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB292312105763E00016B71 /* CJSubView.m */; };
+		6E9BDF9D2111851B0075E31F /* CJRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BDF9C2111851B0075E31F /* CJRateView.m */; };
+		6EB2F51A2112F5A20075DED4 /* CJRateView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EB2F5192112F5A20075DED4 /* CJRateView.bundle */; };
 		6EB3687A21016B33008D3486 /* CJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3687921016B33008D3486 /* CJNavigationBar.m */; };
 		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
 		6EB772C020FEF11500ED0519 /* sources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EB772BF20FEF11500ED0519 /* sources.bundle */; };
+		6EB9E709211040AA009BC84B /* UIWindowModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9E708211040AA009BC84B /* UIWindowModalViewController.m */; };
 		6EDF41F720F873C7000B3A67 /* CJTableViewIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF41F620F873C7000B3A67 /* CJTableViewIndex.m */; };
 		6EE58EAC20F2F24F00EF811F /* CJSnipImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */; };
 		6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAF20F335C800EF811F /* CJCropBoxView.m */; };
 		6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */; };
-		6EF021932106C47500785B7F /* CJAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF021922106C47500785B7F /* CJAdViewController.m */; };
 		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 		6EF3027320F6E5A40080EEE3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */; };
 		6EF3027620F6F0310080EEE3 /* NSObject+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3027520F6F0310080EEE3 /* NSObject+CJCategory.m */; };
+		6EF9D1D7210B17470048199F /* CJRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9D1D6210B17470048199F /* CJRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,8 +228,9 @@
 		6E871E5C20DCA7890051E570 /* CJAppearanceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAppearanceView.m; sourceTree = "<group>"; };
 		6E95A4F720EDAB7C004DB322 /* QMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMViewController.h; sourceTree = "<group>"; };
 		6E95A4F820EDAB7C004DB322 /* QMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMViewController.m; sourceTree = "<group>"; };
-		6EB292302105763E00016B71 /* CJSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJSubView.h; sourceTree = "<group>"; };
-		6EB292312105763E00016B71 /* CJSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJSubView.m; sourceTree = "<group>"; };
+		6E9BDF9B2111851B0075E31F /* CJRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRateView.h; sourceTree = "<group>"; };
+		6E9BDF9C2111851B0075E31F /* CJRateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRateView.m; sourceTree = "<group>"; };
+		6EB2F5192112F5A20075DED4 /* CJRateView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CJRateView.bundle; sourceTree = "<group>"; };
 		6EB3687821016B33008D3486 /* CJNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationBar.h; sourceTree = "<group>"; };
 		6EB3687921016B33008D3486 /* CJNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJNavigationBar.m; sourceTree = "<group>"; };
 		6EB63A1920E3300E005471F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		6EB63A2620E37E7E005471F4 /* CJCollecitonViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCollecitonViewFlowLayout.h; sourceTree = "<group>"; };
 		6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCollecitonViewFlowLayout.m; sourceTree = "<group>"; };
 		6EB772BF20FEF11500ED0519 /* sources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = sources.bundle; sourceTree = "<group>"; };
+		6EB9E707211040AA009BC84B /* UIWindowModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIWindowModalViewController.h; sourceTree = "<group>"; };
+		6EB9E708211040AA009BC84B /* UIWindowModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIWindowModalViewController.m; sourceTree = "<group>"; };
 		6EDF41F520F873C7000B3A67 /* CJTableViewIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJTableViewIndex.h; sourceTree = "<group>"; };
 		6EDF41F620F873C7000B3A67 /* CJTableViewIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTableViewIndex.m; sourceTree = "<group>"; };
 		6EE58EAA20F2F24F00EF811F /* CJSnipImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJSnipImageView.h; sourceTree = "<group>"; };
@@ -243,14 +248,14 @@
 		6EE58EAF20F335C800EF811F /* CJCropBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCropBoxView.m; sourceTree = "<group>"; };
 		6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRollingAdView.h; sourceTree = "<group>"; };
 		6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRollingAdView.m; sourceTree = "<group>"; };
-		6EF021912106C47500785B7F /* CJAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJAdViewController.h; sourceTree = "<group>"; };
-		6EF021922106C47500785B7F /* CJAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAdViewController.m; sourceTree = "<group>"; };
 		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
 		6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJMarqueeLabel.m; sourceTree = "<group>"; };
 		6EF3027120F6E5A30080EEE3 /* SearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		6EF3027420F6F0310080EEE3 /* NSObject+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CJCategory.h"; sourceTree = "<group>"; };
 		6EF3027520F6F0310080EEE3 /* NSObject+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CJCategory.m"; sourceTree = "<group>"; };
+		6EF9D1D5210B17470048199F /* CJRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRequest.h; sourceTree = "<group>"; };
+		6EF9D1D6210B17470048199F /* CJRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRequest.m; sourceTree = "<group>"; };
 		C0DFBF164F28286A3C352259 /* libPods-CJModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJModule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -312,14 +317,14 @@
 				6E871E5C20DCA7890051E570 /* CJAppearanceView.m */,
 				6E871D9120DC7E650051E570 /* ViewController.h */,
 				6E871D9220DC7E650051E570 /* ViewController.m */,
-				6EB292302105763E00016B71 /* CJSubView.h */,
-				6EB292312105763E00016B71 /* CJSubView.m */,
-				6EF021912106C47500785B7F /* CJAdViewController.h */,
-				6EF021922106C47500785B7F /* CJAdViewController.m */,
 				6EB3687821016B33008D3486 /* CJNavigationBar.h */,
 				6EB3687921016B33008D3486 /* CJNavigationBar.m */,
 				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
 				6E1F7DB420E097BF0060E20C /* ModalViewController.m */,
+				6EB9E707211040AA009BC84B /* UIWindowModalViewController.h */,
+				6EB9E708211040AA009BC84B /* UIWindowModalViewController.m */,
+				6EF9D1D5210B17470048199F /* CJRequest.h */,
+				6EF9D1D6210B17470048199F /* CJRequest.m */,
 				6EF3027120F6E5A30080EEE3 /* SearchResultViewController.h */,
 				6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */,
 				6E95A4F720EDAB7C004DB322 /* QMViewController.h */,
@@ -357,6 +362,7 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6E9BDF9A211183FA0075E31F /* CJRateView */,
 				6EDF41F420F8525F000B3A67 /* CJTableViewIndex */,
 				6EE58EA920F2F22200EF811F /* CJSnipImageView */,
 				6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */,
@@ -597,6 +603,16 @@
 			path = CJEmptyDataSetDelegate;
 			sourceTree = "<group>";
 		};
+		6E9BDF9A211183FA0075E31F /* CJRateView */ = {
+			isa = PBXGroup;
+			children = (
+				6EB2F5192112F5A20075DED4 /* CJRateView.bundle */,
+				6E9BDF9B2111851B0075E31F /* CJRateView.h */,
+				6E9BDF9C2111851B0075E31F /* CJRateView.m */,
+			);
+			name = CJRateView;
+			sourceTree = "<group>";
+		};
 		6EB63A2520E37E43005471F4 /* CJCollectionViewFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +725,7 @@
 				6E871E3320DC8BE50051E570 /* CJProgressHUD.bundle in Resources */,
 				6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */,
 				6EB772C020FEF11500ED0519 /* sources.bundle in Resources */,
+				6EB2F51A2112F5A20075DED4 /* CJRateView.bundle in Resources */,
 				6E871E5620DC8D520051E570 /* noting_img@2x.png in Resources */,
 				6E871D9B20DC7E690051E570 /* LaunchScreen.storyboard in Resources */,
 				6E871D9820DC7E690051E570 /* Assets.xcassets in Resources */,
@@ -780,6 +797,7 @@
 				6E871E0A20DC88F30051E570 /* CJPickerContainerDate.m in Sources */,
 				6E871E0D20DC88F30051E570 /* CJPickerView.m in Sources */,
 				6E871DFC20DC88C00051E570 /* CJReplicatorRotateLodingView.m in Sources */,
+				6E9BDF9D2111851B0075E31F /* CJRateView.m in Sources */,
 				6E871E0020DC88D50051E570 /* CJMenuView.m in Sources */,
 				6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */,
 				6E871DD220DC84580051E570 /* NSDictionary+CJCategory.m in Sources */,
@@ -795,7 +813,6 @@
 				6E871E2820DC894B0051E570 /* CJGenerateQRCodeManager.m in Sources */,
 				6E871DCC20DC84580051E570 /* NSTimer+CJCategory.m in Sources */,
 				6E871E4920DC8D3A0051E570 /* CJAsset.m in Sources */,
-				6EF021932106C47500785B7F /* CJAdViewController.m in Sources */,
 				6E871E2920DC894B0051E570 /* CJPlaySoundTool.m in Sources */,
 				6E871E4B20DC8D3A0051E570 /* CJPhotoLibraryManager.m in Sources */,
 				6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */,
@@ -804,6 +821,7 @@
 				6E871E0B20DC88F30051E570 /* CJPickerContainerView.m in Sources */,
 				6E871E2620DC894B0051E570 /* CJScanQRCodeView.m in Sources */,
 				6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */,
+				6EF9D1D7210B17470048199F /* CJRequest.m in Sources */,
 				6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */,
 				6E871DDB20DC84580051E570 /* UILabel+CJCategory.m in Sources */,
 				6E871DD520DC84580051E570 /* NSString+CJCategory.m in Sources */,
@@ -824,13 +842,13 @@
 				6E12828520EDF1C900D84E9D /* TransformViewController.m in Sources */,
 				6E871E3A20DC8D230051E570 /* YTKUrlFilterArguments.m in Sources */,
 				6E871DCD20DC84580051E570 /* UISearchBar+CJCategory.m in Sources */,
+				6EB9E709211040AA009BC84B /* UIWindowModalViewController.m in Sources */,
 				6E871E1620DC890A0051E570 /* CJPieProgressView.m in Sources */,
 				6E871DD920DC84580051E570 /* UIImage+CJCategory.m in Sources */,
 				6E871E2D20DC89760051E570 /* CJTagsFlowLayoutView.m in Sources */,
 				6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */,
 				6E871E5320DC8D520051E570 /* CJEmptyDataSetDelegate.m in Sources */,
 				6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */,
-				6EB292322105763E00016B71 /* CJSubView.m in Sources */,
 				6E871DD420DC84580051E570 /* UINavigationController+CJCategory.m in Sources */,
 				6E871E4A20DC8D3A0051E570 /* CJAssetCollection.m in Sources */,
 				6EF3027620F6F0310080EEE3 /* NSObject+CJCategory.m in Sources */,

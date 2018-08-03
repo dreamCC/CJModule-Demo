@@ -144,8 +144,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.alpha = 1.f;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 -(void)indexValueChange:(CJTableViewIndex *)tableViewIndex {

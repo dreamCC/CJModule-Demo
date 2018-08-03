@@ -22,8 +22,9 @@
 #import "CJBarbuttonItem.h"
 #import <YYKit.h>
 #import "CJNavigationBar.h"
-#import "CJSubView.h"
-
+#import "CJRequest.h"
+#import "UIWindowModalViewController.h"
+#import "CJRateView.h"
 
 @interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
     NSMutableArray *_imagesAry;
@@ -36,20 +37,23 @@
     UIBarButtonItem *_barButtonItem;
     UINavigationItem *_item1;
     CGFloat _alpha;
-    CJSubView *_subView;
+    
+    NSURLSession *_urlSession;
+    
 }
 
 
 
 @property(nonatomic, strong) UIWindow *windo;
 
+@property(nonatomic, strong) QMUIModalPresentationViewController *presentation;
 
 
 @end
 
 @implementation ViewController {
     QMUIEmotionInputManager *_manager;
-    
+    CJRateView *_rateView;
 }
 
 -(void)loadView {
@@ -152,34 +156,65 @@
         NSLog(@"%@",obj);
     }];
     
-    
-    _subView = [[CJSubView alloc] initWithFrame:CGRectMake(10, 500, 100, 50)];
-    _subView.backgroundColor = [UIColor magentaColor];
-    [self.view addSubview:_subView];
-    [_subView addObserver:self forKeyPath:@"cj_color" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+
    
     
     self.navigationItem.title = @"firsTitle";
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor cyanColor]] forBarMetrics:UIBarMetricsDefault];
+    
+    // http://aixue.whrhkj.com/mobile/cityTree
 
     self.navigationController.tabBarItem.badgeValue = @"2";
     
     self.navigationController.tabBarController.tabBar.backgroundColor = [UIColor purpleColor];
     
+    NSLog(@"%@",NSHomeDirectory());
+    
+
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    //config.requestCachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    
+    config.timeoutIntervalForRequest = 2;
+    config.allowsCellularAccess = YES;
+    config.HTTPAdditionalHeaders = @{};
+    
+    
+    _urlSession = [NSURLSession sessionWithConfiguration:config];
+    
+   
+    
+
+    CJRateView *rateView = [[CJRateView alloc] initWithFrame:CGRectMake(100, 450, 0, 0)];
+
+    rateView.backgroundColor = [UIColor purpleColor];
+    [self.view addSubview:rateView];
+
+    [rateView addTarget:self action:@selector(rateChange:) forControlEvents:UIControlEventValueChanged];
+    
+    _rateView = rateView;
 
 }
 
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    NSLog(@"%@--%@",keyPath,change);
+-(void)rateChange:(CJRateView *)rateView {
+    NSLog(@"---%f",rateView.currentRate);
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
- 
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
+}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 
@@ -189,10 +224,12 @@
             view.backgroundColor = [UIColor purpleColor];
         }
     }
+   
     
-    UIView *backgroundView = [self.tabBarController.tabBar valueForKey:@"backgroundView"];
     
-    backgroundView.hidden = YES;
+//    QMViewController *qm_vc = [[QMViewController alloc] init];
+//
+//    [self.navigationController pushViewController:qm_vc animated:YES];
 
 
 
@@ -204,6 +241,12 @@
 //    self.navigationController.navigationBar.backgroundColor = [UIColor purpleColor];
 
     
+    
+//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    for (NSHTTPCookie *cookie in storage.cookies) {
+//        NSLog(@"%@-%@-%@",cookie.expiresDate,cookie.value,cookie.name);
+//    }
+
     
     
 }
@@ -232,19 +275,49 @@
 -(void)leftItemClick:(UIBarButtonItem *)item {
     
 
-//    ModalViewController *modal = [ModalViewController new];
-    
-    //[self.navigationController pushViewController:modal animated:YES];
+    ModalViewController *modal = [ModalViewController new];
 
-    
-    QMViewController *qm_vc = [[QMViewController alloc] init];
+    [self.navigationController pushViewController:modal animated:YES];
 
-    [self.navigationController pushViewController:qm_vc animated:YES];
+//    UIWindowModalViewController *windoModal = [[UIWindowModalViewController alloc] init];
+//
+//    QMUIModalPresentationViewController *presentation = [[QMUIModalPresentationViewController alloc] init];
+//    presentation.contentViewController = windoModal;
+//    presentation.animationStyle = QMUIModalPresentationAnimationStyleSlide;
+//    [presentation showWithAnimated:YES completion:^(BOOL finished) {
+//
+//    }];
+    
+//    _windo = [[UIWindow alloc] initWithFrame:self.view.bounds];
+//    _windo.rootViewController = windoModal;
+//    _windo.hidden = NO;
+    
+    
+//    QMViewController *qm_vc = [[QMViewController alloc] init];
+//
+//    [self.navigationController pushViewController:qm_vc animated:YES];
  
    // [self.navigationController setViewControllers:@[modal,qm_vc] animated:NO];
-
     
-
+//    //http://blog.cnrainbird.com
+//    //http://aixue.whrhkj.com/app/index/appcheck
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+//
+//    //request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+//    request.timeoutInterval = 5;
+//    //request.HTTPMethod = @"POST";
+//
+//    NSURLCache *cache = [NSURLCache sharedURLCache];
+//
+//    NSCachedURLResponse *cacheResponse = [cache cachedResponseForRequest:request];
+//    if (cacheResponse) {
+//        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)cacheResponse.response;
+//        NSLog(@"%@",httpResponse.allHeaderFields);
+//        NSLog(@"cacheData----%@",[NSJSONSerialization JSONObjectWithData:cacheResponse.data options:kNilOptions error:nil]);
+//    }
+//
+//    request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+ 
 }
 
 -(QMUIImagePickerViewController *)imagePickerViewControllerForAlbumViewController:(QMUIAlbumViewController *)albumViewController {
@@ -261,6 +334,8 @@
 -(void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didSelectImageWithImagesAsset:(QMUIAsset *)imageAsset afterImagePickerPreviewViewControllerUpdate:(QMUIImagePickerPreviewViewController *)imagePickerPreviewViewController {
     
     NSLog(@"didSelectImageWithImagesAsset-%@",imagePickerPreviewViewController);
+    
+   
     
 }
 
