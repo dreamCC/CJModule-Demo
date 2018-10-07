@@ -8,28 +8,31 @@
 
 #import "CJCollecitonViewFlowLayout.h"
 
+@interface CJCollecitonViewFlowLayout()
+
+@property(nonatomic,assign) NSInteger itemCount;
+
+@end
+
 @implementation CJCollecitonViewFlowLayout
 
 -(void)prepareLayout {
     [super prepareLayout];
-    
+    self.itemCount = [self.collectionView numberOfItemsInSection:0];
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.minimumLineSpacing = 0.f;
 }
 
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    return YES;
+    return !CGSizeEqualToSize(self.collectionView.bounds.size, newBounds.size);
 }
 
 /// 自动调用，其调用频率受-shouldInvalidateLayoutForBoundsChange影响。
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray<UICollectionViewLayoutAttributes *> *attrAry = @[].mutableCopy;
-    NSInteger count = [self.collectionView numberOfItemsInSection:0];
-    for (NSInteger i = 0,j =  count; i < j; i++) {
-
+    for (NSInteger i = 0,j =  _itemCount; i < j; i++) {
         UICollectionViewLayoutAttributes *attr =  [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         [attrAry addObject:attr];
-
     }
     return attrAry;
 }

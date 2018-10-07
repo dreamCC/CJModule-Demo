@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qUV-ny-BMF"/>
-                        <viewControllerLayoutGuide type="bottom" id="7af-2T-039"/>
+                        <viewControllerLayoutGuide type="top" id="xMn-oZ-Ce4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zad-E2-S7F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -28,7 +28,7 @@
                         <color key="backgroundColor" red="0.54462348090000001" green="0.75664605029999998" blue="0.74970160590000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hjA-K0-GPf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Q23-sM-a4e"/>
-                            <constraint firstItem="7af-2T-039" firstAttribute="top" secondItem="hjA-K0-GPf" secondAttribute="bottom" id="bIH-WE-vy1"/>
+                            <constraint firstItem="zad-E2-S7F" firstAttribute="top" secondItem="hjA-K0-GPf" secondAttribute="bottom" id="bIH-WE-vy1"/>
                             <constraint firstItem="hjA-K0-GPf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="sJI-Y1-Pry"/>
                             <constraint firstAttribute="trailing" secondItem="hjA-K0-GPf" secondAttribute="trailing" id="wyt-nf-Y4q"/>
                         </constraints>

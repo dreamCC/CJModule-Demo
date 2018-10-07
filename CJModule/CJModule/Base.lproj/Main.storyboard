@@ -89,7 +89,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GxR-Qu-g9o">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r3e-JQ-wnY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r3e-JQ-wnY" customClass="CJNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="m0K-lW-SH2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VCA-Bi-ED3">
@@ -127,7 +127,7 @@
         <!--Navigation Controller-->
         <scene sceneID="A6p-42-QGa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j78-gl-hvs" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j78-gl-hvs" customClass="CJNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="GmV-X1-dvY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ptf-h4-g7I">

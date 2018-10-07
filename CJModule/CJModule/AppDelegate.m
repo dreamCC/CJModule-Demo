@@ -48,12 +48,6 @@
     manager.shouldShowToolbarPlaceholder = YES;
     manager.keyboardDistanceFromTextField = 20.f;
 
-//    UIWindow *adWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    
-//    adWindow.rootViewController = [CJAdViewController new];
-//    adWindow.windowLevel = UIWindowLevelAlert;
-//    adWindow.hidden = NO;
-//    _adWindow = adWindow;
     
 
     

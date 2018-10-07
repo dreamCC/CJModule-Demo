@@ -8,7 +8,6 @@
 
 #import "CJTagsFlowLayoutView.h"
 
-#define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
 
 static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
     if (!string) return 0.f;
@@ -78,7 +77,7 @@ static CGFloat CJStringWidth(NSString *string, UIFont *font, CGFloat height) {
         CGFloat tagView_x = 0;
         CGFloat tagView_y = 0;
         CGFloat totalLength = i == 0?((CGRectGetMaxX(previousFrame) + subTitleWidths[i].floatValue)):(CGRectGetMaxX(previousFrame) + _cj_space_horizontal + subTitleWidths[i].floatValue);
-        if (totalLength >= kScreenWidth) {
+        if (totalLength >= CGRectGetWidth(self.frame)) {
             
             tagView_x = _cj_margin;
             tagView_y = CGRectGetMaxY(previousFrame) + _cj_space_vertical;

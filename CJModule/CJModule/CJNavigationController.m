@@ -26,9 +26,7 @@
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
 
-    NSLog(@"%@",viewController);
-    NSLog(@"%@",self.topViewController);
-    NSLog(@"%@",self.viewControllers);
+
     
     if (viewController == self.topViewController) {
         return;

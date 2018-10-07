@@ -64,12 +64,12 @@
         dispatch_once(&onceToken, ^{
             isSystemVersionEqualOrGreaterThen10_2 = [UIDevice.currentDevice.systemVersion compare:@"10.2" options:NSNumericSearch] != NSOrderedAscending;
         });
-        
+
         NSArray<NSLayoutConstraint *> *edgeConstraints;
         if (isSystemVersionEqualOrGreaterThen10_2) {
             // To avoid confilicts, make width constraint softer than required (1000)
             widthFenceConstraint.priority = UILayoutPriorityRequired - 1;
-            
+
             // Build edge constraints
             NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:cell.contentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
             NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:cell.contentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:cell attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
@@ -78,21 +78,20 @@
             edgeConstraints = @[leftConstraint, rightConstraint, topConstraint, bottomConstraint];
             [cell addConstraints:edgeConstraints];
         }
-        
-        [cell.contentView addConstraint:widthFenceConstraint];
 
+        [cell.contentView addConstraint:widthFenceConstraint];
+    
         // Auto layout engine does its math
         fittingHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        
         // Clean-ups
         [cell.contentView removeConstraint:widthFenceConstraint];
         if (isSystemVersionEqualOrGreaterThen10_2) {
             [cell removeConstraints:edgeConstraints];
         }
-        
+
         [self fd_debugLog:[NSString stringWithFormat:@"calculate using system fitting size (AutoLayout) - %@", @(fittingHeight)]];
     }
-    
+
     if (fittingHeight == 0) {
 #if DEBUG
         // Warn if using AutoLayout but get zero height.
@@ -155,7 +154,7 @@
     UITableViewCell *templateLayoutCell = [self fd_templateCellForReuseIdentifier:identifier];
     
     // Manually calls to ensure consistent behavior with actual cells. (that are displayed on screen)
-    [templateLayoutCell prepareForReuse];
+    //[templateLayoutCell prepareForReuse];
     
     // Customize and provide content for our template cell.
     if (configuration) {
@@ -169,15 +168,20 @@
     if (!identifier || !indexPath) {
         return 0;
     }
+
     
     // Hit cache
     if ([self.fd_indexPathHeightCache existsHeightAtIndexPath:indexPath]) {
         [self fd_debugLog:[NSString stringWithFormat:@"hit cache by index path[%@:%@] - %@", @(indexPath.section), @(indexPath.row), @([self.fd_indexPathHeightCache heightForIndexPath:indexPath])]];
+        //NSLog(@"existsHeightAtIndexPath-%@",self.fd_indexPathHeightCache);
+
         return [self.fd_indexPathHeightCache heightForIndexPath:indexPath];
     }
     
+
     CGFloat height = [self fd_heightForCellWithIdentifier:identifier configuration:configuration];
     [self.fd_indexPathHeightCache cacheHeight:height byIndexPath:indexPath];
+    //NSLog(@"don'texistsHeightAtIndexPath-%f",height);
     [self fd_debugLog:[NSString stringWithFormat: @"cached by index path[%@:%@] - %@", @(indexPath.section), @(indexPath.row), @(height)]];
     
     return height;

@@ -135,6 +135,7 @@ static QMUIModalPresentationViewController *appearance;
     }
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -499,6 +500,7 @@ static QMUIModalPresentationViewController *appearance;
     [self beginAppearanceTransition:YES animated:animated];
     [view addSubview:self.view];
     [self endAppearanceTransition];
+
 }
 
 - (void)hideInView:(UIView *)view animated:(BOOL)animated completion:(void (^)(BOOL))completion {

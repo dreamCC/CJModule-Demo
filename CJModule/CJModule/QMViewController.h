@@ -7,7 +7,9 @@
 //
 
 #import "QMUICommonViewController.h"
+#import <QMUIKit/QMUIKit.h>
 
-@interface QMViewController : QMUICommonViewController
+
+@interface QMViewController : QMUICommonViewController<QMUIModalPresentationContentViewControllerProtocol>
 
 @end

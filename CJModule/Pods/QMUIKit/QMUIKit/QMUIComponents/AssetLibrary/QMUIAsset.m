@@ -188,7 +188,7 @@ static NSString * const kAssetInfoSize = @"size";
             completion(nil, nil, NO, NO);
         }
         return;
-    }
+    } 
     __weak __typeof(self)weakSelf = self;
     if (!self.phAssetInfo) {
         // PHAsset 的 UIImageOrientation 需要调用过 requestImageDataForAsset 才能获取

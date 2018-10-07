@@ -54,6 +54,7 @@
             }
         });
         
+     
         
         // 针对 UITabBarItem，负责将红点添加上去
         ExtendImplementationOfVoidMethodWithSingleArgument([UITabBarItem class], @selector(setView:), UIView *, ^(UITabBarItem *selfObject, UIView *firstArgv) {
