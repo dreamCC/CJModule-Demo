@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QMUIKit.h>
 
-@interface CJNavigationController : QMUINavigationController
+@interface CJNavigationController : UINavigationController
 
 @end

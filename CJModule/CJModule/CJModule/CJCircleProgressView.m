@@ -29,6 +29,7 @@
     return self;
 }
 
+
 +(BOOL)needsDisplayForKey:(NSString *)key {
     return [key isEqualToString:@"layerProgress"] || [super needsDisplayForKey:key];
 }

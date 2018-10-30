@@ -123,7 +123,6 @@
 
 
 
-
 -(BOOL)cj_pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     CGRect newRect = [self cj_responseRect];
     if (CGRectEqualToRect(newRect, self.bounds)) {

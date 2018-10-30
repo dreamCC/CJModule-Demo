@@ -16,6 +16,7 @@
 #import "ViewController.h"
 #import <IQKeyboardManager.h>
 #import "QMViewController.h"
+#import "EmptyDataSetManager.h"
 
 @interface AppDelegate ()
 
@@ -26,8 +27,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  
+    
 
+    [EmptyDataSetManager appearance].image = [UIImage imageNamed:@"no_resource"];
+    [EmptyDataSetManager appearance].title = @"CocoaChina_让移动开发更简单!!";
+    [EmptyDataSetManager appearance].titleAttibutes = @{NSForegroundColorAttributeName:[UIColor purpleColor]};
+    [EmptyDataSetManager appearance].message = @"CocoaChina_让移动开发更简单!!CocoaChina_让移动开发更简单!!";
+    [EmptyDataSetManager appearance].messageAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+    [EmptyDataSetManager appearance].buttonTitle = @"重新加载";
+    [EmptyDataSetManager appearance].buttonTitleAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor]};
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray size:CGSizeMake(50, 50)];
+    [indicator startAnimating];
+    [EmptyDataSetManager appearance].customView = indicator;
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    animation.repeatCount = HUGE;
+    animation.duration = 2.f;
+    animation.toValue = @(AngleWithDegrees(360));
+    [EmptyDataSetManager appearance].imageAnimation = animation;
+    
     
     [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"log"];
     [[QMUILogger sharedInstance].logNameManager setEnabled:YES forLogName:@"info"];

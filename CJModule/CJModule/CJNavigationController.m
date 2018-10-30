@@ -8,7 +8,9 @@
 
 #import "CJNavigationController.h"
 
-@interface CJNavigationController ()
+@interface CJNavigationController ()<UINavigationControllerDelegate> {
+    BOOL _isPushing;
+}
 
 @end
 
@@ -17,32 +19,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    UINavigationBar *naviBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 40)];
-//    
-//    naviBar.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:naviBar];
-    
+
+    self.delegate = self;
 }
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
 
-
     
-    if (viewController == self.topViewController) {
+    if (_isPushing) {
         return;
     }
+    
+    _isPushing = YES;
     viewController.hidesBottomBarWhenPushed = YES;
     
 //    self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"-hot"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
     
     self.topViewController.navigationItem.hidesBackButton = YES;
-    
     viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.topViewController.navigationItem.title style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
 
     [super pushViewController:viewController animated:animated];
     
 
 
+}
+
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    _isPushing = NO;
 }
 
 
@@ -52,11 +55,8 @@
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
 
-    NSLog(@"%@",self.topViewController);
-    NSLog(@"%@",self.viewControllers);
-    
+
     UIViewController *vc =  [super popViewControllerAnimated:animated];
-    NSLog(@"%@",vc);
     return vc;
 }
 

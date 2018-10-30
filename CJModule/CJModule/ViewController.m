@@ -22,13 +22,16 @@
 #import "CJBarbuttonItem.h"
 #import <YYKit.h>
 #import "CJNavigationBar.h"
-#import "CJRequest.h"
 #import "UIWindowModalViewController.h"
 #import "CJRateView.h"
 #import <Masonry.h>
 #import "UICountingLabel.h"
 #import "CJCountingLable.h"
 #import "SPScrollNumLabel.h"
+#import <YTKNetwork.h>
+#import <AFNetworking.h>
+#import "CJBaseRequest.h"
+#import <QuickLook/QuickLook.h>
 
 @interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
     NSMutableArray *_imagesAry;
@@ -42,8 +45,9 @@
     UINavigationItem *_item1;
     CGFloat _alpha;
     
-    NSURLSession *_urlSession;
-    SPScrollNumLabel *_scrollNumLab;
+    
+    YYAnimatedImageView *_yy_imageV;
+ 
 }
 
 
@@ -68,12 +72,9 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
-    UILabel *titleLab = [[UILabel alloc] init];
-    titleLab.text = @"titleLab";
-    titleLab.backgroundColor = [UIColor cyanColor];
-    [titleLab sizeToFit];
+   
     _barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"左边" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemClick:)];
-//    _barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:titleLab];
+
     self.navigationItem.leftBarButtonItem = _barButtonItem;
     QMUINavigationTitleView *titleV = [[QMUINavigationTitleView alloc] initWithStyle:QMUINavigationTitleViewStyleDefault];
     titleV.needsLoadingView = YES;
@@ -81,7 +82,7 @@
     titleV.userInteractionEnabled = YES;
     titleV.title = @"nTitleView";
     titleV.accessoryType = QMUINavigationTitleViewAccessoryTypeDisclosureIndicator;
-
+    titleV.backgroundColor = [UIColor purpleColor];
 
     
     QMUIAssetsManager *assetManager = [QMUIAssetsManager sharedInstance];
@@ -95,65 +96,98 @@
     }];
 
     CJSnipImageView *snipImageView = [[CJSnipImageView alloc] init];
-    
+   
     snipImageView.frame = CGRectMake(10, 100, self.view.qmui_width - 20, 300);
     snipImageView.zoomImageView.image = [UIImage imageNamed:@"image0"];
     [self.view addSubview:snipImageView];
     _snipImageV = snipImageView;
     
-    
-    
-    UINavigationItem *item1 = [[UINavigationItem alloc] initWithTitle:@"naviagtionItem"];
-    item1.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"左边" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemClick:)];
-    _item1 = item1;
 
-    self.navigationItem.titleView = titleLab;
+
+    UILabel *titleLab = [[UILabel alloc] init];
+    titleLab.text = @"titleLab";
+    titleLab.backgroundColor = [UIColor cyanColor];
+    titleLab.frame = CGRectMake(0, 0, 100, 50);
+    self.navigationItem.titleView = titleV;
     
     [[PHAsset cj_ivarNames] enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"%@",obj);
     }];
     
-    
    
     
-    self.navigationItem.title = @"firsTitle";
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:[UIColor cyanColor]] forBarMetrics:UIBarMetricsDefault];
-    
+//    self.navigationItem.title = @"标题1";
 
-    self.navigationController.tabBarItem.badgeValue = @"2";
-    
-    self.navigationController.tabBarController.tabBar.backgroundColor = [UIColor purpleColor];
     
     NSLog(@"%@",NSHomeDirectory());
-    
-    
 
     
-    SPScrollNumLabel *scrollNum = [[SPScrollNumLabel alloc] initWithFrame:CGRectMake(20, 500, 100, 40)];
-    scrollNum.targetNumber = 10;
-    [self.view addSubview:scrollNum];
-    _scrollNumLab  = scrollNum;
+    UIImage *img = [UIImage imageNamed:@"DefaultLS.png"];
     
- 
+    
+    CGImageRef imgRef = img.CGImage;
+    NSLog(@"%@",imgRef);
+    
+    if (@available(iOS 9.0, *)) {
+        NSLog(@"UTType-%@",CGImageGetUTType(imgRef));
+    } else {
+        
+    }
+    NSLog(@"%zu",CGImageGetWidth(imgRef));
+    NSLog(@"%d",CGImageGetBitmapInfo(imgRef));
+    
+    
+    CGImageRef copyImgRef = CGImageCreateCopy(imgRef);
+    
+    if (@available(iOS 9.0, *)) {
+        NSLog(@"UTType-%@",CGImageGetUTType(copyImgRef));
+    } else {
+        
+    }
+    NSLog(@"%zu",CGImageGetWidth(copyImgRef));
+    NSLog(@"%d",CGImageGetBitmapInfo(copyImgRef));
+    
+    YYAnimatedImageView *imgV = [[YYAnimatedImageView alloc] init];
+    imgV.backgroundColor = [UIColor lightGrayColor];
+    imgV.image = [self grayImageWithImage:[UIImage imageNamed:@"image0.png"]];
+    [self.view addSubview:imgV];
+    _yy_imageV = imgV;
+    [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(snipImageView.mas_bottom).offset(20);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+    
+    NSString *imagePath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"resources.bundle/no_resource.png"];
+    NSLog(@"%@",imagePath);
+
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    
+    
+    NSLog(@"%@",image);
+  
 }
 
+-(UIImage *)grayImageWithImage:(UIImage *)image {
+    CGImageRef imageRef = CGImageCreateCopyWithColorSpace(image.CGImage, CGColorSpaceCreateDeviceRGB());
+    UIImage *grayImage = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
 
-
--(void)rateChange:(CJRateView *)rateView {
-    NSLog(@"---%f",rateView.currentRate);
+    return grayImage;
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
+    
+    
+  
 }
 
 -(void)viewDidLayoutSubviews {
@@ -163,6 +197,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
  
+    
 }
 
 
@@ -207,15 +242,21 @@
 //    [self.navigationController pushViewController:transV animated:YES];
 
     
-//    QMViewController *qm_vc = [[QMViewController alloc] init];
+    QMViewController *qm_vc = [[QMViewController alloc] init];
 
 
-//    [self.navigationController pushViewController:qm_vc animated:YES];
+    [self.navigationController pushViewController:qm_vc animated:YES];
+
     
-    
- 
+//    CJBaseRequest *baseRequest = [[CJBaseRequest alloc] init];
+//    [baseRequest startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"success-%@",request.responseJSONObject);
+//    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"erroro");
+//    }];
+
+  
 }
-
 
 
 -(QMUIImagePickerViewController *)imagePickerViewControllerForAlbumViewController:(QMUIAlbumViewController *)albumViewController {

@@ -8,8 +8,10 @@
 
 #import "TransformViewController.h"
 #import <Masonry.h>
-@interface TransformViewController ()
-
+@interface TransformViewController ()<UIWebViewDelegate>
+{
+    NSURLRequest *_req;
+}
 @end
 
 @implementation TransformViewController
@@ -19,17 +21,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.5.7/upload/recite/76ae5e9740d09aaa8d7950b5adba9155.doc"];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    UIWebView *webV = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webV.delegate = self;
+    [webV loadRequest:req];
+    [self.view addSubview:webV];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidFinishLoad");
+
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"%@",error);
+}
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.navigationController popViewControllerAnimated:YES];
     
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
-    
-    UIWebView *webView = [[UIWebView alloc] init];
-    [webView loadRequest:request];
-    [self.view addSubview:webView];
-    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
 }
 
 

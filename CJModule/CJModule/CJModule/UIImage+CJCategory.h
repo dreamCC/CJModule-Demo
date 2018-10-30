@@ -131,6 +131,14 @@
  @return 处理后图片
  */
 -(UIImage *)cj_imageWithCornerRadius:(CGFloat)cornerRadius boardWide:(CGFloat)boardWide boardColor:(UIColor *)boardColor;
+
+
+/**
+ 修复图片的方向显示错乱问题。一般：带有imageOriginal的图片，上传到服务器，在window上面显示会出现反转
+
+ @return 修复方向后的图片
+ */
+-(UIImage *)cj_fixOrientation;
 @end
 
 

@@ -19,9 +19,13 @@
 #import <Masonry.h>
 #import "QMTableViewCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "EmptyDataSetManager.h"
 
 
-@interface QMViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface QMViewController ()<UITableViewDelegate,UITableViewDataSource> {
+    EmptyDataSetManager *_emptyManager;
+}
 
 @property(nonatomic, strong) CJScanQRCodeManager *manager;
 
@@ -34,24 +38,44 @@
     [super viewDidLoad];
     NSLog(@"--viewDidLoad");
 
-    for (int i = 0, count = 20; i < count; i++) {
-        NSMutableString *mString = [NSMutableString string];
-        for (int j = 0; j <= i; j++) {
-            [mString appendString:@"CocoaChina_让移动开发更简单!!"];
-        }
-        [self.mAry addObject:mString];
-    }
+   
     
     self.view.backgroundColor = [UIColor lightGrayColor];
+    __weak typeof(self)weakSelf = self;
+    EmptyDataSetManager *emptyManager = [[EmptyDataSetManager alloc] init];
+  
+    emptyManager.emptyDataSetTapView = ^(UITableView * _Nonnull scrollView, UIView * _Nonnull tapView, EmptyDataSetManager * _Nonnull manager) {
+        NSLog(@"%@",tapView);
+        manager.showCustomView = !manager.isShowingCustomView;
+        manager.shouldBeForcedToDisplay = YES;
+        for (int i = 0, count = 20; i < count; i++) {
+            NSMutableString *mString = [NSMutableString string];
+            [mString appendString:@"CocoaChina_让移动开发更简单!!"];
+
+            [weakSelf.mAry addObject:mString];
+        }
+        [scrollView reloadEmptyDataSet];
+        [scrollView reloadData];
+
+    };
     
+    emptyManager.emptyDataSetTapButton = ^(__kindof UITableView * _Nonnull scrollView, UIButton * _Nonnull button, EmptyDataSetManager * _Nonnull manager) {
+        [manager updateEmptyDataSetImage:[UIImage imageNamed:@"no_network"] title:@"无网络" message:nil buttonTitle:@"查看网络->"];
+        manager.titleAttibutes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+        [scrollView reloadEmptyDataSet];
+    };
+    _emptyManager = emptyManager;
 
     UITableView *tableV = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableV.backgroundColor = [UIColor qmui_randomColor];
     tableV.delegate = self;
     tableV.dataSource = self;
+    tableV.emptyDataSetSource = emptyManager;
+    tableV.emptyDataSetDelegate = emptyManager;
     tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableV.sectionHeaderHeight = CGFLOAT_MIN;
     tableV.sectionFooterHeight = CGFLOAT_MIN;
+
     tableV.tableFooterView = [UIView new];
     tableV.indicatorStyle = UIScrollViewIndicatorStyleBlack;
     tableV.estimatedRowHeight = 0;
@@ -72,22 +96,6 @@
 }
 
 
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSLog(@"--viewWillAppear");
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"--viewDidAppear");
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.mAry.count;
 }
@@ -96,7 +104,6 @@
 
     QMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     cell.contentString = self.mAry[indexPath.row];
-    //NSLog(@"cellForRowAtIndexPath-%zd",indexPath.row);
     return cell;
 }
 
@@ -167,5 +174,8 @@ static BOOL is_applyTheme;
     return CGSizeMake(200, 400);
 }
 
+-(void)dealloc {
+    NSLog(@"%s",__func__);
+}
 
 @end
