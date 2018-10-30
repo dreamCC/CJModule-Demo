@@ -1,76 +1,89 @@
 //
 //  CJAsset.m
-//  CommonProject
+//  CJModule
 //
-//  Created by 仁和Mac on 2018/6/5.
+//  Created by 仁和Mac on 2018/9/14.
 //  Copyright © 2018年 zhucj. All rights reserved.
 //
 
 #import "CJAsset.h"
-#import "CJPhotoLibraryManager.h"
+#import "CJPhotoLibManager.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 
 @interface CJAsset()
 
 @property(nonatomic, strong, readwrite) PHAsset *asset;
-
+@property(nonatomic, assign, readwrite) CJAssetType assetType;
+@property(nonatomic, assign, readwrite) CJAssetSubType assetSubType;
 
 @end
 
 @implementation CJAsset
 
--(instancetype)initWithPHAsset:(PHAsset *)asset {
-    if (self = [super init]) {
+-(instancetype)initWithAsset:(PHAsset *)asset {
+    self = [super init];
+    if (self) {
         self.asset = asset;
     }
     return self;
 }
 
 
+
 -(UIImage *)originalImage {
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    options.synchronous  = YES;
     options.networkAccessAllowed = YES;
-    __block UIImage *resultImage;
-    [[CJPhotoLibraryManager sharePhotoLibraryManger].phCachingImageManager requestImageForAsset:self.asset
-                                                                                     targetSize:PHImageManagerMaximumSize
-                                                                                    contentMode:PHImageContentModeDefault
-                                                                                        options:options
-                                                                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                                                                      resultImage = result;
-                                                                                  }];
-    return resultImage;
-}
-
--(UIImage *)thumbImageWithSize:(CGSize)size {
+    options.synchronous = YES;
+    options.resizeMode = PHImageRequestOptionsResizeModeExact;
+    __block UIImage *originalImage;
+    [[CJPhotoLibManager shareInstance].phCachingImageManager requestImageForAsset:self.asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        originalImage = result;
+    }];
+    return originalImage;
     
-    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    options.synchronous  = YES;
-    options.networkAccessAllowed = YES;
-    __block UIImage *resultImage;
-    [[CJPhotoLibraryManager sharePhotoLibraryManger].phCachingImageManager requestImageForAsset:self.asset
-                                                                                     targetSize:size
-                                                                                    contentMode:PHImageContentModeAspectFit
-                                                                                        options:options
-                                                                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                                                                      resultImage = result;
-                                                                                  }];
-    return resultImage;
 }
 
--(UIImage *)previewImage {
+-(void)requestOriginalImageComplementhandle:(void(^)(UIImage *image, NSDictionary *info))complementhandle progressHandler:(PHAssetImageProgressHandler)progressHandler {
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    options.synchronous  = YES;
     options.networkAccessAllowed = YES;
-    __block UIImage *resultImage;
-    [[CJPhotoLibraryManager sharePhotoLibraryManger].phCachingImageManager requestImageForAsset:self.asset
-                                                                                     targetSize:[UIScreen mainScreen].bounds.size
-                                                                                    contentMode:PHImageContentModeAspectFit
-                                                                                        options:options
-                                                                                  resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-                                                                                      resultImage = result;
-                                                                                  }];
-    return resultImage;
+    options.resizeMode = PHImageRequestOptionsResizeModeExact;
+    options.progressHandler = progressHandler;
+    [[CJPhotoLibManager shareInstance].phCachingImageManager requestImageForAsset:self.asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        complementhandle(result, info);
+    }];
+}
+
+-(void)setAsset:(PHAsset *)asset {
+    _asset = asset;
+ 
+    switch (asset.mediaType) {
+        case PHAssetMediaTypeImage:
+        {
+            self.assetType = CJAssetTypeImage;
+            if ([[asset valueForKey:@"_uniformTypeIdentifier"] isEqualToString:CFBridgingRelease(kUTTypeGIF)]) {
+                self.assetSubType = CJAssetSubTypeGIF;
+            }else {
+                if (@available(iOS 9.1,*)) {
+                    if (asset.mediaSubtypes & PHAssetMediaSubtypePhotoLive) {
+                        self.assetSubType = CJAssetSubTypeLivePhoto;
+                    }else {
+                        self.assetSubType = CJAssetSubTypeImage;
+                    }
+                }else {
+                    self.assetSubType = CJAssetSubTypeImage;
+                }
+            }
+        }
+            break;
+        case PHAssetMediaTypeVideo:
+            self.assetType = CJAssetTypeVideo;
+            break;
+        case PHAssetMediaTypeAudio:
+            self.assetType = CJAssetTypeAudio;
+            break;
+        default:
+            break;
+    }
 }
 
 @end

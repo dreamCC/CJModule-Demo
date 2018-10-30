@@ -1,50 +1,38 @@
 //
 //  CJAsset.h
-//  CommonProject
+//  CJModule
 //
-//  Created by 仁和Mac on 2018/6/5.
+//  Created by 仁和Mac on 2018/9/14.
 //  Copyright © 2018年 zhucj. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 
+typedef NS_ENUM(NSUInteger, CJAssetType) {
+    CJAssetTypeImage,
+    CJAssetTypeVideo,
+    CJAssetTypeAudio
+};
+
+typedef NS_ENUM(NSUInteger, CJAssetSubType) {
+    CJAssetSubTypeUnkown,
+    CJAssetSubTypeImage,
+    CJAssetSubTypeLivePhoto,
+    CJAssetSubTypeGIF
+};
 
 @interface CJAsset : NSObject
 
 @property(nonatomic, strong, readonly) PHAsset *asset;
 
+@property(nonatomic, assign, readonly) CJAssetType assetType;
+@property(nonatomic, assign, readonly) CJAssetSubType assetSubType;
 
-/**
- 初始化
+-(instancetype)initWithAsset:(PHAsset *)asset;
 
- @param asset PHAsset
- @return CJAsset
- */
--(instancetype)initWithPHAsset:(PHAsset *)asset;
-
-
-/**
- 原始图片
-
- @return image
- */
 -(UIImage *)originalImage;
 
+-(void)requestOriginalImageComplementhandle:(void(^)(UIImage *image, NSDictionary *info))complementhandle progressHandler:(PHAssetImageProgressHandler)progressHandler;
 
-/**
- 缩略图
-
- @param size 尺寸，和实际返回的尺寸是有区别的。
- @return image
- */
--(UIImage *)thumbImageWithSize:(CGSize)size;
-
-
-/**
- 预览图
-
- @return image
- */
--(UIImage *)previewImage;
 @end
