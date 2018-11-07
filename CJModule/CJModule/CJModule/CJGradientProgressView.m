@@ -24,7 +24,14 @@ static NSString *const kAnimationKey = @"com.kAnimationKey.cn";
 
 @end
 
-@interface CJGradientProgressView ()
+@interface CJGradientProgressView () {
+    CFTimeInterval _timeOffset;
+}
+
+@property(nonatomic,weak, readwrite) CALayer *gradientLayer;
+
+@property(nonatomic, assign, readwrite) BOOL animating;
+
 
 @end
 
@@ -39,44 +46,41 @@ static NSString *const kAnimationKey = @"com.kAnimationKey.cn";
     if (!self) return nil;
     
     [self didInitializal];
-    [self didSetupSubLayer];
     return self;
 }
 
 -(void)didInitializal {
-    self.backgroundColor = [UIColor colorWithRed:208/255.f green:208/255.f blue:208/255.f alpha:1.0];
+    self.backgroundColor = [UIColor clearColor];
     
-    _startColor = [UIColor grayColor];
-    _endColor   = [UIColor whiteColor];
-    _duration   = 1.5f;
+    _startColor = [UIColor colorWithRed:208/255.f green:208/255.f blue:208/255.f alpha:1.0];
+    _endColor   = [UIColor greenColor];
     _progress   = 0.5f;
 }
 
 -(void)didSetupSubLayer {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.colors     = @[(id)(_startColor.CGColor) ,
-                                 (id)(_endColor.CGColor) ,
-                                 (id)(_startColor.CGColor),
-                                 (id)(_endColor.CGColor) ,
-                                 (id)(_startColor.CGColor)];
-    gradientLayer.locations  = @[@(-1) , @(-0.5) , @0 , @0.5 , @1];
+                                 (id)(_endColor.CGColor)];
+    gradientLayer.locations  = @[ @0 , @1];
     gradientLayer.startPoint = CGPointMake(0, 0.5);
     gradientLayer.endPoint   = CGPointMake(1, 0.5);
     [self.layer addSublayer:gradientLayer];
     _gradientLayer = gradientLayer;
     
-    CABasicAnimation *basic = [CABasicAnimation animationWithKeyPath:@"locations"];
-    basic.toValue = @[@0 , @0.5 , @1 , @1.5 , @2];
-    basic.repeatCount = HUGE;
-    basic.duration    = _duration;
-    [gradientLayer addAnimation:basic forKey:kAnimationKey];
-    
     self.layer.cornerRadius = CGRectGetHeight(self.frame) / 3.f;
+}
+
+-(void)didMoveToSuperview {
+    [self didSetupSubLayer];
+
+    [super didMoveToSuperview];
+    
 }
 
 -(void)layoutSubviews {
     [super layoutSubviews];
     _gradientLayer.frame = (CGRect){{0 , 0},{CGRectGetWidth(self.frame) * _progress , CGRectGetHeight(self.frame)}};
+
 }
 
 -(void)setProgress:(CGFloat)progress {
@@ -86,7 +90,6 @@ static NSString *const kAnimationKey = @"com.kAnimationKey.cn";
     [self layoutIfNeeded];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
-
 
 
 

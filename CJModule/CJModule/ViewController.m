@@ -32,6 +32,7 @@
 #import <AFNetworking.h>
 #import "CJBaseRequest.h"
 #import <QuickLook/QuickLook.h>
+#import <WebKit/WebKit.h>
 
 @interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
     NSMutableArray *_imagesAry;
@@ -62,6 +63,7 @@
 @implementation ViewController {
     QMUIEmotionInputManager *_manager;
     CJRateView *_rateView;
+    CJGradientProgressView *_progressView;
 }
 
 -(void)loadView {
@@ -158,14 +160,19 @@
         make.size.mas_equalTo(CGSizeMake(100, 100));
     }];
     
-    NSString *imagePath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"resources.bundle/no_resource.png"];
-    NSLog(@"%@",imagePath);
 
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    CJGradientProgressView *progressV = [[CJGradientProgressView alloc] initWithFrame:CGRectMake(10, 410, CGRectGetWidth(self.view.frame) - 20, 2)];
+    
+    progressV.startColor = [UIColor colorWithRed:208/255.f green:208/255.f blue:208/255.f alpha:1.0];
+
+    progressV.endColor = [UIColor greenColor];
+    [self.view addSubview:progressV];
+
+    _progressView = progressV ;
     
     
-    NSLog(@"%@",image);
-  
+    
+
 }
 
 -(UIImage *)grayImageWithImage:(UIImage *)image {
@@ -238,14 +245,14 @@
 //    }];
     
 
-//    TransformViewController *transV = [[TransformViewController alloc] init];
-//    [self.navigationController pushViewController:transV animated:YES];
+    TransformViewController *transV = [[TransformViewController alloc] init];
+    [self.navigationController pushViewController:transV animated:YES];
 
     
-    QMViewController *qm_vc = [[QMViewController alloc] init];
-
-
-    [self.navigationController pushViewController:qm_vc animated:YES];
+//    QMViewController *qm_vc = [[QMViewController alloc] init];
+//
+//
+//    [self.navigationController pushViewController:qm_vc animated:YES];
 
     
 //    CJBaseRequest *baseRequest = [[CJBaseRequest alloc] init];
@@ -254,8 +261,11 @@
 //    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
 //        NSLog(@"erroro");
 //    }];
-
-  
+//
+//    static CGFloat pro = 0.f;
+//    _progressView.progress = pro;
+//    pro += 0.5;
+//    
 }
 
 

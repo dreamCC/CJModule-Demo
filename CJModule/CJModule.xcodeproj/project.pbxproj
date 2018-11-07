@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BDBC68C444E10BA7BB1C346 /* libPods-CJModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DFBF164F28286A3C352259 /* libPods-CJModule.a */; };
+		6E089C20219147E7002BE60F /* JsToNative.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E089C1F219147E7002BE60F /* JsToNative.html */; };
 		6E12828520EDF1C900D84E9D /* TransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E12828420EDF1C900D84E9D /* TransformViewController.m */; };
 		6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1620E225E700137B0E /* CJNavigationController.m */; };
 		6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */; };
@@ -15,6 +16,7 @@
 		6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */; };
 		6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */; };
 		6E2FCF18216C4AD0007E16F4 /* 22.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E2FCF17216C4ACF007E16F4 /* 22.gif */; };
+		6E3D7D88218940A600F20FF6 /* WKWebView+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */; };
 		6E4436232182C0CD0030BC33 /* EmptyDataSetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */; };
 		6E4FA9C9218160DB00ADC120 /* 1.eps in Resources */ = {isa = PBXBuildFile; fileRef = 6E4FA9C8218160DA00ADC120 /* 1.eps */; };
 		6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */; };
@@ -108,6 +110,7 @@
 /* Begin PBXFileReference section */
 		15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.release.xcconfig"; sourceTree = "<group>"; };
 		5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.debug.xcconfig"; sourceTree = "<group>"; };
+		6E089C1F219147E7002BE60F /* JsToNative.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = JsToNative.html; sourceTree = "<group>"; };
 		6E12828320EDF1C900D84E9D /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
 		6E12828420EDF1C900D84E9D /* TransformViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformViewController.m; sourceTree = "<group>"; };
 		6E1AED1520E225E700137B0E /* CJNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationController.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@2x.png"; sourceTree = "<group>"; };
 		6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@3x.png"; sourceTree = "<group>"; };
 		6E2FCF17216C4ACF007E16F4 /* 22.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 22.gif; path = "../New Group/22.gif"; sourceTree = "<group>"; };
+		6E3D7D86218940A600F20FF6 /* WKWebView+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CJCategory.h"; sourceTree = "<group>"; };
+		6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+CJCategory.m"; sourceTree = "<group>"; };
 		6E4436212182C0CD0030BC33 /* EmptyDataSetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyDataSetManager.h; sourceTree = "<group>"; };
 		6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyDataSetManager.m; sourceTree = "<group>"; };
 		6E4FA9C8218160DA00ADC120 /* 1.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.eps; sourceTree = "<group>"; };
@@ -473,6 +478,8 @@
 				6E871DB620DC83B70051E570 /* UITextView+CJCategory.m */,
 				6E871DB720DC83BB0051E570 /* UIView+CJCategory.h */,
 				6E871DB220DC83A30051E570 /* UIView+CJCategory.m */,
+				6E3D7D86218940A600F20FF6 /* WKWebView+CJCategory.h */,
+				6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */,
 			);
 			name = CJCore;
 			sourceTree = "<group>";
@@ -758,6 +765,7 @@
 				6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */,
 				6E2FCF17216C4ACF007E16F4 /* 22.gif */,
 				6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */,
+				6E089C1F219147E7002BE60F /* JsToNative.html */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -831,6 +839,7 @@
 				6E5AD587217F1B6E00BA1D4D /* 20110507140606.pptx in Resources */,
 				6E5AD583217F11E600BA1D4D /* 工作日志.xlsx in Resources */,
 				6E4FA9C9218160DB00ADC120 /* 1.eps in Resources */,
+				6E089C20219147E7002BE60F /* JsToNative.html in Resources */,
 				6E871D9B20DC7E690051E570 /* LaunchScreen.storyboard in Resources */,
 				6EF686D021707AA10033164F /* Sources.json in Resources */,
 				6E871D9820DC7E690051E570 /* Assets.xcassets in Resources */,
@@ -964,6 +973,7 @@
 				6E871DD420DC84580051E570 /* UINavigationController+CJCategory.m in Sources */,
 				6EA10E7E214C9A66004BD816 /* QMUIConfigurationTemplate.m in Sources */,
 				6EF3027620F6F0310080EEE3 /* NSObject+CJCategory.m in Sources */,
+				6E3D7D88218940A600F20FF6 /* WKWebView+CJCategory.m in Sources */,
 				6E871DD020DC84580051E570 /* UITextField+CJCategory.m in Sources */,
 				6E871DF220DC88AA0051E570 /* CJGridView.m in Sources */,
 				6E871E0C20DC88F30051E570 /* CJPickerViewController.m in Sources */,
