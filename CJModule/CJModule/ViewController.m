@@ -33,8 +33,13 @@
 #import "CJBaseRequest.h"
 #import <QuickLook/QuickLook.h>
 #import <WebKit/WebKit.h>
+#import <libkern/OSAtomic.h>
+#import "CJCalendarViewController.h"
+#import <SafariServices/SafariServices.h>
+#import "MultitudeDelegateViewController.h"
 
-@interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate> {
+
+@interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate, NSURLSessionDelegate> {
     NSMutableArray *_imagesAry;
     QMUIImagePreviewViewController *_previewVC;
     QMUIAssetsGroup *_assetGroup;
@@ -47,10 +52,20 @@
     CGFloat _alpha;
     
     
-    YYAnimatedImageView *_yy_imageV;
- 
+   
+    
 }
 
+
+@property(nonatomic, weak) YYAnimatedImageView *yy_imageV;
+
+
+@property(nonatomic, strong) NSMutableArray *mAry;
+
+// handle weak obj
+@property(nonatomic, strong) NSPointerArray *pointAry;
+@property(nonatomic, strong) NSHashTable *hashTable;
+@property(nonatomic, strong) NSMapTable *mapTable;
 
 
 @property(nonatomic, strong) UIWindow *windo;
@@ -62,8 +77,13 @@
 
 @implementation ViewController {
     QMUIEmotionInputManager *_manager;
-    CJRateView *_rateView;
-    CJGradientProgressView *_progressView;
+
+    YYMemoryCache *_mCache;
+    YYDiskCache *_disCache;
+    YYCache *_yy_cache;
+    NSHashTable *_hashTable;
+    NSMapTable *_mapTable;
+    UIViewPropertyAnimator *_propertyAnimator;
 }
 
 -(void)loadView {
@@ -75,16 +95,8 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
    
-    _barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"左边" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemClick:)];
 
-    self.navigationItem.leftBarButtonItem = _barButtonItem;
-    QMUINavigationTitleView *titleV = [[QMUINavigationTitleView alloc] initWithStyle:QMUINavigationTitleViewStyleDefault];
-    titleV.needsLoadingView = YES;
-    titleV.loadingViewHidden = NO;
-    titleV.userInteractionEnabled = YES;
-    titleV.title = @"nTitleView";
-    titleV.accessoryType = QMUINavigationTitleViewAccessoryTypeDisclosureIndicator;
-    titleV.backgroundColor = [UIColor purpleColor];
+ 
 
     
     QMUIAssetsManager *assetManager = [QMUIAssetsManager sharedInstance];
@@ -105,74 +117,125 @@
     _snipImageV = snipImageView;
     
 
-
-    UILabel *titleLab = [[UILabel alloc] init];
-    titleLab.text = @"titleLab";
-    titleLab.backgroundColor = [UIColor cyanColor];
-    titleLab.frame = CGRectMake(0, 0, 100, 50);
-    self.navigationItem.titleView = titleV;
-    
-    [[PHAsset cj_ivarNames] enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"%@",obj);
-    }];
-    
-   
-    
-//    self.navigationItem.title = @"标题1";
-
     
     NSLog(@"%@",NSHomeDirectory());
 
+ 
+
     
-    UIImage *img = [UIImage imageNamed:@"DefaultLS.png"];
     
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"DefaultLS@3x.png" ofType:@""];
+//
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//
+//    UIImage *img = [UIImage imageWithData:data];
+    UIImage *img = [UIImage imageNamed:@"DefaultLS"];
+    
+    // 获取原始数据。10969344 远大于419168压缩后的图片。所以图片显示必须要解码。
+    CFDataRef dataRef = CGDataProviderCopyData(CGImageGetDataProvider(img.CGImage));
+    CFIndex bufferLength = CFDataGetLength(dataRef);
+    NSData *rawData = CFBridgingRelease(dataRef);
+    NSLog(@"%ld-%lu",(long)bufferLength,(unsigned long)rawData.length);
     
     CGImageRef imgRef = img.CGImage;
     NSLog(@"%@",imgRef);
     
-    if (@available(iOS 9.0, *)) {
-        NSLog(@"UTType-%@",CGImageGetUTType(imgRef));
-    } else {
-        
-    }
-    NSLog(@"%zu",CGImageGetWidth(imgRef));
-    NSLog(@"%d",CGImageGetBitmapInfo(imgRef));
     
     
-    CGImageRef copyImgRef = CGImageCreateCopy(imgRef);
     
-    if (@available(iOS 9.0, *)) {
-        NSLog(@"UTType-%@",CGImageGetUTType(copyImgRef));
-    } else {
-        
-    }
-    NSLog(@"%zu",CGImageGetWidth(copyImgRef));
-    NSLog(@"%d",CGImageGetBitmapInfo(copyImgRef));
+    UIImage *maskImg = [UIImage imageNamed:@"image1"];
+    CGImageRef maksImgRef = maskImg.CGImage;
+    CGImageRef imgRef1 = CGImageMaskCreate(CGImageGetWidth(maksImgRef),
+                                           CGImageGetHeight(maksImgRef),
+                                           CGImageGetBitsPerComponent(maksImgRef),
+                                           CGImageGetBitsPerPixel(maksImgRef),
+                                           CGImageGetBytesPerRow(maksImgRef),
+                                           CGImageGetDataProvider(maksImgRef),
+                                           CGImageGetDecode(maksImgRef),
+                                           CGImageGetShouldInterpolate(maksImgRef));
+    CGImageRef newImgRef = CGImageCreateWithMask(imgRef, imgRef1);
     
-    YYAnimatedImageView *imgV = [[YYAnimatedImageView alloc] init];
-    imgV.backgroundColor = [UIColor lightGrayColor];
-    imgV.image = [self grayImageWithImage:[UIImage imageNamed:@"image0.png"]];
+    UIImage *newImage = [UIImage imageWithCGImage:newImgRef];
+    
+    
+    UIImage *decodeImage = [[UIImage imageNamed:@"DefaultLS"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    
+//    CGImageRef rref = CGImageCreateWithJPEGDataProvider(CGImageGetDataProvider(maskImg.CGImage), CGImageGetDecode(maskImg.CGImage), CGImageGetShouldInterpolate(maskImg.CGImage),CGImageGetRenderingIntent(maskImg.CGImage));
+    
+    
+ 
+    YYAnimatedImageView *imgV = [[YYAnimatedImageView alloc] initWithImage:decodeImage];
+    imgV.tintColor = [UIColor purpleColor];
     [self.view addSubview:imgV];
-    _yy_imageV = imgV;
     [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(snipImageView.mas_bottom).offset(20);
-        make.size.mas_equalTo(CGSizeMake(100, 100));
+        make.centerY.equalTo(self.view).offset(120);
+        make.size.mas_equalTo(CGSizeMake(150, 150));
+    }];
+    _yy_imageV = imgV;
+    
+    
+ 
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+ 
+    NSString *allPath = [path stringByAppendingPathComponent:@"MyCache"];
+    YYCache *cahe = [[YYCache alloc] initWithPath:allPath];
+ 
+    
+    [cahe setObject:decodeImage forKey:@"image"];
+    NSLog(@"%@-%@-%@",cahe,cahe.diskCache,cahe.memoryCache);
+
+    QMUIGhostButton *fillBtn = [[QMUIGhostButton alloc] init];
+    [fillBtn setTitleColor:QMUICMI.buttonTintColor  forState:UIControlStateNormal];
+    fillBtn.layer.borderColor = QMUICMI.buttonTintColor.CGColor;
+    [fillBtn setTitle:@"fillBtn" forState:UIControlStateNormal];
+    
+    [self.view addSubview:fillBtn];
+    [fillBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(imgV);
+        make.top.equalTo(imgV.mas_bottom).offset(30);
+        make.size.mas_equalTo(CGSizeMake(150, 30));
     }];
     
-
-    CJGradientProgressView *progressV = [[CJGradientProgressView alloc] initWithFrame:CGRectMake(10, 410, CGRectGetWidth(self.view.frame) - 20, 2)];
-    
-    progressV.startColor = [UIColor colorWithRed:208/255.f green:208/255.f blue:208/255.f alpha:1.0];
-
-    progressV.endColor = [UIColor greenColor];
-    [self.view addSubview:progressV];
-
-    _progressView = progressV ;
+    self.mAry = [NSMutableArray array];
+    self.pointAry = [NSPointerArray weakObjectsPointerArray];
+    self.hashTable = [NSHashTable weakObjectsHashTable];
+    self.mapTable = [NSMapTable strongToStrongObjectsMapTable];
     
     
-    
+    objc_property_t property_t = class_getProperty([self class], "view");
+    NSLog(@"%s",property_getName(property_t));
 
+    
+    
+}
+
+
+
+-(void)initSubviews {
+    [super initSubviews];
+
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem qmui_closeItemWithTarget:self action:@selector(leftItemClick:)];
+    QMUINavigationTitleView *titleV = self.titleView;
+    titleV.needsLoadingView = YES;
+    titleV.loadingViewHidden = NO;
+    titleV.userInteractionEnabled = YES;
+    titleV.title = @"nTitleView";
+    titleV.accessoryType = QMUINavigationTitleViewAccessoryTypeDisclosureIndicator;
+ 
+}
+
+
+
+-(void)didReceiveMemoryWarning {
+    NSLog(@"didReceiveMemoryWarning");
+}
+
+
+// 到收到服务器响应为401
+-(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+ 
+    
 }
 
 -(UIImage *)grayImageWithImage:(UIImage *)image {
@@ -192,9 +255,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    
-    
-  
 }
 
 -(void)viewDidLayoutSubviews {
@@ -203,9 +263,10 @@
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
- 
+    
     
 }
+
 
 
 
@@ -225,12 +286,25 @@
 }
 
 -(void)singleTouchInZoomingImageView:(QMUIZoomImageView *)zoomImageView location:(CGPoint)location {
-    [_previewVC endPreviewFading];
+
 }
 
--(void)leftItemClick:(UIBarButtonItem *)item {
-    
 
+
+-(void)leftItemClick:(UIBarButtonItem *)item {
+
+    
+    MultitudeDelegateViewController *multitudeVc = [[MultitudeDelegateViewController alloc] init];
+
+    [self.navigationController pushViewController:multitudeVc animated:YES];
+    
+//    CJCalendarViewController *calendarVc = [[CJCalendarViewController alloc] init];
+//    [self.navigationController pushViewController:calendarVc
+
+
+    //CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
+
+    
 //    ModalViewController *modal = [ModalViewController new];
 //
 //    [self.navigationController pushViewController:modal animated:YES];
@@ -244,9 +318,9 @@
 //
 //    }];
     
-
-    TransformViewController *transV = [[TransformViewController alloc] init];
-    [self.navigationController pushViewController:transV animated:YES];
+//    TransformViewController *transV = [[TransformViewController alloc] init];
+//
+//    [self.navigationController pushViewController:transV animated:YES];
 
     
 //    QMViewController *qm_vc = [[QMViewController alloc] init];
@@ -261,12 +335,11 @@
 //    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
 //        NSLog(@"erroro");
 //    }];
-//
-//    static CGFloat pro = 0.f;
-//    _progressView.progress = pro;
-//    pro += 0.5;
-//    
+   
+    
+    
 }
+
 
 
 -(QMUIImagePickerViewController *)imagePickerViewControllerForAlbumViewController:(QMUIAlbumViewController *)albumViewController {
@@ -298,6 +371,7 @@
 -(UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationFade;
 }
+
 
 
 

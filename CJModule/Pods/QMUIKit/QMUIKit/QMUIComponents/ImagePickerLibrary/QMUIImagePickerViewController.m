@@ -20,7 +20,6 @@
 #import "CALayer+QMUI.h"
 #import "UIView+QMUI.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-#import "NSString+QMUI.h"
 #import "QMUIEmptyView.h"
 #import "UIControl+QMUI.h"
 #import "QMUILog.h"
@@ -30,7 +29,7 @@
 #define ImageCountLabelSize CGSizeMake(18, 18)
 
 // CollectionView
-#define CollectionViewInsetHorizontal PreferredVarForDevices((PixelOne * 2), 1, 2, 2)
+#define CollectionViewInsetHorizontal PreferredValueForiPhone((PixelOne * 2), 1, 2, 2)
 #define CollectionViewInset UIEdgeInsetsMake(CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal)
 #define CollectionViewCellMargin CollectionViewInsetHorizontal
 
@@ -50,7 +49,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 }
 
 static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
-+ (instancetype)appearance {
++ (nonnull instancetype)appearance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!imagePickerViewControllerAppearance) {
@@ -119,7 +118,7 @@ static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
         
         _operationToolBarView = [[UIView alloc] init];
         self.operationToolBarView.backgroundColor = UIColorWhite;
-        self.operationToolBarView.qmui_borderPosition = QMUIBorderViewPositionTop;
+        self.operationToolBarView.qmui_borderPosition = QMUIViewBorderPositionTop;
         [self.view addSubview:self.operationToolBarView];
         
         _sendButton = [[QMUIButton alloc] init];
@@ -206,8 +205,8 @@ static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
     if (self.allowsMultipleSelection) {
         operationToolBarViewHeight = ToolBarHeight;
         self.operationToolBarView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - operationToolBarViewHeight, CGRectGetWidth(self.view.bounds), operationToolBarViewHeight);
-        self.previewButton.frame = CGRectSetXY(self.previewButton.frame, OperationToolBarViewPaddingHorizontal, CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame) - IPhoneXSafeAreaInsets.bottom, CGRectGetHeight(self.previewButton.frame)));
-        self.sendButton.frame = CGRectMake(CGRectGetWidth(self.operationToolBarView.frame) - OperationToolBarViewPaddingHorizontal - CGRectGetWidth(self.sendButton.frame), CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame) - IPhoneXSafeAreaInsets.bottom, CGRectGetHeight(self.sendButton.frame)), CGRectGetWidth(self.sendButton.frame), CGRectGetHeight(self.sendButton.frame));
+        self.previewButton.frame = CGRectSetXY(self.previewButton.frame, OperationToolBarViewPaddingHorizontal, CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame) - SafeAreaInsetsConstantForDeviceWithNotch.bottom, CGRectGetHeight(self.previewButton.frame)));
+        self.sendButton.frame = CGRectMake(CGRectGetWidth(self.operationToolBarView.frame) - OperationToolBarViewPaddingHorizontal - CGRectGetWidth(self.sendButton.frame), CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame) - SafeAreaInsetsConstantForDeviceWithNotch.bottom, CGRectGetHeight(self.sendButton.frame)), CGRectGetWidth(self.sendButton.frame), CGRectGetHeight(self.sendButton.frame));
         self.imageCountLabel.frame = CGRectMake(CGRectGetMinX(self.sendButton.frame) - ImageCountLabelSize.width - 5, CGRectGetMinY(self.sendButton.frame) + CGFloatGetCenter(CGRectGetHeight(self.sendButton.frame), ImageCountLabelSize.height), ImageCountLabelSize.width, ImageCountLabelSize.height);
         operationToolBarViewHeight = CGRectGetHeight(self.operationToolBarView.frame);
     }
@@ -337,35 +336,20 @@ static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
         identifier = kImageOrUnknownCellIdentifier;
     }
     QMUIImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.assetIdentifier = imageAsset.identifier;
-    
-    // 异步请求资源对应的缩略图
-    [imageAsset requestThumbnailImageWithSize:[self referenceImageSize] completion:^(UIImage *result, NSDictionary *info) {
-        if ([cell.assetIdentifier isEqualToString:imageAsset.identifier]) {
-            cell.contentImageView.image = result;
-        } else {
-            cell.contentImageView.image = nil;
-        }
-    }];
-    
-    if (imageAsset.assetType == QMUIAssetTypeVideo) {
-        cell.videoDurationLabel.text = [NSString qmui_timeStringWithMinsAndSecsFromSecs:imageAsset.duration];
-    }
+    [cell renderWithAsset:imageAsset referenceSize:[self referenceImageSize]];
     
     [cell.checkboxButton addTarget:self action:@selector(handleCheckBoxButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    
     cell.selectable = self.allowsMultipleSelection;
     if (cell.selectable) {
         // 如果该图片的 QMUIAsset 被包含在已选择图片的数组中，则控制该图片被选中
         cell.checked = [self.selectedImageAssetArray containsObject:imageAsset];
     }
-    [cell setNeedsLayout];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
-    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
+    QMUIAsset *imageAsset = self.imagesAssetArray[indexPath.item];
+    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
         [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
     }
     if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerPreviewViewControllerForImagePickerViewController:)]) {
@@ -418,6 +402,10 @@ static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
 
 - (void)handleCheckBoxButtonClick:(UIButton *)checkboxButton {
     NSIndexPath *indexPath = [self.collectionView qmui_indexPathForItemAtView:checkboxButton];
+    
+    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:shouldCheckImageAtIndex:)] && ![self.imagePickerViewControllerDelegate imagePickerViewController:self shouldCheckImageAtIndex:indexPath.item]) {
+        return;
+    }
     
     QMUIImagePickerCollectionViewCell *cell = (QMUIImagePickerCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
@@ -492,7 +480,7 @@ static QMUIImagePickerViewController *imagePickerViewControllerAppearance;
     // 发出请求获取大图，如果图片在 iCloud，则会发出网络请求下载图片。这里同时保存请求 id，供取消请求使用
     QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
     QMUIImagePickerCollectionViewCell *cell = (QMUIImagePickerCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    imageAsset.requestID = [imageAsset requestPreviewImageWithCompletion:^(UIImage *result, NSDictionary *info) {
+    imageAsset.requestID = [imageAsset requestOriginImageWithCompletion:^(UIImage *result, NSDictionary *info) {
         
         BOOL downloadSucceed = (result && !info) || (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
         

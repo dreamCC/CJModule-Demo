@@ -30,10 +30,10 @@
  *  @see QMUINavigationTitleView
  *  @see QMUIEmptyView
  */
-@interface QMUICommonViewController : UIViewController<QMUINavigationControllerDelegate>
+@interface QMUICommonViewController : UIViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
-- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 /**
  *  初始化时调用的方法，会在两个 NS_DESIGNATED_INITIALIZER 方法中被调用，所以子类如果需要同时支持两个 NS_DESIGNATED_INITIALIZER 方法，则建议把初始化时要做的事情放到这个方法里。否则仅需重写要支持的那个 NS_DESIGNATED_INITIALIZER 方法即可。
@@ -145,6 +145,15 @@
  *  @param notification test
  */
 - (void)contentSizeCategoryDidChanged:(NSNotification *)notification;
+
+@end
+
+@interface QMUICommonViewController (QMUINavigationController)<QMUINavigationControllerDelegate>
+
+/**
+ 从 QMUINavigationControllerAppearanceDelegate 系列接口获取当前界面希望的导航栏样式并设置到导航栏上
+ */
+- (void)updateNavigationBarAppearance;
 
 @end
 

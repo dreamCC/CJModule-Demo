@@ -139,7 +139,7 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.networkAccessAllowed = YES; // 允许访问网络
     imageRequestOptions.progressHandler = phProgressHandler;
-    return [[[QMUIAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT) contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
+    return [[[QMUIAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
         if (completion) {
             completion(result, info);
         }
@@ -188,7 +188,7 @@ static NSString * const kAssetInfoSize = @"size";
             completion(nil, nil, NO, NO);
         }
         return;
-    } 
+    }
     __weak __typeof(self)weakSelf = self;
     if (!self.phAssetInfo) {
         // PHAsset 的 UIImageOrientation 需要调用过 requestImageDataForAsset 才能获取
@@ -200,13 +200,7 @@ static NSString * const kAssetInfoSize = @"size";
                 BOOL isGIF = self.assetSubType == QMUIAssetSubTypeGIF;
                 BOOL isHEIC = [dataUTI isEqualToString:@"public.heic"];
                 NSDictionary<NSString *, id> *originInfo = phAssetInfo[kAssetInfoOriginInfo];
-                /**
-                 *  这里不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
-                 *  为了避免这种情况，这里该 block 主动放到主线程执行。
-                 */
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(phAssetInfo[kAssetInfoImageData], originInfo, isGIF, isHEIC);
-                });
+                completion(phAssetInfo[kAssetInfoImageData], originInfo, isGIF, isHEIC);
             }
         }];
     } else {

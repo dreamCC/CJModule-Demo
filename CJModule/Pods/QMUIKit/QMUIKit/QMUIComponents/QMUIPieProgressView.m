@@ -15,6 +15,7 @@
 @property(nonatomic, assign) float progress;
 @property(nonatomic, assign) CFTimeInterval progressAnimationDuration;
 @property(nonatomic, assign) BOOL shouldChangeProgressWithAnimation; // default is YES
+@property(nonatomic, assign) CGFloat borderInset;
 @end
 
 @implementation QMUIPieProgressLayer
@@ -49,8 +50,8 @@
     }
     
     // 绘制扇形进度区域
-    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    CGFloat radius = MIN(center.x, center.y);
+    CGPoint center = CGPointGetCenterWithRect(self.bounds);
+    CGFloat radius = MIN(center.x, center.y) - self.borderWidth - self.borderInset;
     CGFloat startAngle = -M_PI_2;
     CGFloat endAngle = M_PI * 2 * self.progress + startAngle;
     CGContextSetFillColorWithColor(context, self.fillColor.CGColor);
@@ -79,6 +80,8 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = UIColorClear;
         self.tintColor = UIColorBlue;
+        self.borderWidth = 1;
+        self.borderInset = 0;
         
         [self didInitialize];
     }
@@ -99,7 +102,6 @@
     self.progressAnimationDuration = 0.5;
     
     self.layer.contentsScale = ScreenScale;// 要显示指定一个倍数
-    self.layer.borderWidth = 1.0;
     [self.layer setNeedsDisplay];
 }
 
@@ -119,6 +121,16 @@
 - (void)setProgressAnimationDuration:(CFTimeInterval)progressAnimationDuration {
     _progressAnimationDuration = progressAnimationDuration;
     self.progressLayer.progressAnimationDuration = progressAnimationDuration;
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    _borderWidth = borderWidth;
+    self.layer.borderWidth = borderWidth;
+}
+
+- (void)setBorderInset:(CGFloat)borderInset {
+    _borderInset = borderInset;
+    self.progressLayer.borderInset = borderInset;
 }
 
 - (void)tintColorDidChange {

@@ -54,8 +54,6 @@
             }
         });
         
-     
-        
         // 针对 UITabBarItem，负责将红点添加上去
         ExtendImplementationOfVoidMethodWithSingleArgument([UITabBarItem class], @selector(setView:), UIView *, ^(UITabBarItem *selfObject, UIView *firstArgv) {
             if (selfObject.qmui_badgeString.length && selfObject.qmui_badgeLabel) {
@@ -65,8 +63,6 @@
                 [firstArgv addSubview:selfObject.qmui_updatesIndicatorView];
             }
         });
-        
-    
         
         // 针对 UITabBarItem 和非 customView 的 UIBarButtonItem，在 item 布局时更新红点的布局
         void (^layoutSubviewsBlock)(UIView *selfObject) = ^(UIView *selfObject){

@@ -7,8 +7,17 @@
 //
 
 #import "UICollectionView+QMUI.h"
+#import "QMUICore.h"
+#import "QMUILog.h"
 
 @implementation UICollectionView (QMUI)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        ExchangeImplementations([self class], @selector(scrollToItemAtIndexPath:atScrollPosition:animated:), @selector(qmui_scrollToItemAtIndexPath:atScrollPosition:animated:));
+    });
+}
 
 - (void)qmui_clearsSelection {
     NSArray *selectedItemIndexPaths = [self indexPathsForSelectedItems];
@@ -63,8 +72,8 @@
 - (NSArray<NSIndexPath *> *)qmui_indexPathsForVisibleItems {
     NSArray<NSIndexPath *> *visibleItems = [self indexPathsForVisibleItems];
     NSSortDescriptor *sectionSorter = [[NSSortDescriptor alloc] initWithKey:@"section" ascending:YES];
-    NSSortDescriptor *rowSorter = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
-    visibleItems = [visibleItems sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sectionSorter,rowSorter, nil]];
+    NSSortDescriptor *rowSorter = [[NSSortDescriptor alloc] initWithKey:@"item" ascending:YES];
+    visibleItems = [visibleItems sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sectionSorter, rowSorter, nil]];
     return visibleItems;
 }
 
@@ -75,6 +84,26 @@
     }
     
     return visibleIndexPaths.firstObject;
+}
+
+// 防止 release 版本滚动到不合法的 indexPath 会 crash
+- (void)qmui_scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated {
+    BOOL isIndexPathLegal = YES;
+    NSInteger numberOfSections = [self numberOfSections];
+    if (indexPath.section >= numberOfSections) {
+        isIndexPathLegal = NO;
+    } else {
+        NSInteger items = [self numberOfItemsInSection:indexPath.section];
+        if (indexPath.item >= items) {
+            isIndexPathLegal = NO;
+        }
+    }
+    if (!isIndexPathLegal) {
+        QMUILogWarn(@"UICollectionView (QMUI)", @"%@ - target indexPath : %@ ，不合法的indexPath。\n%@", self, indexPath, [NSThread callStackSymbols]);
+        NSAssert(NO, @"出现不合法的indexPath");
+    } else {
+        [self qmui_scrollToItemAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
+    }
 }
 
 @end

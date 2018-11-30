@@ -12,44 +12,37 @@
 @interface NSString (QMUI)
 
 /// 将字符串按一个一个字符拆成数组，类似 JavaScript 里的 split("")，如果多个空格，则每个空格也会当成一个 item
-- (NSArray<NSString *> *)qmui_toArray;
+@property(readonly, copy) NSArray<NSString *> *qmui_toArray;
 
 /// 将字符串按一个一个字符拆成数组，类似 JavaScript 里的 split("")，但会自动过滤掉空白字符
-- (NSArray<NSString *> *)qmui_toTrimmedArray;
+@property(readonly, copy) NSArray<NSString *> *qmui_toTrimmedArray;
 
 /// 去掉头尾的空白字符
-- (NSString *)qmui_trim;
+@property(readonly, copy) NSString *qmui_trim;
 
 /// 去掉整段文字内的所有空白字符（包括换行符）
-- (NSString *)qmui_trimAllWhiteSpace;
+@property(readonly, copy) NSString *qmui_trimAllWhiteSpace;
 
 /// 将文字中的换行符替换为空格
-- (NSString *)qmui_trimLineBreakCharacter;
+@property(readonly, copy) NSString *qmui_trimLineBreakCharacter;
 
 /// 把该字符串转换为对应的 md5
-- (NSString *)qmui_md5;
+@property(readonly, copy) NSString *qmui_md5;
 
-/// 把某个十进制数字转换成十六进制的数字的字符串，例如“10”->“A”
-+ (NSString *)qmui_hexStringWithInteger:(NSInteger)integer;
-
-/// 把参数列表拼接成一个字符串并返回，相当于用另一种语法来代替 [NSString stringWithFormat:]
-+ (NSString *)qmui_stringByConcat:(id)firstArgv, ...;
-
-/**
- * 将秒数转换为同时包含分钟和秒数的格式的字符串，例如 100->"01:40"
- */
-+ (NSString *)qmui_timeStringWithMinsAndSecsFromSecs:(double)seconds;
+/// 返回一个符合 query value 要求的编码后的字符串，例如&、#、=等字符均会被变为 %xxx 的编码
+/// @see `NSCharacterSet (QMUI) qmui_URLUserInputQueryAllowedCharacterSet`
+@property(readonly, copy) NSString *qmui_stringByEncodingUserInputQuery;
 
 /**
  * 用正则表达式匹配的方式去除字符串里一些特殊字符，避免UI上的展示问题
  * @link http://www.croton.su/en/uniblock/Diacriticals.html @/link
  */
-- (NSString *)qmui_removeMagicalChar;
+@property(readonly, copy) NSString *qmui_removeMagicalChar;
 
 /**
  *  按照中文 2 个字符、英文 1 个字符的方式来计算文本长度
  */
-- (NSUInteger)qmui_lengthWhenCountingNonASCIICharacterAsTwo;
+@property(readonly) NSUInteger qmui_lengthWhenCountingNonASCIICharacterAsTwo;
 
 /**
  *  将字符串从指定的 index 开始裁剪到结尾，裁剪时会避免将 emoji 等 "character sequences" 拆散（一个 emoji 表情占用1-4个长度的字符）。
@@ -73,12 +66,13 @@
 /**
  *  将字符串从开头裁剪到指定的 index，裁剪时会避免将 emoji 等 "character sequences" 拆散（一个 emoji 表情占用1-4个长度的字符）。
  *
- *  例如对于字符串“😊😞”，它的长度为4，若调用 [string qmui_substringAvoidBreakingUpCharacterSequencesToIndex:1]，将返回“😊”。
+ *  例如对于字符串“😊😞”，它的长度为4，若调用 [string qmui_substringAvoidBreakingUpCharacterSequencesToIndex:1 lessValue:NO countingNonASCIICharacterAsTwo:NO]，将返回“😊”。
  *  若调用系统的 [string substringToIndex:1]，将返回“?”。（?表示乱码，因为第一个 emoji 表情被从中间裁开了）。
  *
  *  @param index 要裁剪到哪个 index
- *  @return 裁剪完的字符
+ *  @param lessValue 裁剪时若遇到“character sequences”，是向下取整还是向上取整。
  *  @param countingNonASCIICharacterAsTwo 是否按照 英文 1 个字符长度、中文 2 个字符长度的方式来裁剪
+ *  @return 裁剪完的字符
  */
 - (NSString *)qmui_substringAvoidBreakingUpCharacterSequencesToIndex:(NSUInteger)index lessValue:(BOOL)lessValue countingNonASCIICharacterAsTwo:(BOOL)countingNonASCIICharacterAsTwo;
 
@@ -118,6 +112,25 @@
  *  @see `qmui_stringByRemoveCharacterAtIndex:`
  */
 - (NSString *)qmui_stringByRemoveLastCharacter;
+
+/**
+ *  用正则表达式匹配字符串并将其替换为指定的另一个字符串
+ *  @param pattern 正则表达式
+ *  @param replacement 要替换为的字符串
+ *  @return 最终替换后的完整字符串，如果正则表达式匹配不成功则返回原字符串
+ */
+- (NSString *)qmui_stringByReplacingPattern:(NSString *)pattern withString:(NSString *)replacement;
+
+/// 把某个十进制数字转换成十六进制的数字的字符串，例如“10”->“A”
++ (NSString *)qmui_hexStringWithInteger:(NSInteger)integer;
+
+/// 把参数列表拼接成一个字符串并返回，相当于用另一种语法来代替 [NSString stringWithFormat:]
++ (NSString *)qmui_stringByConcat:(id)firstArgv, ...;
+
+/**
+ * 将秒数转换为同时包含分钟和秒数的格式的字符串，例如 100->"01:40"
+ */
++ (NSString *)qmui_timeStringWithMinsAndSecsFromSecs:(double)seconds;
 
 @end
 

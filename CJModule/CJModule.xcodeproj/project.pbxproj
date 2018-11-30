@@ -17,12 +17,18 @@
 		6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */; };
 		6E2FCF18216C4AD0007E16F4 /* 22.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E2FCF17216C4ACF007E16F4 /* 22.gif */; };
 		6E3D7D88218940A600F20FF6 /* WKWebView+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */; };
+		6E437C3321ABCAEB0035F288 /* MultitudeDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */; };
 		6E4436232182C0CD0030BC33 /* EmptyDataSetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */; };
 		6E4FA9C9218160DB00ADC120 /* 1.eps in Resources */ = {isa = PBXBuildFile; fileRef = 6E4FA9C8218160DA00ADC120 /* 1.eps */; };
 		6E51536B20DCE53200457E92 /* CJBarbuttonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */; };
 		6E523D9520F5DFF8006C553F /* markFile in Resources */ = {isa = PBXBuildFile; fileRef = 6E523D9420F5DFF8006C553F /* markFile */; };
+		6E57335321A6828300C783D7 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6E57335221A6827F00C783D7 /* Debug.xcconfig */; };
+		6E57335421A6828800C783D7 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6E57335121A6826800C783D7 /* Common.xcconfig */; };
+		6E57335621A6829B00C783D7 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6E57335521A6829B00C783D7 /* Release.xcconfig */; };
+		6E59523021940D76002ECDA3 /* niconiconi@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E59522F21940D75002ECDA3 /* niconiconi@2x.gif */; };
 		6E5AD583217F11E600BA1D4D /* 工作日志.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 6E5AD582217F11E500BA1D4D /* 工作日志.xlsx */; };
 		6E5AD587217F1B6E00BA1D4D /* 20110507140606.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 6E5AD586217F1B6E00BA1D4D /* 20110507140606.pptx */; };
+		6E6175D821A29432009087E4 /* CJCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6175D721A29432009087E4 /* CJCalendarViewController.m */; };
 		6E7AE57A216D93CA00BECD18 /* CJBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7AE579216D93CA00BECD18 /* CJBaseRequest.m */; };
 		6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D8F20DC7E650051E570 /* AppDelegate.m */; };
 		6E871D9320DC7E650051E570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D9220DC7E650051E570 /* ViewController.m */; };
@@ -78,6 +84,7 @@
 		6E871E4120DC8D320051E570 /* CJDownloadSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E3F20DC8D320051E570 /* CJDownloadSource.m */; };
 		6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871E5C20DCA7890051E570 /* CJAppearanceView.m */; };
 		6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E95A4F820EDAB7C004DB322 /* QMViewController.m */; };
+		6E95B27D21AE7C98000EE36E /* CJPasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B27C21AE7C98000EE36E /* CJPasswordTextField.m */; };
 		6E9BDF9D2111851B0075E31F /* CJRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9BDF9C2111851B0075E31F /* CJRateView.m */; };
 		6EA10E6E214C9805004BD816 /* CJPhotoLibManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA10E69214C9720004BD816 /* CJPhotoLibManager.m */; };
 		6EA10E6F214C9805004BD816 /* CJAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA10E6A214C973F004BD816 /* CJAssetGroup.m */; };
@@ -109,6 +116,8 @@
 
 /* Begin PBXFileReference section */
 		15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.release.xcconfig"; sourceTree = "<group>"; };
+		30C039A6CA429FB1E4452BD2 /* Pods-CJModule.oldebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.oldebug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.oldebug.xcconfig"; sourceTree = "<group>"; };
+		5203EBD3ABA6860196953E38 /* Pods-CJModule.common.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.common.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.common.xcconfig"; sourceTree = "<group>"; };
 		5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.debug.xcconfig"; sourceTree = "<group>"; };
 		6E089C1F219147E7002BE60F /* JsToNative.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = JsToNative.html; sourceTree = "<group>"; };
 		6E12828320EDF1C900D84E9D /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
@@ -122,16 +131,26 @@
 		6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@2x.png"; sourceTree = "<group>"; };
 		6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@3x.png"; sourceTree = "<group>"; };
 		6E2FCF17216C4ACF007E16F4 /* 22.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 22.gif; path = "../New Group/22.gif"; sourceTree = "<group>"; };
+		6E3BE6F021B11020003041CD /* CJPasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPasswordTextField.h; sourceTree = "<group>"; };
 		6E3D7D86218940A600F20FF6 /* WKWebView+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CJCategory.h"; sourceTree = "<group>"; };
 		6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+CJCategory.m"; sourceTree = "<group>"; };
+		6E437C3121ABCAEB0035F288 /* MultitudeDelegateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultitudeDelegateViewController.h; sourceTree = "<group>"; };
+		6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultitudeDelegateViewController.m; sourceTree = "<group>"; };
 		6E4436212182C0CD0030BC33 /* EmptyDataSetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyDataSetManager.h; sourceTree = "<group>"; };
 		6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyDataSetManager.m; sourceTree = "<group>"; };
 		6E4FA9C8218160DA00ADC120 /* 1.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.eps; sourceTree = "<group>"; };
 		6E51536920DCE53200457E92 /* CJBarbuttonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJBarbuttonItem.h; sourceTree = "<group>"; };
 		6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJBarbuttonItem.m; sourceTree = "<group>"; };
 		6E523D9420F5DFF8006C553F /* markFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = markFile; sourceTree = "<group>"; };
+		6E57335121A6826800C783D7 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		6E57335221A6827F00C783D7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		6E57335521A6829B00C783D7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		6E57335721A6838100C783D7 /* PreRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PreRelease.xcconfig; sourceTree = "<group>"; };
+		6E59522F21940D75002ECDA3 /* niconiconi@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "niconiconi@2x.gif"; sourceTree = "<group>"; };
 		6E5AD582217F11E500BA1D4D /* 工作日志.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "工作日志.xlsx"; sourceTree = "<group>"; };
 		6E5AD586217F1B6E00BA1D4D /* 20110507140606.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = 20110507140606.pptx; sourceTree = "<group>"; };
+		6E6175D621A29432009087E4 /* CJCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCalendarViewController.h; sourceTree = "<group>"; };
+		6E6175D721A29432009087E4 /* CJCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCalendarViewController.m; sourceTree = "<group>"; };
 		6E6AA7AD2187FB73000584CD /* no_network@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_network@3x.png"; sourceTree = "<group>"; };
 		6E6AA7AE2187FB73000584CD /* no_network@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_network@2x.png"; sourceTree = "<group>"; };
 		6E6AA7AF2187FB74000584CD /* no_resource@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_resource@2x.png"; sourceTree = "<group>"; };
@@ -243,6 +262,7 @@
 		6E871E5C20DCA7890051E570 /* CJAppearanceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAppearanceView.m; sourceTree = "<group>"; };
 		6E95A4F720EDAB7C004DB322 /* QMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMViewController.h; sourceTree = "<group>"; };
 		6E95A4F820EDAB7C004DB322 /* QMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMViewController.m; sourceTree = "<group>"; };
+		6E95B27C21AE7C98000EE36E /* CJPasswordTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJPasswordTextField.m; sourceTree = "<group>"; };
 		6E9BDF9B2111851B0075E31F /* CJRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRateView.h; sourceTree = "<group>"; };
 		6E9BDF9C2111851B0075E31F /* CJRateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRateView.m; sourceTree = "<group>"; };
 		6EA10E68214C96FE004BD816 /* CJAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJAsset.h; sourceTree = "<group>"; };
@@ -268,6 +288,7 @@
 		6EAE1B07215CB34D007700A2 /* CJScrollNumberLable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJScrollNumberLable.m; sourceTree = "<group>"; };
 		6EAE1B09215CB3D5007700A2 /* CJCountingLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCountingLable.m; sourceTree = "<group>"; };
 		6EAE1B0A215CB3D6007700A2 /* CJCountingLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCountingLable.h; sourceTree = "<group>"; };
+		6EB2996021ABDC6000E3ADC2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		6EB2F5192112F5A20075DED4 /* CJRateView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CJRateView.bundle; sourceTree = "<group>"; };
 		6EB3687821016B33008D3486 /* CJNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJNavigationBar.h; sourceTree = "<group>"; };
 		6EB3687921016B33008D3486 /* CJNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJNavigationBar.m; sourceTree = "<group>"; };
@@ -297,6 +318,7 @@
 		6EF3027420F6F0310080EEE3 /* NSObject+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CJCategory.h"; sourceTree = "<group>"; };
 		6EF3027520F6F0310080EEE3 /* NSObject+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CJCategory.m"; sourceTree = "<group>"; };
 		6EF686CF21707AA10033164F /* Sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sources.json; sourceTree = "<group>"; };
+		BAE7B738C8F550DC951AD5DC /* Pods-CJModule.mappdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJModule.mappdebug.xcconfig"; path = "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.mappdebug.xcconfig"; sourceTree = "<group>"; };
 		C0DFBF164F28286A3C352259 /* libPods-CJModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJModule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +337,7 @@
 		1690C935DF9B2D18939C8E88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EB2996021ABDC6000E3ADC2 /* GLKit.framework */,
 				C0DFBF164F28286A3C352259 /* libPods-CJModule.a */,
 			);
 			name = Frameworks;
@@ -325,6 +348,9 @@
 			children = (
 				5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */,
 				15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */,
+				BAE7B738C8F550DC951AD5DC /* Pods-CJModule.mappdebug.xcconfig */,
+				30C039A6CA429FB1E4452BD2 /* Pods-CJModule.oldebug.xcconfig */,
+				5203EBD3ABA6860196953E38 /* Pods-CJModule.common.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -336,6 +362,17 @@
 				6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */,
 			);
 			path = EmptyDataSetManager;
+			sourceTree = "<group>";
+		};
+		6E57335021A6820800C783D7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				6E57335121A6826800C783D7 /* Common.xcconfig */,
+				6E57335221A6827F00C783D7 /* Debug.xcconfig */,
+				6E57335721A6838100C783D7 /* PreRelease.xcconfig */,
+				6E57335521A6829B00C783D7 /* Release.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		6E871D8220DC7E650051E570 = {
@@ -368,6 +405,8 @@
 				6E871E5C20DCA7890051E570 /* CJAppearanceView.m */,
 				6E871D9120DC7E650051E570 /* ViewController.h */,
 				6E871D9220DC7E650051E570 /* ViewController.m */,
+				6E437C3121ABCAEB0035F288 /* MultitudeDelegateViewController.h */,
+				6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */,
 				6EB3687821016B33008D3486 /* CJNavigationBar.h */,
 				6EB3687921016B33008D3486 /* CJNavigationBar.m */,
 				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
@@ -384,6 +423,8 @@
 				6E7AE579216D93CA00BECD18 /* CJBaseRequest.m */,
 				6E12828320EDF1C900D84E9D /* TransformViewController.h */,
 				6E12828420EDF1C900D84E9D /* TransformViewController.m */,
+				6E6175D621A29432009087E4 /* CJCalendarViewController.h */,
+				6E6175D721A29432009087E4 /* CJCalendarViewController.m */,
 				6E1AED1520E225E700137B0E /* CJNavigationController.h */,
 				6E1AED1620E225E700137B0E /* CJNavigationController.m */,
 				6E1AED1B20E22D8B00137B0E /* CJTabBarController.h */,
@@ -391,6 +432,7 @@
 				6E51536920DCE53200457E92 /* CJBarbuttonItem.h */,
 				6E51536A20DCE53200457E92 /* CJBarbuttonItem.m */,
 				6EF686CE21707A000033164F /* Sources */,
+				6E57335021A6820800C783D7 /* Config */,
 				6EE16B51215DC40A00C72476 /* ThirdPartyFramework */,
 				6E523D9420F5DFF8006C553F /* markFile */,
 				6E871D9420DC7E650051E570 /* Main.storyboard */,
@@ -415,6 +457,7 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6E95B27A21AE7B2B000EE36E /* CJPasswordTextField */,
 				6EAE1B0C215CB3D9007700A2 /* CJCountingLable */,
 				6EAE1B05215CB32F007700A2 /* CJScrollNumberLable */,
 				6E9BDF9A211183FA0075E31F /* CJRateView */,
@@ -647,6 +690,15 @@
 			path = CJPhotoLibrary;
 			sourceTree = "<group>";
 		};
+		6E95B27A21AE7B2B000EE36E /* CJPasswordTextField */ = {
+			isa = PBXGroup;
+			children = (
+				6E3BE6F021B11020003041CD /* CJPasswordTextField.h */,
+				6E95B27C21AE7C98000EE36E /* CJPasswordTextField.m */,
+			);
+			name = CJPasswordTextField;
+			sourceTree = "<group>";
+		};
 		6E9BDF9A211183FA0075E31F /* CJRateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +807,7 @@
 		6EF686CE21707A000033164F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6E59522F21940D75002ECDA3 /* niconiconi@2x.gif */,
 				6E6AA7AE2187FB73000584CD /* no_network@2x.png */,
 				6E6AA7AD2187FB73000584CD /* no_network@3x.png */,
 				6E6AA7AF2187FB74000584CD /* no_resource@2x.png */,
@@ -803,6 +856,11 @@
 				TargetAttributes = {
 					6E871D8A20DC7E650051E570 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -830,14 +888,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E57335421A6828800C783D7 /* Common.xcconfig in Resources */,
 				6E2FCF18216C4AD0007E16F4 /* 22.gif in Resources */,
 				6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */,
 				6E871E3320DC8BE50051E570 /* CJProgressHUD.bundle in Resources */,
+				6E57335621A6829B00C783D7 /* Release.xcconfig in Resources */,
 				6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */,
 				6EB772C020FEF11500ED0519 /* sources.bundle in Resources */,
 				6EB2F51A2112F5A20075DED4 /* CJRateView.bundle in Resources */,
 				6E5AD587217F1B6E00BA1D4D /* 20110507140606.pptx in Resources */,
 				6E5AD583217F11E600BA1D4D /* 工作日志.xlsx in Resources */,
+				6E57335321A6828300C783D7 /* Debug.xcconfig in Resources */,
+				6E59523021940D76002ECDA3 /* niconiconi@2x.gif in Resources */,
 				6E4FA9C9218160DB00ADC120 /* 1.eps in Resources */,
 				6E089C20219147E7002BE60F /* JsToNative.html in Resources */,
 				6E871D9B20DC7E690051E570 /* LaunchScreen.storyboard in Resources */,
@@ -906,6 +968,7 @@
 				6E871E3920DC8D230051E570 /* MJRefreshFooter+CJCategory.m in Sources */,
 				6E871DE320DC883A0051E570 /* CJApplicationInfo.m in Sources */,
 				6E871E0A20DC88F30051E570 /* CJPickerContainerDate.m in Sources */,
+				6E437C3321ABCAEB0035F288 /* MultitudeDelegateViewController.m in Sources */,
 				6EAE1B08215CB34D007700A2 /* CJScrollNumberLable.m in Sources */,
 				6EB5BDD92150ABDA00614347 /* QMTableViewCell.m in Sources */,
 				6EA10E80214C9A66004BD816 /* QMUIConfigurationTemplatePinkRose.m in Sources */,
@@ -918,6 +981,7 @@
 				6E871DD220DC84580051E570 /* NSDictionary+CJCategory.m in Sources */,
 				6E871D9320DC7E650051E570 /* ViewController.m in Sources */,
 				6EF3027320F6E5A40080EEE3 /* SearchResultViewController.m in Sources */,
+				6E6175D821A29432009087E4 /* CJCalendarViewController.m in Sources */,
 				6EAE1B0B215CB3D6007700A2 /* CJCountingLable.m in Sources */,
 				6E871D9E20DC7E690051E570 /* main.m in Sources */,
 				6E871E4020DC8D320051E570 /* CJDownloaderManager.m in Sources */,
@@ -968,6 +1032,7 @@
 				6E4436232182C0CD0030BC33 /* EmptyDataSetManager.m in Sources */,
 				6E871DD920DC84580051E570 /* UIImage+CJCategory.m in Sources */,
 				6E871E2D20DC89760051E570 /* CJTagsFlowLayoutView.m in Sources */,
+				6E95B27D21AE7C98000EE36E /* CJPasswordTextField.m in Sources */,
 				6E871E5D20DCA7890051E570 /* CJAppearanceView.m in Sources */,
 				6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */,
 				6E871DD420DC84580051E570 /* UINavigationController+CJCategory.m in Sources */,
@@ -1009,8 +1074,97 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6E871D9F20DC7E690051E570 /* Debug */ = {
+		6E57335C21A6928F00C783D7 /* PreRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57335721A6838100C783D7 /* PreRelease.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = PreRelease;
+		};
+		6E57335D21A6928F00C783D7 /* PreRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57335721A6838100C783D7 /* PreRelease.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EYF7S6R84B;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"${Config_flag}=1",
+				);
+				INFOPLIST_FILE = CJModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CJModule.cn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = PreRelease;
+		};
+		6E57335E21A6929A00C783D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57335221A6827F00C783D7 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1068,8 +1222,37 @@
 			};
 			name = Debug;
 		};
-		6E871DA020DC7E690051E570 /* Release */ = {
+		6E57335F21A6929A00C783D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57335221A6827F00C783D7 /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EYF7S6R84B;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"${Config_flag}=1",
+				);
+				INFOPLIST_FILE = CJModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CJModule.cn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E6B152121A79CC200EA438C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57335521A6829B00C783D7 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1103,11 +1286,17 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1115,47 +1304,33 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		6E871DA220DC7E690051E570 /* Debug */ = {
+		6E6B152221A79CC200EA438C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5866359A70056900FDB94BAA /* Pods-CJModule.debug.xcconfig */;
+			baseConfigurationReference = 6E57335521A6829B00C783D7 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EYF7S6R84B;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"${Config_flag}=1",
+				);
 				INFOPLIST_FILE = CJModule/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CJModule.cn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6E871DA320DC7E690051E570 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15FFA4E8D67F673D19D39C1A /* Pods-CJModule.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EYF7S6R84B;
-				INFOPLIST_FILE = CJModule/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.CJModule.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1169,8 +1344,9 @@
 		6E871D8620DC7E650051E570 /* Build configuration list for PBXProject "CJModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6E871D9F20DC7E690051E570 /* Debug */,
-				6E871DA020DC7E690051E570 /* Release */,
+				6E57335E21A6929A00C783D7 /* Debug */,
+				6E57335C21A6928F00C783D7 /* PreRelease */,
+				6E6B152121A79CC200EA438C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1178,8 +1354,9 @@
 		6E871DA120DC7E690051E570 /* Build configuration list for PBXNativeTarget "CJModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6E871DA220DC7E690051E570 /* Debug */,
-				6E871DA320DC7E690051E570 /* Release */,
+				6E57335F21A6929A00C783D7 /* Debug */,
+				6E57335D21A6928F00C783D7 /* PreRelease */,
+				6E6B152221A79CC200EA438C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

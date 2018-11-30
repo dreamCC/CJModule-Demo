@@ -9,6 +9,7 @@
 #import "UITableView+QMUI.h"
 #import "QMUICore.h"
 #import "UIScrollView+QMUI.h"
+#import "QMUILog.h"
 
 const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 
@@ -19,6 +20,7 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     dispatch_once(&onceToken, ^{
         ExchangeImplementations([self class], @selector(initWithFrame:style:), @selector(qmui_initWithFrame:style:));
         ExchangeImplementations([self class], @selector(sizeThatFits:), @selector(qmui_sizeThatFits:));
+        ExchangeImplementations([self class], @selector(scrollToRowAtIndexPath:atScrollPosition:animated:), @selector(qmui_scrollToRowAtIndexPath:atScrollPosition:animated:));
     });
 }
 
@@ -252,6 +254,24 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     }
 }
 
+// 防止 release 版本滚动到不合法的 indexPath 会 crash
+- (void)qmui_scrollToRowAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated {
+    BOOL isIndexPathLegal = YES;
+    NSInteger numberOfSections = [self numberOfSections];
+    if (indexPath.section >= numberOfSections) {
+        isIndexPathLegal = NO;
+    } else {
+        NSInteger rows = [self numberOfRowsInSection:indexPath.section];
+        isIndexPathLegal = rows > 0 ? indexPath.row < rows : indexPath.row == NSNotFound;
+    }
+    if (!isIndexPathLegal) {
+        QMUILogWarn(@"UITableView (QMUI)", @"%@ - target indexPath : %@ ，不合法的indexPath。\n%@", self, indexPath, [NSThread callStackSymbols]);
+        NSAssert(NO, @"出现不合法的indexPath");
+    } else {
+        [self qmui_scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
+    }
+}
+
 - (void)alertEstimatedHeightUsageIfDetected {
     BOOL usingEstimatedRowHeight = self.estimatedRowHeight == UITableViewAutomaticDimension;
     BOOL usingEstimatedSectionHeaderHeight = self.estimatedSectionHeaderHeight == UITableViewAutomaticDimension;
@@ -263,7 +283,7 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 }
 
 - (void)QMUISymbolicUsingTableViewEstimatedHeightMakeWarning {
-    NSLog(@"UITableView 的 estimatedRow(SectionHeader / SectionFooter)Height 属性会影响 contentSize、sizeThatFits:、rectForXxx 等方法的计算，导致计算结果不准确，建议重新考虑是否要使用 estimated。可添加 '%@' 的 Symbolic Breakpoint 以捕捉此类信息\n%@", NSStringFromSelector(_cmd), [NSThread callStackSymbols]);
+    QMUILog(@"UITableView 的 estimatedRow(SectionHeader / SectionFooter)Height 属性会影响 contentSize、sizeThatFits:、rectForXxx 等方法的计算，导致计算结果不准确，建议重新考虑是否要使用 estimated。可添加 '%@' 的 Symbolic Breakpoint 以捕捉此类信息\n%@", NSStringFromSelector(_cmd), [NSThread callStackSymbols]);
 }
 
 @end

@@ -1,0 +1,23 @@
+//
+//  Release.xcconfig
+//  CJModule
+//
+//  Created by 仁和Mac on 2018/11/22.
+//  Copyright © 2018年 zhucj. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+#include "Common.xcconfig"
+#include "Pods/Target Support Files/Pods-CJModule/Pods-CJModule.release.xcconfig"
+
+// APP名字
+APP_NAME = CJModule
+// 唯一标识
+Config_flag = Release
+
+Base_url = @"https:\/\/www.qq.com"
+
+

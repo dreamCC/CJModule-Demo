@@ -11,6 +11,7 @@
 #import "QMUICollectionViewPagingLayout.h"
 #import "NSObject+QMUI.h"
 #import "UICollectionView+QMUI.h"
+#import "UIView+QMUI.h"
 #import "QMUIEmptyView.h"
 #import "QMUILog.h"
 #import "QMUIPieProgressView.h"
@@ -36,7 +37,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.zoomImageView.frame = self.contentView.bounds;
+    self.zoomImageView.qmui_frameApplyTransform = self.contentView.bounds;
 }
 
 @end
@@ -239,7 +240,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     } else {
         NSAssert(NO, @"尝试通过 %s 获取 QMUIZoomImageView 所在的 index，但找不到 QMUIZoomImageView 所在的 cell，index 获取失败。%@", __func__, zoomImageView);
     }
-    return NSUIntegerMax;
+    return NSNotFound;
 }
 
 - (QMUIZoomImageView *)zoomImageViewAtIndex:(NSUInteger)index {

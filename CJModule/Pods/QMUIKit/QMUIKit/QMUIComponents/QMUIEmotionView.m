@@ -24,13 +24,6 @@
     return emotion;
 }
 
--(void)setIdentifier:(NSString *)identifier {
-    _identifier = identifier;
-    self.image = [UIImage imageNamed:identifier];
-}
-
-
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@, identifier: %@, displayName: %@", [super description], self.identifier, self.displayName];
 }

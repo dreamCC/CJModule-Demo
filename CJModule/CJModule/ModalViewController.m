@@ -35,7 +35,7 @@
         self.titleLabel.text = @"最近搜索";
         self.titleLabel.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 8, 0);
         [self.titleLabel sizeToFit];
-        self.titleLabel.qmui_borderPosition = QMUIBorderViewPositionBottom;
+        self.titleLabel.qmui_borderPosition = QMUIToastViewPositionBottom;
         [self addSubview:self.titleLabel];
         
         self.floatLayoutView = [[QMUIFloatLayoutView alloc] init];
@@ -86,7 +86,9 @@
 
 @end
 
-@implementation ModalViewController
+@implementation ModalViewController {
+    QMUINavigationBarScrollingAnimator *_scrollingAnimator;
+}
 
 
 - (void)viewDidLoad {
@@ -137,30 +139,30 @@
 
     [self.view addSubview:tablV];
     _tablV = tablV;
-
-}
-
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
--(void)indexValueChange:(CJTableViewIndex *)tableViewIndex {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:tableViewIndex.selectIndex];
-    [_tablV scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-}
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
+    
+    QMUINavigationBarScrollingAnimator *naviBarScrol = [[QMUINavigationBarScrollingAnimator alloc] init];
+    naviBarScrol.scrollView = tablV;
+    naviBarScrol.offsetYToStartAnimation = 30;// 设置滚动的起点，值即表示在默认停靠的位置往下滚动多少距离后即触发动画，默认是 0
+    naviBarScrol.distanceToStopAnimation = 64;// 设置从起点开始滚动多长的距离达到终点
+//    naviBarScrol.animationBlock = ^(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
+//
+//        NSLog(@"----animationBlock");
+//
+//    };
+//    naviBarScrol.backgroundImageBlock = ^UIImage * _Nonnull(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
+//        UIImage *img = [UIImage qmui_imageWithColor:[[UIColor purpleColor] colorWithAlphaComponent:progress]];
+//        return img;
+//    };
+    naviBarScrol.statusbarStyleBlock = ^UIStatusBarStyle(QMUINavigationBarScrollingAnimator * _Nonnull animator, float progress) {
+        return progress>0.5?UIStatusBarStyleDefault:UIStatusBarStyleLightContent;
+    };
+    _scrollingAnimator = naviBarScrol;
+    
+    
+
 }
 
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-}
 
 -(void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString {
     NSLog(@"---%@",searchString);
@@ -220,21 +222,6 @@
 
 
 
-
-
-
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    
-    NSLog(@"--%zd",_tablV.indexPathsForVisibleRows.firstObject.section);
-    
-}
-
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
-}
-
-
-
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"default" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
@@ -273,9 +260,6 @@
     return self.sectionIndexAry[section];
 }
 
-//-(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-//    return self.sectionIndexAry;
-//}
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     
@@ -307,31 +291,6 @@
     return _sectionIndexAry;
 }
 
--(void)dealloc {
-    NSLog(@"dealloc");
-}
-
-
-
-- (BOOL)shouldCustomNavigationBarTransitionWhenPushAppearing {
-    return YES;
-}
-
-- (BOOL)shouldCustomNavigationBarTransitionWhenPushDisappearing {
-    return YES;
-}
-
-- (BOOL)shouldCustomNavigationBarTransitionWhenPopAppearing {
-    return YES;
-}
-
-- (BOOL)shouldCustomNavigationBarTransitionWhenPopDisappearing {
-    return YES;
-}
-
-//-(UIImage *)navigationBarBackgroundImage {
-//    return [UIImage qmui_imageWithColor:[UIColor purpleColor]];
-//}
 
 
 @end

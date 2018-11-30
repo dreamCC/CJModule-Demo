@@ -1,0 +1,20 @@
+
+//
+//  Commom.xcconfig
+//  CJModule
+//
+//  Created by 仁和Mac on 2018/11/22.
+//  Copyright © 2018年 zhucj. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// 预编译宏。
+//GCC_PREPROCESSOR_DEFINITIONS = $(inherited)  
+
+// 版本号
+APP_VERSION = 1.6
+
+
+

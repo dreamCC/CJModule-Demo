@@ -91,7 +91,13 @@ EOM
       ;;
   esac
 }
-if [[ "$CONFIGURATION" == "Debug" ]]; then
+if [[ "$CONFIGURATION" == "MAPPDebug" ]]; then
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/DownloadButton/DownloadButton.bundle"
+  install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle"
+fi
+if [[ "$CONFIGURATION" == "OLDebug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/DownloadButton/DownloadButton.bundle"
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"

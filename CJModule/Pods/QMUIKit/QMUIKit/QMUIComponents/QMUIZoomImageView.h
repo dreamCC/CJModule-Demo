@@ -52,6 +52,8 @@
 
 @property(nonatomic, weak) id<QMUIZoomImageViewDelegate> delegate;
 
+@property(nonatomic, strong, readonly) UIScrollView *scrollView;
+
 /**
  * 比如常见的上传头像预览界面中间有一个用于裁剪的方框，则 viewportRect 必须被设置为这个方框在 zoomImageView 坐标系内的 frame，否则拖拽图片或视频时无法正确限制它们的显示范围
  * @note 图片或视频的初始位置会位于 viewportRect 正中间
@@ -61,6 +63,8 @@
 @property(nonatomic, assign) CGRect viewportRect;
 
 @property(nonatomic, assign) CGFloat maximumZoomScale;
+
+@property(nonatomic, copy) NSObject<NSCopying> *reusedIdentifier;
 
 /// 设置当前要显示的图片，会把 livePhoto/video 相关内容清空，因此注意不要直接通过 imageView.image 来设置图片。
 @property(nonatomic, weak) UIImage *image;
@@ -108,10 +112,13 @@
 /// 停止视频播放，将播放状态重置到初始状态
 - (void)endPlayingVideo;
 
+/// 获取当前正在显示的图片/视频的容器
+@property(nonatomic, weak, readonly) __kindof UIView *contentView;
+
 /**
  *  获取当前正在显示的图片/视频在整个 QMUIZoomImageView 坐标系里的 rect（会按照当前的缩放状态来计算）
  */
-- (CGRect)imageViewRectInZoomImageView;
+- (CGRect)contentViewRectInZoomImageView;
 
 /**
  *  重置图片或视频的大小，使用的场景例如：相册控件里放大当前图片、划到下一张、再回来，当前的图片或视频应该恢复到原来大小。
@@ -132,6 +139,11 @@
  *  @info 注意 cell 复用可能导致当前页面显示一张错误的旧图片/视频，所以一般情况下需要视情况同时将 image/livePhoto/videoPlayerItem 等属性置为 nil 以清除图片/视频的显示
  */
 - (void)showEmptyViewWithText:(NSString *)text;
+- (void)showEmptyViewWithText:(NSString *)text
+                   detailText:(NSString *)detailText
+                  buttonTitle:(NSString *)buttonTitle
+                 buttonTarget:(id)buttonTarget
+                 buttonAction:(SEL)action;
 
 /**
  *  将 emptyView 隐藏

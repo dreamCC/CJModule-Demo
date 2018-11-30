@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
+
+
 @interface CJAppearanceView : UILabel
 
 @property(nonatomic, strong) IBInspectable UIColor *cj_color UI_APPEARANCE_SELECTOR;
+
+@property(nonatomic, copy) NSString *name;
 
 @end
 

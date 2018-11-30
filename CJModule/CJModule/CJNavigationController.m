@@ -35,8 +35,7 @@
     
 //    self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"-hot"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
     
-    self.topViewController.navigationItem.hidesBackButton = YES;
-    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.topViewController.navigationItem.title style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
+//    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.topViewController.navigationItem.title style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
 
     [super pushViewController:viewController animated:animated];
     
