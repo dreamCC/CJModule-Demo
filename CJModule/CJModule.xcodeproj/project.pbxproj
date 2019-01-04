@@ -13,10 +13,12 @@
 		6E1AED1720E225E700137B0E /* CJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1620E225E700137B0E /* CJNavigationController.m */; };
 		6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */; };
 		6E1F7DB520E097BF0060E20C /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F7DB420E097BF0060E20C /* ModalViewController.m */; };
+		6E2AE93021D7034D0027544C /* CJPercentInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2AE92F21D7034D0027544C /* CJPercentInteractiveTransition.m */; };
 		6E2D3E672105D8B7007F1B84 /* DefaultLS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */; };
 		6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */; };
 		6E2FCF18216C4AD0007E16F4 /* 22.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E2FCF17216C4ACF007E16F4 /* 22.gif */; };
 		6E3D7D88218940A600F20FF6 /* WKWebView+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */; };
+		6E43233F21DDE68000AF6CFA /* UIVisualEffectView+CJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43233E21DDE68000AF6CFA /* UIVisualEffectView+CJCategory.m */; };
 		6E437C3321ABCAEB0035F288 /* MultitudeDelegateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */; };
 		6E4436232182C0CD0030BC33 /* EmptyDataSetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4436222182C0CD0030BC33 /* EmptyDataSetManager.m */; };
 		6E4FA9C9218160DB00ADC120 /* 1.eps in Resources */ = {isa = PBXBuildFile; fileRef = 6E4FA9C8218160DA00ADC120 /* 1.eps */; };
@@ -30,6 +32,8 @@
 		6E5AD587217F1B6E00BA1D4D /* 20110507140606.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 6E5AD586217F1B6E00BA1D4D /* 20110507140606.pptx */; };
 		6E6175D821A29432009087E4 /* CJCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6175D721A29432009087E4 /* CJCalendarViewController.m */; };
 		6E7AE57A216D93CA00BECD18 /* CJBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7AE579216D93CA00BECD18 /* CJBaseRequest.m */; };
+		6E848CEB21D1BBB100220135 /* 不能说的秘密.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6E848CEA21D1BBB100220135 /* 不能说的秘密.mp4 */; };
+		6E848CEE21D1BC0300220135 /* MoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E848CED21D1BC0300220135 /* MoviePlayerViewController.m */; };
 		6E871D9020DC7E650051E570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D8F20DC7E650051E570 /* AppDelegate.m */; };
 		6E871D9320DC7E650051E570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E871D9220DC7E650051E570 /* ViewController.m */; };
 		6E871D9620DC7E650051E570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E871D9420DC7E650051E570 /* Main.storyboard */; };
@@ -103,10 +107,13 @@
 		6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB63A2720E37E7E005471F4 /* CJCollecitonViewFlowLayout.m */; };
 		6EB772C020FEF11500ED0519 /* sources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EB772BF20FEF11500ED0519 /* sources.bundle */; };
 		6EB9E709211040AA009BC84B /* UIWindowModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9E708211040AA009BC84B /* UIWindowModalViewController.m */; };
+		6EBECE2421CBB8C600203F7B /* CJModalPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBECE2321CBB8C600203F7B /* CJModalPresentViewController.m */; };
 		6EDF41F720F873C7000B3A67 /* CJTableViewIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF41F620F873C7000B3A67 /* CJTableViewIndex.m */; };
 		6EE16B50215DC40300C72476 /* SPScrollNumLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE16B4F215DC40200C72476 /* SPScrollNumLabel.m */; };
 		6EE58EAC20F2F24F00EF811F /* CJSnipImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */; };
 		6EE58EB020F335C800EF811F /* CJCropBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE58EAF20F335C800EF811F /* CJCropBoxView.m */; };
+		6EE83ED521D5F29000428C2D /* DefineTransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE83ED421D5F29000428C2D /* DefineTransformViewController.m */; };
+		6EE83ED821D6123500428C2D /* CJAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE83ED721D6123500428C2D /* CJAnimatedTransitioning.m */; };
 		6EEC1B7E20E9F3130029E5F2 /* CJRollingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */; };
 		6EF1EA6320DE37CD0067AC5B /* CJMarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF1EA6220DE37CD0067AC5B /* CJMarqueeLabel.m */; };
 		6EF3027320F6E5A40080EEE3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3027220F6E5A30080EEE3 /* SearchResultViewController.m */; };
@@ -128,12 +135,16 @@
 		6E1AED1C20E22D8B00137B0E /* CJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTabBarController.m; sourceTree = "<group>"; };
 		6E1F7DB320E097BF0060E20C /* ModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		6E1F7DB420E097BF0060E20C /* ModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		6E2AE92E21D7034D0027544C /* CJPercentInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJPercentInteractiveTransition.h; sourceTree = "<group>"; };
+		6E2AE92F21D7034D0027544C /* CJPercentInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJPercentInteractiveTransition.m; sourceTree = "<group>"; };
 		6E2D3E652105D8B5007F1B84 /* DefaultLS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@2x.png"; sourceTree = "<group>"; };
 		6E2D3E662105D8B7007F1B84 /* DefaultLS@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultLS@3x.png"; sourceTree = "<group>"; };
 		6E2FCF17216C4ACF007E16F4 /* 22.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 22.gif; path = "../New Group/22.gif"; sourceTree = "<group>"; };
 		6E3BE6F021B11020003041CD /* CJPasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPasswordTextField.h; sourceTree = "<group>"; };
 		6E3D7D86218940A600F20FF6 /* WKWebView+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+CJCategory.h"; sourceTree = "<group>"; };
 		6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+CJCategory.m"; sourceTree = "<group>"; };
+		6E43233D21DDE67F00AF6CFA /* UIVisualEffectView+CJCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIVisualEffectView+CJCategory.h"; sourceTree = "<group>"; };
+		6E43233E21DDE68000AF6CFA /* UIVisualEffectView+CJCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+CJCategory.m"; sourceTree = "<group>"; };
 		6E437C3121ABCAEB0035F288 /* MultitudeDelegateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultitudeDelegateViewController.h; sourceTree = "<group>"; };
 		6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultitudeDelegateViewController.m; sourceTree = "<group>"; };
 		6E4436212182C0CD0030BC33 /* EmptyDataSetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyDataSetManager.h; sourceTree = "<group>"; };
@@ -156,6 +167,9 @@
 		6E6AA7AF2187FB74000584CD /* no_resource@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_resource@2x.png"; sourceTree = "<group>"; };
 		6E7AE578216D93CA00BECD18 /* CJBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJBaseRequest.h; sourceTree = "<group>"; };
 		6E7AE579216D93CA00BECD18 /* CJBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJBaseRequest.m; sourceTree = "<group>"; };
+		6E848CEA21D1BBB100220135 /* 不能说的秘密.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "不能说的秘密.mp4"; sourceTree = "<group>"; };
+		6E848CEC21D1BC0300220135 /* MoviePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviePlayerViewController.h; sourceTree = "<group>"; };
+		6E848CED21D1BC0300220135 /* MoviePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviePlayerViewController.m; sourceTree = "<group>"; };
 		6E871D8B20DC7E650051E570 /* CJModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E871D8E20DC7E650051E570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E871D8F20DC7E650051E570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -301,6 +315,8 @@
 		6EB772BF20FEF11500ED0519 /* sources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = sources.bundle; sourceTree = "<group>"; };
 		6EB9E707211040AA009BC84B /* UIWindowModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIWindowModalViewController.h; sourceTree = "<group>"; };
 		6EB9E708211040AA009BC84B /* UIWindowModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIWindowModalViewController.m; sourceTree = "<group>"; };
+		6EBECE2221CBB8C600203F7B /* CJModalPresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJModalPresentViewController.h; sourceTree = "<group>"; };
+		6EBECE2321CBB8C600203F7B /* CJModalPresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJModalPresentViewController.m; sourceTree = "<group>"; };
 		6EDF41F520F873C7000B3A67 /* CJTableViewIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJTableViewIndex.h; sourceTree = "<group>"; };
 		6EDF41F620F873C7000B3A67 /* CJTableViewIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJTableViewIndex.m; sourceTree = "<group>"; };
 		6EE16B4E215DC40100C72476 /* SPScrollNumLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPScrollNumLabel.h; sourceTree = "<group>"; };
@@ -309,6 +325,10 @@
 		6EE58EAB20F2F24F00EF811F /* CJSnipImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJSnipImageView.m; sourceTree = "<group>"; };
 		6EE58EAE20F335C800EF811F /* CJCropBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJCropBoxView.h; sourceTree = "<group>"; };
 		6EE58EAF20F335C800EF811F /* CJCropBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJCropBoxView.m; sourceTree = "<group>"; };
+		6EE83ED321D5F29000428C2D /* DefineTransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineTransformViewController.h; sourceTree = "<group>"; };
+		6EE83ED421D5F29000428C2D /* DefineTransformViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefineTransformViewController.m; sourceTree = "<group>"; };
+		6EE83ED621D6123500428C2D /* CJAnimatedTransitioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJAnimatedTransitioning.h; sourceTree = "<group>"; };
+		6EE83ED721D6123500428C2D /* CJAnimatedTransitioning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJAnimatedTransitioning.m; sourceTree = "<group>"; };
 		6EEC1B7C20E9F3130029E5F2 /* CJRollingAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJRollingAdView.h; sourceTree = "<group>"; };
 		6EEC1B7D20E9F3130029E5F2 /* CJRollingAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRollingAdView.m; sourceTree = "<group>"; };
 		6EF1EA6120DE37CD0067AC5B /* CJMarqueeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJMarqueeLabel.h; sourceTree = "<group>"; };
@@ -407,6 +427,12 @@
 				6E871D9220DC7E650051E570 /* ViewController.m */,
 				6E437C3121ABCAEB0035F288 /* MultitudeDelegateViewController.h */,
 				6E437C3221ABCAEB0035F288 /* MultitudeDelegateViewController.m */,
+				6EE83ED321D5F29000428C2D /* DefineTransformViewController.h */,
+				6EE83ED421D5F29000428C2D /* DefineTransformViewController.m */,
+				6E848CEC21D1BC0300220135 /* MoviePlayerViewController.h */,
+				6E848CED21D1BC0300220135 /* MoviePlayerViewController.m */,
+				6EBECE2221CBB8C600203F7B /* CJModalPresentViewController.h */,
+				6EBECE2321CBB8C600203F7B /* CJModalPresentViewController.m */,
 				6EB3687821016B33008D3486 /* CJNavigationBar.h */,
 				6EB3687921016B33008D3486 /* CJNavigationBar.m */,
 				6E1F7DB320E097BF0060E20C /* ModalViewController.h */,
@@ -457,6 +483,7 @@
 		6E871DA520DC7E860051E570 /* CJKit */ = {
 			isa = PBXGroup;
 			children = (
+				6EE83ED921D6123D00428C2D /* CJAnimatedTransitioning */,
 				6E95B27A21AE7B2B000EE36E /* CJPasswordTextField */,
 				6EAE1B0C215CB3D9007700A2 /* CJCountingLable */,
 				6EAE1B05215CB32F007700A2 /* CJScrollNumberLable */,
@@ -521,6 +548,8 @@
 				6E871DB620DC83B70051E570 /* UITextView+CJCategory.m */,
 				6E871DB720DC83BB0051E570 /* UIView+CJCategory.h */,
 				6E871DB220DC83A30051E570 /* UIView+CJCategory.m */,
+				6E43233D21DDE67F00AF6CFA /* UIVisualEffectView+CJCategory.h */,
+				6E43233E21DDE68000AF6CFA /* UIVisualEffectView+CJCategory.m */,
 				6E3D7D86218940A600F20FF6 /* WKWebView+CJCategory.h */,
 				6E3D7D87218940A600F20FF6 /* WKWebView+CJCategory.m */,
 			);
@@ -786,6 +815,17 @@
 			name = CJSnipImageView;
 			sourceTree = "<group>";
 		};
+		6EE83ED921D6123D00428C2D /* CJAnimatedTransitioning */ = {
+			isa = PBXGroup;
+			children = (
+				6EE83ED621D6123500428C2D /* CJAnimatedTransitioning.h */,
+				6EE83ED721D6123500428C2D /* CJAnimatedTransitioning.m */,
+				6E2AE92E21D7034D0027544C /* CJPercentInteractiveTransition.h */,
+				6E2AE92F21D7034D0027544C /* CJPercentInteractiveTransition.m */,
+			);
+			name = CJAnimatedTransitioning;
+			sourceTree = "<group>";
+		};
 		6EEC1B7B20E9F2070029E5F2 /* CJRollingAdView */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +847,7 @@
 		6EF686CE21707A000033164F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6E848CEA21D1BBB100220135 /* 不能说的秘密.mp4 */,
 				6E59522F21940D75002ECDA3 /* niconiconi@2x.gif */,
 				6E6AA7AE2187FB73000584CD /* no_network@2x.png */,
 				6E6AA7AD2187FB73000584CD /* no_network@3x.png */,
@@ -889,6 +930,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E57335421A6828800C783D7 /* Common.xcconfig in Resources */,
+				6E848CEB21D1BBB100220135 /* 不能说的秘密.mp4 in Resources */,
 				6E2FCF18216C4AD0007E16F4 /* 22.gif in Resources */,
 				6E2D3E682105D8B7007F1B84 /* DefaultLS@3x.png in Resources */,
 				6E871E3320DC8BE50051E570 /* CJProgressHUD.bundle in Resources */,
@@ -973,8 +1015,10 @@
 				6EB5BDD92150ABDA00614347 /* QMTableViewCell.m in Sources */,
 				6EA10E80214C9A66004BD816 /* QMUIConfigurationTemplatePinkRose.m in Sources */,
 				6E871E0D20DC88F30051E570 /* CJPickerView.m in Sources */,
+				6EBECE2421CBB8C600203F7B /* CJModalPresentViewController.m in Sources */,
 				6E871DFC20DC88C00051E570 /* CJReplicatorRotateLodingView.m in Sources */,
 				6E9BDF9D2111851B0075E31F /* CJRateView.m in Sources */,
+				6EE83ED821D6123500428C2D /* CJAnimatedTransitioning.m in Sources */,
 				6E871E0020DC88D50051E570 /* CJMenuView.m in Sources */,
 				6EB63A2820E37E7E005471F4 /* CJCollecitonViewFlowLayout.m in Sources */,
 				6EA10E83214C9A8E004BD816 /* CJThemeManager.m in Sources */,
@@ -992,6 +1036,7 @@
 				6EA10E7D214C9A66004BD816 /* QMUIConfigurationTemplateGrass.m in Sources */,
 				6E871DCE20DC84580051E570 /* UIControl+CJCategory.m in Sources */,
 				6E871DD320DC84580051E570 /* UINavigationBar+CJCategory.m in Sources */,
+				6E848CEE21D1BC0300220135 /* MoviePlayerViewController.m in Sources */,
 				6E1AED1D20E22D8B00137B0E /* CJTabBarController.m in Sources */,
 				6E871E2820DC894B0051E570 /* CJGenerateQRCodeManager.m in Sources */,
 				6E871DCC20DC84580051E570 /* NSTimer+CJCategory.m in Sources */,
@@ -1017,6 +1062,8 @@
 				6E871DD820DC84580051E570 /* UIGestureRecognizer+CJCategory.m in Sources */,
 				6E871DEE20DC88840051E570 /* CJLocationManager.m in Sources */,
 				6EA10E6F214C9805004BD816 /* CJAssetGroup.m in Sources */,
+				6EE83ED521D5F29000428C2D /* DefineTransformViewController.m in Sources */,
+				6E43233F21DDE68000AF6CFA /* UIVisualEffectView+CJCategory.m in Sources */,
 				6E871DCF20DC84580051E570 /* UIView+CJCategory.m in Sources */,
 				6E871E2420DC894B0051E570 /* CJScanQRCodeManager.m in Sources */,
 				6EDF41F720F873C7000B3A67 /* CJTableViewIndex.m in Sources */,
@@ -1024,6 +1071,7 @@
 				6E871DD120DC84580051E570 /* UITextView+CJCategory.m in Sources */,
 				6E95A4F920EDAB7C004DB322 /* QMViewController.m in Sources */,
 				6E12828520EDF1C900D84E9D /* TransformViewController.m in Sources */,
+				6E2AE93021D7034D0027544C /* CJPercentInteractiveTransition.m in Sources */,
 				6E871E3A20DC8D230051E570 /* YTKUrlFilterArguments.m in Sources */,
 				6E871DCD20DC84580051E570 /* UISearchBar+CJCategory.m in Sources */,
 				6EB9E709211040AA009BC84B /* UIWindowModalViewController.m in Sources */,

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QMUIKit.h>
 
-@interface CJTabBarController : QMUITabBarViewController
+@interface CJTabBarController : UITabBarController
 
 @end

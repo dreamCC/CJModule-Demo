@@ -16,6 +16,7 @@ target 'CJModule' do
   pod 'IQKeyboardManager'
   pod 'SDWebImage'
   pod 'FSCalendar'
+  pod 'JLRoutes'
   
   
   pod 'CocoaLumberjack'

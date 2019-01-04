@@ -37,6 +37,7 @@
 #import "CJCalendarViewController.h"
 #import <SafariServices/SafariServices.h>
 #import "MultitudeDelegateViewController.h"
+#import <AssertMacros.h>
 
 
 @interface ViewController ()<QMUIImagePreviewViewDelegate,UIScrollViewDelegate,QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate, NSURLSessionDelegate> {
@@ -52,12 +53,9 @@
     CGFloat _alpha;
     
     
-   
+    __weak UIPageControl *_pageControl;
     
 }
-
-
-@property(nonatomic, weak) YYAnimatedImageView *yy_imageV;
 
 
 @property(nonatomic, strong) NSMutableArray *mAry;
@@ -78,12 +76,11 @@
 @implementation ViewController {
     QMUIEmotionInputManager *_manager;
 
-    YYMemoryCache *_mCache;
-    YYDiskCache *_disCache;
-    YYCache *_yy_cache;
-    NSHashTable *_hashTable;
-    NSMapTable *_mapTable;
-    UIViewPropertyAnimator *_propertyAnimator;
+    __weak QMUITextField *_t_field;
+    NSURL *_fileUrl;
+    NSURL *_fileReferenceUrl;
+
+ 
 }
 
 -(void)loadView {
@@ -94,9 +91,6 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
-   
-
- 
 
     
     QMUIAssetsManager *assetManager = [QMUIAssetsManager sharedInstance];
@@ -158,56 +152,34 @@
     UIImage *newImage = [UIImage imageWithCGImage:newImgRef];
     
     
-    UIImage *decodeImage = [[UIImage imageNamed:@"DefaultLS"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-    
-//    CGImageRef rref = CGImageCreateWithJPEGDataProvider(CGImageGetDataProvider(maskImg.CGImage), CGImageGetDecode(maskImg.CGImage), CGImageGetShouldInterpolate(maskImg.CGImage),CGImageGetRenderingIntent(maskImg.CGImage));
+    UIImage *decodeImage = [[UIImage imageNamed:@"image0"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
     
     
- 
-    YYAnimatedImageView *imgV = [[YYAnimatedImageView alloc] initWithImage:decodeImage];
-    imgV.tintColor = [UIColor purpleColor];
-    [self.view addSubview:imgV];
-    [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view).offset(120);
-        make.size.mas_equalTo(CGSizeMake(150, 150));
-    }];
-    _yy_imageV = imgV;
-    
-    
- 
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
- 
-    NSString *allPath = [path stringByAppendingPathComponent:@"MyCache"];
-    YYCache *cahe = [[YYCache alloc] initWithPath:allPath];
- 
-    
-    [cahe setObject:decodeImage forKey:@"image"];
-    NSLog(@"%@-%@-%@",cahe,cahe.diskCache,cahe.memoryCache);
 
-    QMUIGhostButton *fillBtn = [[QMUIGhostButton alloc] init];
-    [fillBtn setTitleColor:QMUICMI.buttonTintColor  forState:UIControlStateNormal];
-    fillBtn.layer.borderColor = QMUICMI.buttonTintColor.CGColor;
-    [fillBtn setTitle:@"fillBtn" forState:UIControlStateNormal];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, 280, 90)];
+    label.text = @"曾经撒次考试了hhhhhhhhhhhhhhh";
+    label.textAlignment = NSTextAlignmentLeft;
+    label.font = [UIFont systemFontOfSize:30];
+    label.tintColor = [UIColor yellowColor];
+    label.numberOfLines = 0;
     
-    [self.view addSubview:fillBtn];
-    [fillBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(imgV);
-        make.top.equalTo(imgV.mas_bottom).offset(30);
-        make.size.mas_equalTo(CGSizeMake(150, 30));
+
+    
+    UIImageView *v = [UIImageView new];
+    v.backgroundColor = [UIColor qmui_randomColor];
+    v.layer.cornerRadius = 5.f;
+    v.image = decodeImage;
+    
+    
+    [self.view addSubview:[v cj_viewWithBlurVisualEffect]];
+    [v mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view).centerOffset(CGPointMake(0, 100));
+        make.size.mas_equalTo(CGSizeMake(200, 200));
     }];
-    
-    self.mAry = [NSMutableArray array];
-    self.pointAry = [NSPointerArray weakObjectsPointerArray];
-    self.hashTable = [NSHashTable weakObjectsHashTable];
-    self.mapTable = [NSMapTable strongToStrongObjectsMapTable];
-    
-    
-    objc_property_t property_t = class_getProperty([self class], "view");
-    NSLog(@"%s",property_getName(property_t));
 
     
     
+ 
 }
 
 
@@ -249,7 +221,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    
+   
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -264,6 +236,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
+
     
 }
 
@@ -308,7 +281,7 @@
 //    ModalViewController *modal = [ModalViewController new];
 //
 //    [self.navigationController pushViewController:modal animated:YES];
-
+    
 //    UIWindowModalViewController *windoModal = [[UIWindowModalViewController alloc] init];
 //
 //    QMUIModalPresentationViewController *presentation = [[QMUIModalPresentationViewController alloc] init];

@@ -17,6 +17,8 @@
 #import <IQKeyboardManager.h>
 #import "QMViewController.h"
 #import "EmptyDataSetManager.h"
+#import "CJTabBarController.h"
+#import "MultitudeDelegateViewController.h"
 
 @interface AppDelegate ()
 
@@ -65,11 +67,13 @@
     manager.shouldShowToolbarPlaceholder = YES;
     manager.keyboardDistanceFromTextField = 20.f;
 
-    
-
+    self.window.rootViewController = [[CJTabBarController alloc] init];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
+
+
 
 
 

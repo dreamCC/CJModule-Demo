@@ -31,7 +31,7 @@
     }
     
     _isPushing = YES;
-    viewController.hidesBottomBarWhenPushed = YES;
+//    viewController.hidesBottomBarWhenPushed = YES;
     
 //    self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"-hot"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
     

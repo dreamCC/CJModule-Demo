@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QMUIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MultitudeDelegateViewController : UIViewController
+@interface MultitudeDelegateViewController : QMUICommonViewController
+
+@property (nonatomic, copy) void(^clickEnterBlock)(MultitudeDelegateViewController *mul);
 
 @end
 

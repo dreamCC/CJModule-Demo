@@ -263,7 +263,7 @@
 #else
         
         stringWidth = [self.text sizeWithFont:self.font
-                            constrainedToSize:size
+                             constrainedToSize:size
                                 lineBreakMode:NSLineBreakByCharWrapping].width;
 #endif
     }

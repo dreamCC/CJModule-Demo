@@ -28,7 +28,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem qmui_itemWithBoldTitle:@"Done" target:self action:@selector(rightBarButtonItemClick)];
     
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:@"http://data.vod.itc.cn/?rb=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/137/113/vITnGttPQmaeWrZ3mg1j9H.mp4"];
     
     NSURLRequest *req = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.f];
     
@@ -75,13 +75,13 @@
     
     webV.UIDelegate = self;
     webV.navigationDelegate = self;
-//    [webV loadRequest:req];
+    [webV loadRequest:req];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"JsToNative.html" ofType:nil];
 //    NSURL *baseUrl = [[NSBundle mainBundle] bundleURL];
     
 //    [webV loadHTMLString:path baseURL:baseUrl];
-    [webV loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+//    [webV loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
     [self.view addSubview:webV];
     self.webV = webV;
     
@@ -163,6 +163,7 @@
         NSLog(@"%@-%@",response,error);
     }];
 
+   
   
 }
 

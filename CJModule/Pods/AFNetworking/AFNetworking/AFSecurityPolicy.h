@@ -23,9 +23,9 @@
 #import <Security/Security.h>
 
 typedef NS_ENUM(NSUInteger, AFSSLPinningMode) {
-    AFSSLPinningModeNone,
-    AFSSLPinningModePublicKey,
-    AFSSLPinningModeCertificate,
+    AFSSLPinningModeNone, // 无条件信任服务器返回证书。
+    AFSSLPinningModePublicKey, // 服务器返回的证书的publicKey和保存的证书的publickey进行验证。
+    AFSSLPinningModeCertificate, // 服务器返回的证书的所有信息和保存的证书进行验证。
 };
 
 /**
@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The criteria by which server trust should be evaluated against the pinned SSL certificates. Defaults to `AFSSLPinningModeNone`.
  */
+// 默认是无条件信任，服务器返回的证书。
 @property (readonly, nonatomic, assign) AFSSLPinningMode SSLPinningMode;
 
 /**
@@ -50,16 +51,19 @@ NS_ASSUME_NONNULL_BEGIN
  
  Note that if pinning is enabled, `evaluateServerTrust:forDomain:` will return true if any pinned certificate matches.
  */
+// 保存这项目中，所有的.cer证书。afnetworking会取所有的证书和服务器返回的证书做对比，如果有一个通过那么就算验证通过。
 @property (nonatomic, strong, nullable) NSSet <NSData *> *pinnedCertificates;
 
 /**
  Whether or not to trust servers with an invalid or expired SSL certificates. Defaults to `NO`.
  */
+// 是否允许无效和过期的证书。
 @property (nonatomic, assign) BOOL allowInvalidCertificates;
 
 /**
  Whether or not to validate the domain name in the certificate's CN field. Defaults to `YES`.
  */
+// 是否验证证书的域名。
 @property (nonatomic, assign) BOOL validatesDomainName;
 
 ///-----------------------------------------
@@ -71,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The certificates included in the given bundle.
  */
+// 返回指定bundle下面的证书。
 + (NSSet <NSData *> *)certificatesInBundle:(NSBundle *)bundle;
 
 ///-----------------------------------------
@@ -82,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The default security policy.
  */
+// 默认的证书验证规则。
+// 1、不对服务器返回的证书进行验证。
 + (instancetype)defaultPolicy;
 
 ///---------------------
@@ -95,6 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return A new security policy.
  */
+// 通过指定的证书验证规则，进行证书验证。使用的是项目中所有的.cer证书。
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode;
 
 /**
@@ -105,6 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return A new security policy.
  */
+// 通过指定证书验证规则，进行证书验证。pinnedCertificates 表示使用那些证书。
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode withPinnedCertificates:(NSSet <NSData *> *)pinnedCertificates;
 
 ///------------------------------
@@ -121,6 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return Whether or not to trust the server.
  */
+// 验证服务返回的证书。
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
                   forDomain:(nullable NSString *)domain;
 

@@ -372,7 +372,7 @@ forHTTPHeaderField:(NSString *)field
             [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];
         }
     }
-
+ 
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
 	return mutableRequest;
@@ -1177,7 +1177,7 @@ typedef enum {
             [self transitionToNextPhase];
         });
         return YES;
-    }
+    }    
 
     switch (_phase) {
         case AFEncapsulationBoundaryPhase:
